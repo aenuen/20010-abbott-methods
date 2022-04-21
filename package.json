@@ -2,9 +2,12 @@
   "name": "methods-often",
   "version": "1.0.4",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "test": "jest --no-cache",
+    "rm:dist": "rimraf dist",
+    "rm:node": "rimraf node_modules"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,20 @@
   "bugs": {
     "url": "https://github.com/aenuen/20010-methods-often/issues"
   },
-  "homepage": "https://github.com/aenuen/20010-methods-often#readme"
+  "homepage": "https://github.com/aenuen/20010-methods-often#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.2",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^27.1.4",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3"
+  }
 }

@@ -1,12 +1,12 @@
 /**
  * @description 获取网址字符串中的参数，并组成参数对象
- * @param {String} string 网址字符串
+ * @param {String} urlString 网址字符串
  * @returns {Object} 参数对象
  */
-const stringQueryObject = (
-  string: string
+export const urlStringQueryObject = (
+  urlString: string
 ): Record<string | number | symbol, any> => {
-  const search = string.substring(string.lastIndexOf('?') + 1)
+  const search = urlString.substring(urlString.lastIndexOf('?') + 1)
   const json: Record<string | number | symbol, any> = {}
   search.replace(/([^?&=]+)=([^?&=]*)/g, (result, $1, $2) => {
     const name = decodeURIComponent($1)
@@ -16,8 +16,4 @@ const stringQueryObject = (
     return result
   })
   return json
-}
-
-export {
-  stringQueryObject
 }
