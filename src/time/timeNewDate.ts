@@ -9,20 +9,21 @@ import { formatAllNumber } from '../format/formatAllNumber'
  * @returns {Date|Null}
  */
 export const timeNewDate = (timeValue: any): Date => {
-  if (timeValue) {
+  let theTimeValue = timeValue
+  if (theTimeValue) {
     let theNewDate
-    if (typeDate(timeValue)) {
-      theNewDate = timeValue
+    if (typeDate(theTimeValue)) {
+      theNewDate = theTimeValue
     } else {
-      if (typeString(timeValue)) {
-        timeValue = formatAllNumber(String(timeValue))
-          ? timeValue
-          : String(timeValue).replace(/[.|-]/gm, '/')
+      if (typeString(theTimeValue)) {
+        theTimeValue = formatAllNumber(String(theTimeValue))
+          ? theTimeValue
+          : String(theTimeValue).replace(/[.|-]/gm, '/')
       }
-      if (typeNumber(timeValue) && String(timeValue).length === 10) {
-        timeValue *= 1000
+      if (typeNumber(theTimeValue) && String(theTimeValue).length === 10) {
+        theTimeValue *= 1000
       }
-      theNewDate = typeNumber(timeValue) ? new Date(+timeValue) : new Date(String(timeValue))
+      theNewDate = typeNumber(theTimeValue) ? new Date(+theTimeValue) : new Date(String(theTimeValue))
     }
     return typeDate(theNewDate) ? theNewDate : null
   } else {

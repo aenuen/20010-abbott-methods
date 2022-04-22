@@ -3,5 +3,4 @@
  * @param {Number} timestamp
  * @returns {Boolean}
  */
-export const timeStampIsMillisecond = (timestamp: number | string) =>
-  String(timestamp).length > 10
+export const timeStampIsMillisecond = (timestamp: number | string) => String(timestamp).length > 10

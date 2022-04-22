@@ -1,5 +1,5 @@
-import { H_DATETIME } from './timeText'
-import { timeObject } from './timeObject'
+import {H_DATETIME} from './timeText'
+import {timeObject} from './timeObject'
 
 /**
  * @description 时间格式化

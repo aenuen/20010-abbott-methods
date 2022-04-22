@@ -6,7 +6,7 @@ import { timeObject } from './timeObject'
  * @returns {String|Null}
  */
 export const timeGetWeek = (timeValue: any): number | null => {
-  timeValue = timeValue || new timeValue()
-  const theObject = timeObject(timeValue)
+  const theTimeValue = timeValue || new timeValue()
+  const theObject = timeObject(theTimeValue)
   return theObject ? theObject?.w : null
 }

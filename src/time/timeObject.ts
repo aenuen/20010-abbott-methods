@@ -8,8 +8,8 @@ import { timeNewDate } from './timeNewDate'
 export const timeObject = (
   timeValue: any
 ): Record<string | number | symbol, any> | null => {
-  timeValue = timeValue || new Date()
-  const theNewDate = timeNewDate(timeValue)
+  const theTimeValue = timeValue || new Date()
+  const theNewDate = timeNewDate(theTimeValue)
   return theNewDate !== null
     ? {
         y: theNewDate.getFullYear(),

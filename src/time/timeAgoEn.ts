@@ -5,17 +5,17 @@ import { timeStamp } from './timeStamp'
 
 /**
  * @description 多少时间前（英文）
- * @param {*} time
+ * @param {*} timeValue
  * @param {String} [format]
  * @param {Boolean} [zero] 是否加零，默认加零
  * @returns {Null|String}
  */
 export const timeAgoEn = (
-  time: any,
+  timeValue: any,
   format: string,
   zero: boolean
 ): string | null => {
-  const theTimeStamp = timeStamp(time) // 时间戳(10位)
+  const theTimeStamp = timeStamp(timeValue) // 时间戳(10位)
   if (theTimeStamp !== null) {
     format = format || H_DATETIME
     zero = zero || true

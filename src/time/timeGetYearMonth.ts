@@ -6,7 +6,7 @@ import {timeObject} from './timeObject'
  * @returns {String|Null}
  */
 export const timeGetYearMonth = (timeValue: any): string | null => {
-    timeValue = timeValue || new timeValue()
-    const theObject = timeObject(timeValue)
+    const theTimeValue = timeValue || new timeValue()
+    const theObject = timeObject(theTimeValue)
     return theObject ? `${String(theObject.y).padStart(4, '0')}-${String(theObject.m).padStart(2, '0')}` : null
 }
