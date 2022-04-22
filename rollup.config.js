@@ -3,7 +3,7 @@ import sourceMaps from "rollup-plugin-sourcemaps";
 import { terser } from 'rollup-plugin-terser'
 
 export default {
-  input: "index.ts",
+  input: "src/index.ts",
   plugins: [
     typescript({
       exclude: "node_modules/**",

@@ -9,6 +9,33 @@ import {addressBarHttp} from './addressBar/addressBarHttp'
 import {addressBarName} from './addressBar/addressBarName'
 import {addressBarPort} from './addressBar/addressBarPort'
 import {addressBarQuery} from './addressBar/addressBarQuery'
+// format
+import { formatAllCn } from './format/formatAllCn'
+import { formatAllNumber } from './format/formatAllNumber'
+import { formatDate } from './format/formatDate'
+import { formatDatetime } from './format/formatDatetime'
+import { formatDomain } from './format/formatDomain'
+import { formatEmail } from './format/formatEmail'
+import { formatExternal } from './format/formatExternal'
+import { formatHexColor } from './format/formatHexColor'
+import { formatIdCard } from './format/formatIdCard'
+import { formatImageBase } from './format/formatImageBase'
+import { formatIp } from './format/formatIp'
+import { formatMobile } from './format/formatMobile'
+import { formatPrice } from './format/formatPrice'
+import { formatTelephone } from './format/formatTelephone'
+import { formatUrl } from './format/formatUrl'
+import { formatUsername } from './format/formatUsername'
+import { formatZip } from './format/formatZip'
+// some
+import { someColorHexToRGB } from './some/someColorHexToRGB'
+import { someColorRGBToHex } from './some/someColorRGBToHex'
+import { someFebruaryDays } from './some/someFebruaryDays'
+import { someMaxZIndex } from './some/someMaxZIndex'
+import { somePluralize } from './some/somePluralize'
+import { someRandomColor } from './some/someRandomColor'
+import { someWhetherLeapYear } from './some/someWhetherLeapYear'
+import { someYearMonthDays } from './some/someYearMonthDays'
 // type
 import {typeArray} from './type/typeArray'
 import {typeBoolean} from './type/typeBoolean'
@@ -41,6 +68,32 @@ export {
     addressBarName,
     addressBarPort,
     addressBarQuery,
+    formatAllCn,
+    formatAllNumber,
+    formatDate,
+    formatDatetime,
+    formatDomain,
+    formatEmail,
+    formatExternal,
+    formatHexColor,
+    formatIdCard,
+    formatImageBase,
+    formatIp,
+    formatMobile,
+    formatPrice,
+    formatTelephone,
+    formatUrl,
+    formatUsername,
+    formatZip,
+    // some
+    someColorHexToRGB,
+    someColorRGBToHex,
+    someFebruaryDays,
+    someMaxZIndex,
+    somePluralize,
+    someRandomColor,
+    someWhetherLeapYear,
+    someYearMonthDays,
     // type
     typeArray,
     typeBoolean,
