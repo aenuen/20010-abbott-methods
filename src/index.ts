@@ -55,6 +55,17 @@ import {typeSymbol} from './type/typeSymbol'
 // unicode
 import {uniCodeDecode} from './uniCode/uniCodeDecode'
 import {uniCodeEncode} from './uniCode/uniCodeEncode'
+// validate
+import { validateAllCn } from './validate/validateAllCn'
+import { validateAllNumber } from './validate/validateAllNumber'
+import { validateDate } from './validate/validateDate'
+import { validateDatetime } from './validate/validateDatetime'
+import { validateEmail } from './validate/validateEmail'
+import { validateErrMsg } from './validate/validateErrMsg'
+import { validateMobile } from './validate/validateMobile'
+import { validatePrice } from './validate/validatePrice'
+import { validateRequire } from './validate/validateRequire'
+import { validateUsername } from './validate/validateUsername'
 
 export {
     // addressBar
@@ -112,5 +123,16 @@ export {
     typeSymbol,
     // uniCode
     uniCodeDecode,
-    uniCodeEncode
+    uniCodeEncode,
+    // validate
+    validateAllCn,
+    validateAllNumber,
+    validateDate,
+    validateDatetime,
+    validateEmail,
+    validateErrMsg,
+    validateMobile,
+    validatePrice,
+    validateRequire,
+    validateUsername,
 }
