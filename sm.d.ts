@@ -21,3 +21,15 @@ declare const action: string;
 declare const min: number;
 declare const max: number;
 declare const fields: Record<string | number | symbol, any>
+// time
+declare const time: any; // 时间
+declare const format: string; // 格式
+declare const zero: boolean; // 是否加1->01
+declare const timeValue: any; // 绝对值
+declare const timeOne: any; // 时间一
+declare const timeTwo: any; // 时间二
+declare const theTime: any; // 传值时间
+declare const onwTime: any; // 现在时间
+declare const abs: boolean; // 绝对值
+declare const seconds: number | string; // 秒数
+declare const timestamp: number | string; // 时间戳

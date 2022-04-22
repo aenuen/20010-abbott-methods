@@ -36,6 +36,46 @@ import { somePluralize } from './some/somePluralize'
 import { someRandomColor } from './some/someRandomColor'
 import { someWhetherLeapYear } from './some/someWhetherLeapYear'
 import { someYearMonthDays } from './some/someYearMonthDays'
+// time
+import { timeAgoCn } from './time/timeAgoCn'
+import { timeAgoEn } from './time/timeAgoEn'
+import { timeDifference } from './time/timeDifference'
+import { timeFormat } from './time/timeFormat'
+import { timeGetDay } from './time/timeGetDay'
+import { timeGetMonth } from './time/timeGetMonth'
+import { timeGetWeek } from './time/timeGetWeek'
+import { timeGetYear } from './time/timeGetYear'
+import { timeGetYearMonth } from './time/timeGetYearMonth'
+import { timeIsEarly } from './time/timeIsEarly'
+import { timeNewDate } from './time/timeNewDate'
+import { timeObject } from './time/timeObject'
+import { timeRelativeTime } from './time/timeRelativeTime'
+import { timeSecondBar } from './time/timeSecondBar'
+import { timeShort } from './time/timeShort'
+import { timeStamp } from './time/timeStamp'
+import { timeStampIsMillisecond } from './time/timeStampIsMillisecond'
+import {
+    H_DATE,
+    H_DATE_ABBR,
+    H_DATETIME,
+    H_DATETIME_ABBR,
+    H_H_I,
+    H_M_D_H_I,
+    H_MH,
+    H_Y_M_D_H_I,
+    H_YM,
+    H_YM_ABBR,
+    T_DATE,
+    T_DATE_ABBR,
+    T_DATETIME,
+    T_DATETIME_ABBR,
+    T_H_I,
+    T_M_D_H_I,
+    T_MH,
+    T_Y_M_D_H_I,
+    T_YM,
+    T_YM_ABBR
+} from './time/timeText'
 // type
 import {typeArray} from './type/typeArray'
 import {typeBoolean} from './type/typeBoolean'
@@ -105,6 +145,44 @@ export {
     someRandomColor,
     someWhetherLeapYear,
     someYearMonthDays,
+    // time
+    timeAgoCn,
+    timeAgoEn,
+    timeDifference,
+    timeFormat,
+    timeGetDay,
+    timeGetMonth,
+    timeGetWeek,
+    timeGetYear,
+    timeGetYearMonth,
+    timeIsEarly,
+    timeNewDate,
+    timeObject,
+    timeRelativeTime,
+    timeSecondBar,
+    timeShort,
+    timeStamp,
+    timeStampIsMillisecond,
+    H_YM,
+    H_YM_ABBR,
+    H_DATE,
+    H_DATE_ABBR,
+    H_MH,
+    H_DATETIME,
+    H_DATETIME_ABBR,
+    H_H_I,
+    H_M_D_H_I,
+    H_Y_M_D_H_I,
+    T_YM,
+    T_YM_ABBR,
+    T_DATE,
+    T_DATE_ABBR,
+    T_MH,
+    T_DATETIME,
+    T_DATETIME_ABBR,
+    T_H_I,
+    T_M_D_H_I,
+    T_Y_M_D_H_I,
     // type
     typeArray,
     typeBoolean,
