@@ -1,7 +1,7 @@
-import {timeFormat} from '../src'
+import {weekGetEn} from '../src'
 
 test('测试toBe', () => {
-  console.log(timeFormat())
+  console.log(weekGetEn())
 });
 
 

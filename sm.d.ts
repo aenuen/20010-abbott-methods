@@ -1,6 +1,7 @@
 // common
 declare const string: string;
 declare const number: number;
+declare const abs: boolean; // 绝对值
 // type
 declare const typeValue: any; // 类型值
 // some
@@ -30,7 +31,10 @@ declare const timeOne: any; // 时间一
 declare const timeTwo: any; // 时间二
 declare const theTime: any; // 传值时间
 declare const onwTime: any; // 现在时间
-declare const abs: boolean; // 绝对值
-declare const isArray:boolean; // 是否返回数组
+declare const isArray: boolean; // 是否返回数组
 declare const seconds: number; // 秒数
 declare const timestamp: number; // 时间戳
+// date
+declare const dateValue: any // 日期
+declare const dateOne: any // 日期一
+declare const dateOne: any // 日期二
