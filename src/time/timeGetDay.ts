@@ -1,4 +1,4 @@
-import { timeObject } from './timeObject'
+import {timeObject} from './timeObject'
 
 /**
  * @description 时间的日份
@@ -6,7 +6,7 @@ import { timeObject } from './timeObject'
  * @returns {String|Null}
  */
 export const timeGetDay = (timeValue: any): string | null => {
-  const theTimeValue = timeValue || new timeValue()
-  const theObject = timeObject(theTimeValue)
-  return theObject ? String(theObject.d).padStart(2, '0') : null
+  const theTime = timeValue || new Date()
+  const theObject = timeObject(theTime)
+  return theObject !== null ? String(theObject.d).padStart(2, '0') : null
 }

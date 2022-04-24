@@ -10,13 +10,11 @@ import {timeObject} from './timeObject'
  */
 export const timeFormat = (
   timeValue: any,
-  format: string,
-  zero?: boolean
+  format: string = H_DATETIME,
+  zero: boolean = true
 ): string | null => {
   const theObject = timeValue ? timeObject(timeValue) : timeObject(new Date())
   if (theObject !== null) {
-    format = format || H_DATETIME
-    zero = zero || true
     return format.replace(/{([ymdhisw])+}/g, (result, key) => {
       const timeValue = theObject[key]
       return key === 'w'

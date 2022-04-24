@@ -1,25 +1,23 @@
 import {H_DATETIME} from './timeText'
 import {timeFormat} from './timeFormat'
-import {timeStamp} from './timeStamp'
+import {timestamp} from './timestamp'
 
 /**
  * @description 多少时间前（中文）
  * @param {*} timeValue
- * @param {String} [format]
- * @param {Boolean} [zero] 是否加零，默认加零
- * @returns {Null|String}
+ * @param {string} [format]
+ * @param {boolean} [zero] 是否加零，默认加零
+ * @returns {null|string}
  */
 export const timeAgoCn = (
   timeValue: any,
-  format: string,
-  zero: boolean
+  format: string = H_DATETIME,
+  zero: boolean = true
 ): string | null => {
-  const theTimeValueStamp = timeStamp(timeValue) // 时间戳(10位)
-  if (theTimeValueStamp !== null) {
-    format = format || H_DATETIME
-    zero = zero || true
-    const nowTimeValueStamp = ~~(Date.now() / 1000) // 时间戳(10位)
-    const diff = nowTimeValueStamp - theTimeValueStamp
+  const theTimestamp = timestamp(timeValue) // 时间戳(10位)
+  if (theTimestamp !== null) {
+    const nowTimestamp = ~~(Date.now() / 1000) // 时间戳(10位)
+    const diff = nowTimestamp - theTimestamp
     return diff < 60
       ? '刚刚'
       : diff < 3600

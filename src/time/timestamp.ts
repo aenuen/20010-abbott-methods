@@ -5,7 +5,7 @@ import { timeNewDate } from './timeNewDate'
  * @param {*} [timeValue]
  * @returns {Number|Null}
  */
-export const timeStamp = (timeValue: any) => {
+export const timestamp = (timeValue: any) => {
   const theNewDate = timeValue ? timeNewDate(timeValue) : new Date()
   return theNewDate ? ~~(theNewDate.getTime() / 1000).toFixed(0) : null
 }

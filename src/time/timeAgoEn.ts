@@ -1,26 +1,24 @@
-import { somePluralize } from '../some/somePluralize'
-import { H_DATETIME } from './timeText'
-import { timeFormat } from './timeFormat'
-import { timeStamp } from './timeStamp'
+import {somePluralize} from '../some/somePluralize'
+import {H_DATETIME} from './timeText'
+import {timeFormat} from './timeFormat'
+import {timestamp} from './timestamp'
 
 /**
  * @description 多少时间前（英文）
  * @param {*} timeValue
- * @param {String} [format]
- * @param {Boolean} [zero] 是否加零，默认加零
- * @returns {Null|String}
+ * @param {string} [format]
+ * @param {boolean} [zero] 是否加零，默认加零
+ * @returns {null|string}
  */
 export const timeAgoEn = (
   timeValue: any,
-  format: string,
-  zero: boolean
+  format: string = H_DATETIME,
+  zero: boolean = true
 ): string | null => {
-  const theTimeStamp = timeStamp(timeValue) // 时间戳(10位)
-  if (theTimeStamp !== null) {
-    format = format || H_DATETIME
-    zero = zero || true
-    const nowTimeStamp = ~~(Date.now() / 1000) // 时间戳(10位)
-    const diff = nowTimeStamp - theTimeStamp
+  const theTimestamp = timestamp(timeValue) // 时间戳(10位)
+  if (theTimestamp !== null) {
+    const nowTimestamp = ~~(Date.now() / 1000) // 时间戳(10位)
+    const diff = nowTimestamp - theTimestamp
     return diff < 60
       ? 'now'
       : diff < 3600

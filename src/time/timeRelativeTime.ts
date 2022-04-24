@@ -1,14 +1,14 @@
 import { H_DATETIME, H_M_D_H_I } from './timeText'
 import { timeFormat } from './timeFormat'
 import { timeIsEarly } from './timeIsEarly'
-import { timeStamp } from './timeStamp'
+import { timestamp } from './timestamp'
 
 /**
  * @param {*} timeValue 时间
  * @returns {String} 相对时间字符串
  */
 export const timeRelativeTime = (timeValue: any): string | null => {
-  const theTimeStamp = timeStamp(timeValue)
+  const theTimeStamp = timestamp(timeValue)
   if (theTimeStamp) {
     const nowTimeStamp = Math.floor(Date.now() / 1000) // 获取当前时间时间戳
     const isEarly = timeIsEarly(theTimeStamp, nowTimeStamp) // 判断传入时间戳是否早于当前时间戳

@@ -52,7 +52,7 @@ import { timeObject } from './time/timeObject'
 import { timeRelativeTime } from './time/timeRelativeTime'
 import { timeSecondBar } from './time/timeSecondBar'
 import { timeShort } from './time/timeShort'
-import { timeStamp } from './time/timeStamp'
+import { timestamp } from './time/timestamp'
 import { timeStampIsMillisecond } from './time/timeStampIsMillisecond'
 import {
     H_DATE,
@@ -161,7 +161,7 @@ export {
     timeRelativeTime,
     timeSecondBar,
     timeShort,
-    timeStamp,
+    timestamp,
     timeStampIsMillisecond,
     H_YM,
     H_YM_ABBR,

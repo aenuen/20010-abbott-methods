@@ -1,7 +1,7 @@
-import { typeDate } from '../type/typeDate'
-import { typeNumber } from '../type/typeNumber'
-import { typeString } from '../type/typeString'
-import { formatAllNumber } from '../format/formatAllNumber'
+import {typeDate} from '../type/typeDate'
+import {typeNumber} from '../type/typeNumber'
+import {typeString} from '../type/typeString'
+import {formatAllNumber} from '../format/formatAllNumber'
 
 /**
  * @description 获取时间对象
@@ -9,21 +9,21 @@ import { formatAllNumber } from '../format/formatAllNumber'
  * @returns {Date|Null}
  */
 export const timeNewDate = (timeValue: any): Date => {
-  let theTimeValue = timeValue
-  if (theTimeValue) {
+  if (timeValue) {
     let theNewDate
-    if (typeDate(theTimeValue)) {
-      theNewDate = theTimeValue
+    if (typeDate(timeValue)) {
+      theNewDate = timeValue
     } else {
-      if (typeString(theTimeValue)) {
-        theTimeValue = formatAllNumber(String(theTimeValue))
-          ? theTimeValue
-          : String(theTimeValue).replace(/[.|-]/gm, '/')
+      let theTime = timeValue
+      if (typeString(theTime)) {
+        theTime = formatAllNumber(String(theTime))
+          ? theTime
+          : String(theTime).replace(/[.|-]/gm, '/')
       }
-      if (typeNumber(theTimeValue) && String(theTimeValue).length === 10) {
-        theTimeValue *= 1000
+      if (typeNumber(theTime) && String(theTime).length === 10) {
+        theTime *= 1000
       }
-      theNewDate = typeNumber(theTimeValue) ? new Date(+theTimeValue) : new Date(String(theTimeValue))
+      theNewDate = typeNumber(theTime) ? new Date(+theTime) : new Date(String(theTime))
     }
     return typeDate(theNewDate) ? theNewDate : null
   } else {

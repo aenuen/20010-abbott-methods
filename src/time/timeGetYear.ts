@@ -1,4 +1,4 @@
-import { timeObject } from './timeObject'
+import {timeObject} from './timeObject'
 
 /**
  * @description 时间的年份
@@ -6,7 +6,7 @@ import { timeObject } from './timeObject'
  * @returns {String|Null}
  */
 export const timeGetYear = (timeValue: any): string | null => {
-  const theTimeValue = timeValue || new timeValue()
-  const theObject = timeObject(theTimeValue)
-  return theObject ? String(theObject.y).padStart(4, '0') : null
+  const theTime = timeValue || new timeValue()
+  const theObject = timeObject(theTime)
+  return theObject !== null ? String(theObject.y).padStart(4, '0') : null
 }
