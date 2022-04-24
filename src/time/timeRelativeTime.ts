@@ -7,7 +7,7 @@ import { timestamp } from './timestamp'
  * @param {*} timeValue 时间
  * @returns {String} 相对时间字符串
  */
-export const timeRelativeTime = (timeValue: any): string | null => {
+export const timeRelativeTime = (timeValue: any = new Date()): string | null => {
   const theTimeStamp = timestamp(timeValue)
   if (theTimeStamp) {
     const nowTimeStamp = Math.floor(Date.now() / 1000) // 获取当前时间时间戳

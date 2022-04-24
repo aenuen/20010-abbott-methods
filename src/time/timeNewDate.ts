@@ -8,7 +8,7 @@ import {formatAllNumber} from '../format/formatAllNumber'
  * @param {*} timeValue
  * @returns {Date|Null}
  */
-export const timeNewDate = (timeValue: any): Date => {
+export const timeNewDate = (timeValue: any = new Date()): Date => {
   if (timeValue) {
     let theNewDate
     if (typeDate(timeValue)) {

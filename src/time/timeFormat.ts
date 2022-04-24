@@ -9,7 +9,7 @@ import {timeObject} from './timeObject'
  * @returns {Null|String}
  */
 export const timeFormat = (
-  timeValue: any,
+  timeValue: any = new Date(),
   format: string = H_DATETIME,
   zero: boolean = true
 ): string | null => {

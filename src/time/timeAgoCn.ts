@@ -10,7 +10,7 @@ import {timestamp} from './timestamp'
  * @returns {null|string}
  */
 export const timeAgoCn = (
-  timeValue: any,
+  timeValue: any = new Date(),
   format: string = H_DATETIME,
   zero: boolean = true
 ): string | null => {

@@ -11,7 +11,7 @@ import {timestamp} from './timestamp'
  * @returns {null|string}
  */
 export const timeAgoEn = (
-  timeValue: any,
+  timeValue: any = new Date(),
   format: string = H_DATETIME,
   zero: boolean = true
 ): string | null => {
@@ -27,7 +27,7 @@ export const timeAgoEn = (
           ? somePluralize(~~(diff / 3600), ' hour') + 'ago'
           : diff < 691200
             ? somePluralize(~~(diff / 86400), ' day') + 'ago'
-            : timeFormat(time, format, zero)
+            : timeFormat(timeValue, format, zero)
   } else {
     return null
   }

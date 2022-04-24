@@ -1,9 +1,9 @@
 /**
  * @description 秒牌
- * @param {Number} seconds 秒数
- * @returns {String}
+ * @param {number} seconds 秒数
+ * @returns {string}
  */
-export const timeSecondBar = (seconds: number | string) => {
+export const timeSecondBar = (seconds: number) => {
   let showMinutes = 0
   let showHours = 0
   let showDays = 0

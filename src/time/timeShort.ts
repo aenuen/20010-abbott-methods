@@ -1,14 +1,14 @@
-import { H_H_I, H_Y_M_D_H_I } from './timeText'
-import { timeFormat } from './timeFormat'
-import { timeDifference } from './timeDifference'
-import { timeObject } from './timeObject'
+import {H_H_I, H_Y_M_D_H_I} from './timeText'
+import {timeFormat} from './timeFormat'
+import {timeDifference} from './timeDifference'
+import {timeObject} from './timeObject'
 
 /**
  * @description 短时间
  * @param {*} timeValue
  * @returns {Null|String}
  */
-export const timeShort = (timeValue: any) => {
+export const timeShort = (timeValue: any = new Date()) => {
   const theObject = timeValue ? timeObject(timeValue) : timeObject(new Date())
   if (theObject !== null) {
     const nowObject = timeObject(new Date())

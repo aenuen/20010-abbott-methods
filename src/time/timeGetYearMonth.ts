@@ -3,10 +3,13 @@ import {timeObject} from './timeObject'
 /**
  * @description 时间的年份
  * @param {*} [timeValue]
- * @returns {String|Null}
+ * @param {boolean} isArray
+ * @returns {string|null|string[]}
  */
-export const timeGetYearMonth = (timeValue: any): string | null => {
+export const timeGetYearMonth = (timeValue: any = new Date(), isArray: boolean = false): null | any[] | string => {
   const theTime = timeValue || new timeValue()
   const theObject = timeObject(theTime)
-  return theObject !== null ? `${String(theObject.y).padStart(4, '0')}-${String(theObject.m).padStart(2, '0')}` : null
+  return theObject == null ?
+    null : isArray ?
+      [theObject.y, theObject.m] : `${String(theObject.y).padStart(4, '0')}-${String(theObject.m).padStart(2, '0')}`
 }

@@ -5,7 +5,7 @@ import {timeObject} from './timeObject'
  * @param {*} [timeValue]
  * @returns {String|Null}
  */
-export const timeGetWeek = (timeValue: any): number | null => {
+export const timeGetWeek = (timeValue: any = new Date()): number | null => {
   const theTime = timeValue || new timeValue()
   const theObject = timeObject(theTime)
   return theObject !== null ? theObject?.w : null

@@ -1,4 +1,4 @@
-import { timeNewDate } from './timeNewDate'
+import {timeNewDate} from './timeNewDate'
 
 /**
  * @description 两个时间的时间差
@@ -10,12 +10,11 @@ import { timeNewDate } from './timeNewDate'
 export const timeDifference = (
   timeOne: any,
   timeTwo: any,
-  abs: boolean
+  abs: boolean = false
 ): number | null => {
   const oneNewDate = timeNewDate(timeOne)
   const twoNewDate = timeNewDate(timeTwo)
   if (oneNewDate !== null && twoNewDate !== null) {
-    abs = abs || false
     const result = ~~((oneNewDate.getTime() - twoNewDate.getTime()) / 1000)
     return abs ? Math.abs(result) : result
   } else {

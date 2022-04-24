@@ -1,3 +1,7 @@
-import { uniCodeEncode } from '../src'
+import {timeFormat} from '../src'
 
-console.log(uniCodeEncode('1'))
+test('测试toBe', () => {
+  console.log(timeFormat())
+});
+
+

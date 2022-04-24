@@ -6,10 +6,9 @@ import {timeNewDate} from './timeNewDate'
  * @returns {{s: Number, d: Number, w: Number, h: Number, y: Number, i: Number, m: Number}|Null}
  */
 export const timeObject = (
-  timeValue: any
-): { s: Number, d: Number, w: Number, h: Number, y: Number, i: Number, m: Number } | null => {
-  const theTimeValue = timeValue || new Date()
-  const theNewDate = timeNewDate(theTimeValue)
+  timeValue: any = new Date()
+): Record<string | number | symbol, any> | null => {
+  const theNewDate = timeNewDate(timeValue)
   return theNewDate !== null
     ? {
       y: theNewDate.getFullYear(),
