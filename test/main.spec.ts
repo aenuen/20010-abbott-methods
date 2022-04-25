@@ -1,7 +1,7 @@
-import {weekGetEn} from '../src'
+import {arrayDiKaErJi} from '../src'
 
 test('测试toBe', () => {
-  console.log(weekGetEn())
+  console.log(arrayDiKaErJi())
 });
 
 

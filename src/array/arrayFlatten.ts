@@ -1,11 +1,11 @@
 /**
  * 将多层级的数组扁平化
- * @param {Array} anyAry
+ * @param {Array} arrayAny
  * @returns {Array}
  */
-export const arrayFlatten = (anyAry: any[]): any[] => {
-  while (anyAry.some((item) => Array.isArray(item))) {
-    anyAry = [].concat(...anyAry)
+export const arrayFlatten = (arrayAny: any[]): any[] => {
+  while (arrayAny.some((item) => Array.isArray(item))) {
+    arrayAny = [].concat(...arrayAny)
   }
-  return anyAry
+  return arrayAny
 }
