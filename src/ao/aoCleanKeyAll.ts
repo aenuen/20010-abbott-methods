@@ -1,14 +1,12 @@
-import { typeArray } from '../type/typeArray'
-import { typeObject } from '../type/typeObject'
+import {typeArray} from '../type/typeArray'
+import {typeObject} from '../type/typeObject'
 
 /**
  * @desc 清除键值-全部
- * @param {Array|Object} ao array或object
- * @returns {Array}
+ * @param {[]|{}} ao array或object
+ * @returns {[]}
  */
-export const aoCleanKeyAll = (
-  ao: any[] | Record<string | number | symbol, any>
-): any[] => {
+export const aoCleanKeyAll = (ao: any[] | Record<string | number | symbol, any>): any[] => {
   const result = []
   let count = 0
   for (const key in ao) {

@@ -1,16 +1,13 @@
-import { typeArray } from '../type/typeArray'
-import { aoCleanKeyOne } from './aoCleanKeyOne'
+import {typeArray} from '../type/typeArray'
+import {aoCleanKeyOne} from './aoCleanKeyOne'
 
 /**
  * @description 切片存储在一个新数组
- * @param {Array|Object} ao array或object
- * @param {Number} size 每个切片的大小
- * @returns {Array}
+ * @param {[]|{}} ao array或object
+ * @param {number} size 每个切片的大小
+ * @returns {[]}
  */
-export const aoChunk = (
-  ao: any[] | Record<string | number | symbol, any>,
-  size: number
-): any[] => {
+export const aoChunk = (ao: any[] | Record<string | number | symbol, any>, size: number): any[] => {
   const array = typeArray(ao) ? ao : aoCleanKeyOne(ao)
   const length = array.length
   size = ~~Math.abs(+size)

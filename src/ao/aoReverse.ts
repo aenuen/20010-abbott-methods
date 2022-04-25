@@ -3,15 +3,11 @@ import { aoKeyName } from './aoKeyName'
 
 /**
  * @description 反序
- * @param {Array|Object} ao array或object
- * @returns {Array|Object}
+ * @param {[]|{}} ao array或object
+ * @returns {[]|{}}
  */
-export const aoReverse = (
-  ao: any[] | Record<string | number | symbol, any>
-) => {
-  const result: any[] | Record<string | number | symbol, any> = typeArray(ao)
-    ? []
-    : {}
+export const aoReverse = (ao: any[] | Record<string | number | symbol, any>) => {
+  const result: any[] | Record<string | number | symbol, any> = typeArray(ao) ? [] : {}
   const keyArray = aoKeyName(ao)
   keyArray.reverse()
   for (const key in keyArray) {

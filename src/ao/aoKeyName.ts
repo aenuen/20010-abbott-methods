@@ -1,11 +1,9 @@
 /**
  * @description 键名
- * @param {Array|Object} ao array或object
- * @returns {Array}
+ * @param {[]|{}} ao array或object
+ * @returns {[]}
  */
-export const aoKeyName = (
-  ao: any[] | Record<string | number | symbol, any>
-): any[] => {
+export const aoKeyName = (ao: any[] | Record<string | number | symbol, any>): any[] => {
   const result = []
   for (const key in ao) {
     result.push(key)

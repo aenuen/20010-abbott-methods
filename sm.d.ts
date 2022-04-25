@@ -48,34 +48,34 @@ declare const dateOne: any; // 日期二
 // have
 declare const haveAssign: string; // 指定的字符
 // browser
-declare const browserArray: string[];
+declare const browserArray: string[]; // 要检查的浏览器数组
 // calc
-declare const calcArray: number[];
+declare const calcArray: number[]; // 要计算的数组
 // class
 declare const HTMLElement: HTMLElement; // html元素
 declare const className: string; // 样式名称
 // controlInput
-declare const controlValue: number | string;
-declare const controlPrice: number | string;
+declare const controlValue: number | string; // 要控制输入的值
+declare const controlPrice: number | string; // 要控制输入的价格
 // ensure
-declare const ensureString: number | string;
-declare const ensureAssign: number | string;
+declare const ensureString: number | string; // 字符(串)
+declare const ensureAssign: number | string; // 指定的字符（串）
 // file
-declare const fileSize: number;
+declare const fileSize: number; // 文件大小
 // local
-declare const localKey: string;
-declare const localValue: string;
+declare const localKey: string; // key或名称
+declare const localValue: string; // 值
 // string
-declare const cnNumber: number;
-declare const enNumber: number;
+declare const cnNumber: number; // 中文多少个字
+declare const enNumber: number; // 英文多少个字
 // element
-declare const queryString: string;
-declare const queryCallback: any;
-declare const queryArray: any[];
-declare const lightObject: Record<string | number | symbol, any>;
-declare const lightKey: string;
-declare const lightValue: string;
-declare const lightColor: string;
+declare const queryString: string; // 查询的字符(串)
+declare const queryCallback: any; // 回调
+declare const queryArray: any[]; // 查询数组
+declare const lightObject: Record<string | number | symbol, any>; // 查询对象
+declare const lightKey: string; // 关键字
+declare const lightValue: string; // 值
+declare const lightColor: string; // 颜色
 // ao
 declare const ao: any[] | Record<string | number | symbol, any>;
 declare const size: number;

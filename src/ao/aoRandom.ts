@@ -1,15 +1,12 @@
-import { aoCleanKeyOne } from './aoCleanKeyOne'
+import {aoCleanKeyOne} from './aoCleanKeyOne'
 
 /**
  * @description 随机取ao中number个值
- * @param {Array|Object} ao array或object
- * @param {Number} number 取几个
- * @returns {Array}
+ * @param {[]|{}} ao array或object
+ * @param {number} number 取几个
+ * @returns {[]}
  */
-export const aoRandom = (
-  ao: any[] | Record<string | number | symbol, any>,
-  number: number
-): any[] => {
+export const aoRandom = (ao: any[] | Record<string | number | symbol, any>, number: number): any[] => {
   number = ~~Math.abs(number)
   const array = aoCleanKeyOne(ao)
   const result = []
