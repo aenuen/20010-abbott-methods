@@ -5,5 +5,5 @@
  * @param queryArray
  */
 export const autoQuery = (queryString: string, queryCallback: any, queryArray: any[]) => {
-  callback(queryString ? queryArray.filter((state) => state.value.toUpperCase().match(queryString.toUpperCase())) : queryArray)
+  queryCallback(queryString ? queryArray.filter((state) => state.value.toUpperCase().match(queryString.toUpperCase())) : queryArray)
 }

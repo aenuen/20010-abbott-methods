@@ -9,5 +9,5 @@ export const ensureFootNone = (ensureString: number | string, ensureAssign: numb
   const theAssign = String(ensureAssign)
   const strLen = theString.length
   const theLen = theAssign.length
-  return theString.substr(-theLen) === theAssign ? ensureFootNone(theString.substr(0, strLen - theLen), theAssign) : string
+  return theString.substr(-theLen) === theAssign ? ensureFootNone(theString.substr(0, strLen - theLen), theAssign) : theString
 }
