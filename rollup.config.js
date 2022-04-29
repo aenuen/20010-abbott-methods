@@ -15,12 +15,12 @@ export default {
   output: [
     {
       format: "cjs",
-      file: "lib/bundle.cjs.js",
+      file: "cjs.js",
       sourcemap: true
     },
     {
       format: "es",
-      file: "lib/bundle.esm.js",
+      file: "esm.js",
       sourcemap: true
     }
   ]

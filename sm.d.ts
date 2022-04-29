@@ -44,7 +44,7 @@ declare const timestamp: number; // 时间戳
 // date
 declare const dateValue: any; // 日期
 declare const dateOne: any; // 日期一
-declare const dateOne: any; // 日期二
+declare const dateTwo: any; // 日期二
 // have
 declare const haveAssign: string; // 指定的字符
 // browser
