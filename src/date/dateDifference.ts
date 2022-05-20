@@ -4,7 +4,7 @@ import { timeNewDate } from '../time/timeNewDate'
  * @description 两个日期时间相差多少天
  * @param {*} dateOne 日期一
  * @param {*} dateTwo 日期二
- * @param {Boolean} abs 绝对值
+ * @param {beforeAll} abs 绝对值
  * @returns {Number|Null}
  */
 export const dateDifference = (

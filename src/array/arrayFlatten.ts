@@ -1,7 +1,7 @@
 /**
  * 将多层级的数组扁平化
- * @param {Array} arrayAny
- * @returns {Array}
+ * @param {[]} arrayAny
+ * @returns {[]}
  */
 export const arrayFlatten = (arrayAny: any[]): any[] => {
   while (arrayAny.some((item) => Array.isArray(item))) {

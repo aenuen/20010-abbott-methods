@@ -76,8 +76,6 @@ import { ensureFootHave } from './ensure/ensureFootHave'
 import { ensureFootNone } from './ensure/ensureFootNone'
 import { ensureHeadHave } from './ensure/ensureHeadHave'
 import { ensureHeadNone } from './ensure/ensureHeadNone'
-// express
-import { parseSort } from './express/parseSort'
 // file
 import { fileBaseName } from './file/fileBaseName'
 import { fileClassify } from './file/fileClassify'
@@ -301,12 +299,11 @@ export {
   dateOneMonth,
   dateOneWeek,
   dateWeekSunday,
+  // ensure
   ensureFootHave,
   ensureHeadNone,
   ensureHeadHave,
   ensureFootNone,
-  // express
-  parseSort,
   // file
   fileBaseName,
   fileClassify,

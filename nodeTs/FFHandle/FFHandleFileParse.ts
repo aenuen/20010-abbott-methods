@@ -1,31 +1,33 @@
-const fs = require('fs')
+import fs from 'fs'
 
 export class FFHandleFileParse {
-  // 预先处理
-  private suffix: string | undefined;
-  private path: string | undefined;
-  private filePath: string | undefined;
-  private newFile: string | undefined;
-  private originalname: string | undefined;
+  // 定义变量
+  private suffix!: string;
+  private path!: string;
+  private filePath!: string;
+  private newFile!: string;
+  private originalName!: string;
 
+  // 预先处理
   constructor(aFile: any) {
     this.parseFile(aFile)
   }
 
   // 解析文件
   parseFile(file: Record<string | number | symbol, any>) {
-    const {destination: des, filename = '', originalname = '', path = ''} = file
-    const suffix = originalname.split('.')[1] || ''
+    // noinspection SpellCheckingInspection
+    const {destination: des, filename = '', originalname: originalName, path = ''} = file
+    const suffix = originalName.split('.')[1] || ''
     this.suffix = suffix
     this.path = path
     this.filePath = `${des}${filename}.${suffix}`
     this.newFile = `${filename}.${suffix}`
-    this.originalname = <string>originalname
+    this.originalName = originalName
   }
 
   // 解析
   parse() {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       if (this.suffix) {
         if (fs.existsSync(this.path) && !fs.existsSync(this.filePath)) {
           fs.renameSync(this.path, this.filePath)

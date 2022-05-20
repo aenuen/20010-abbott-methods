@@ -1,7 +1,7 @@
 /**
  * @description 迪卡尔积
  * @example arrayDiKaErJi([1,2,3],[1,2,3],[1,2,3])
- * @returns {Array}
+ * @returns {[]}
  */
 export const arrayDiKaErJi = (...arrayAny: any[]): any[] =>
   arrayAny.reduce(

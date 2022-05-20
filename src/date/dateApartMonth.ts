@@ -4,10 +4,10 @@ import {someYearMonthDays} from '../some/someYearMonthDays'
 /**
  * @description 获取number个月后（前）的日期，number可为正可为负
  * @param {*} [dateValue] 时间
- * @param {Number} number 几个月后（前）
+ * @param {number} number 几个月后（前）
  * @returns {Null|String}
  */
-export const dateApartMonth = (dateValue: any = new Date(), number: number): string | null => {
+export const dateApartMonth = (dateValue: any = new Date(), number: number): null | string => {
   const theObject = timeObject(dateValue)
   if (theObject) {
     const totalMonths = +theObject.y * 12 + +theObject.m + +number

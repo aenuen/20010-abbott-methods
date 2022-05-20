@@ -4,7 +4,7 @@
  * @returns {[]}
  * @example arrayAnyRatioReplace([[1,'a'],[2,'b'],[3,'c'],[4,'d']])
  */
-export const arrayRatioReplace = (arrayAny: any[]) => {
+export const arrayRatioReplace = (arrayAny: any[]): any[] => {
   const result = []
   let count = 0
   for (let o = 0; o < length; o++) {

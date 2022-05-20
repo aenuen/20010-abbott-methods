@@ -1,29 +1,23 @@
-import { FFHandleDataSaveFile } from './FFHandle/FFHandleDataSaveFile'
-import { FFHandleDeleteFile } from './FFHandle/FFHandleDeleteFile'
-import { FFHandleDeleteFileSync } from './FFHandle/FFHandleDeleteFileSync'
-import { FFHandleDeleteFolder } from './FFHandle/FFHandleDeleteFolder'
-import { FFHandleFileParse } from './FFHandle/FFHandleFileParse'
-import { FFHandleGetStats } from './FFHandle/FFHandleGetStats'
-import { FFHandleIsExists } from './FFHandle/FFHandleIsExists'
-import { FFHandleIsFile } from './FFHandle/FFHandleIsFile'
-import { FFHandleIsFolder } from './FFHandle/FFHandleIsFolder'
-import { FFHandleMakeFolderOne } from './FFHandle/FFHandleMakeFolderOne'
-import { FFHandleMakeFolderPath } from './FFHandle/FFHandleMakeFolderPath'
-import { FFHandleReadFolderDF } from './FFHandle/FFHandleReadFolderDF'
-import { FFHandleReadFolderDFSync } from './FFHandle/FFHandleReadFolderDFSync'
+import {FFHandleDataSaveFile} from './FFHandle/FFHandleDataToFile'
+import {FFHandleDeleteFile} from './FFHandle/FFHandleDeleteFile'
+import {FFHandleDeleteFolder} from './FFHandle/FFHandleDeleteFolder'
+import {FFHandleFileParse} from './FFHandle/FFHandleFileParse'
+import {FFHandleGetStats} from './FFHandle/FFHandleGetStats'
+import {FFHandleIsExists} from './FFHandle/FFHandleIsExists'
+import {FFHandleIsFile} from './FFHandle/FFHandleIsFile'
+import {FFHandleIsFolder} from './FFHandle/FFHandleIsFolder'
+import {FFHandleReadDownFile} from './FFHandle/FFHandleReadDownFile'
+import {FFHandleRename} from './FFHandle/FFHandleRename'
 
 export {
   FFHandleDataSaveFile,
   FFHandleDeleteFile,
-  FFHandleDeleteFileSync,
   FFHandleDeleteFolder,
   FFHandleFileParse,
   FFHandleIsExists,
   FFHandleGetStats,
   FFHandleIsFile,
   FFHandleIsFolder,
-  FFHandleMakeFolderOne,
-  FFHandleMakeFolderPath,
-  FFHandleReadFolderDF,
-  FFHandleReadFolderDFSync
+  FFHandleReadDownFile,
+  FFHandleRename
 }

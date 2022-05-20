@@ -4,7 +4,7 @@ import {aoWhetherIn} from './aoWhetherIn'
 /**
  * @description 删除键
  * @param {[]|{}} ao array或object
- * @param {[]|String} aoKey 要删除的键，可字符或数组
+ * @param {[]|string} aoKey 要删除的键，可字符或数组
  * @returns {[]|{}}
  */
 export const aoDeleteKey = (ao: any[] | Record<string | number | symbol, any>, aoKey: string | number) => {

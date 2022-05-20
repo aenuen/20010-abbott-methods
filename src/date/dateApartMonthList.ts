@@ -1,14 +1,14 @@
-import { timeObject } from '../time/timeObject'
+import {timeObject} from '../time/timeObject'
 
 /**
  * @description 获取一个时间至number个月前(后)的所有年月的数据列表
+ * @param {number|string} number 几个月
  * @param {*} [dateValue] 时间
- * @param {Number|String} number
  * @returns {Array|Null}
  */
 export const dateApartMonthList = (
-  dateValue: any = new Date(),
-  number: number
+  number: number,
+  dateValue: any = new Date()
 ): string[] | null => {
   const theObject = timeObject(dateValue)
   if (theObject) {

@@ -5,12 +5,14 @@ declare const number: number;
 declare const fixed: number;
 declare const length: number;
 declare const abs: boolean; // 绝对值
-// node
-declare const fFile : string;
-declare const aFile : string;
-declare const fFolder : string;
-declare const fData : any;
-declare const fOrFPath : string;
+// FFHandle
+declare const aFile: any;
+declare const fData: any;
+declare const fFile: string;
+declare const fFolder: string;
+declare const fOrFPath: string;
+declare const fOld: string;
+declare const fNew: string;
 // replace
 declare const search: string;
 declare const replace: string;

@@ -1,15 +1,14 @@
 import fs from 'fs'
 
 /**
- * @description 获取目录或文件的系统明细
- * @param {String} fOrFPath 要查看的目录或文件路径
- * @constructor
+ * @description 是否文件
+ * @param {String} fFile 文件路径
+ * @returns {Promise<Boolean>}
  */
-export const FFHandleIsFile = (fOrFPath: string) => {
-  return new Promise(resolve => fs.stat(
-    fOrFPath,
-    (err, stats) => {
-      err ? resolve(false) : resolve(stats.isFile())
+export const FFHandleIsFile = (fFile: string): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    fs.stat(fFile, (err, stats) => {
+      err ? reject(false) : stats.isFile() ? resolve(true) : reject(false)
     })
-  )
+  })
 }

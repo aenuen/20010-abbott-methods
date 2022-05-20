@@ -4,7 +4,7 @@
  * @param {*} value 要验证的值
  * @return {Boolean}
  */
-export const arrayWhetherIn = (arrayAny: any[], value: any) => {
+export const arrayWhetherIn = (arrayAny: any[], value: any): boolean => {
   for (let i = 0; i < arrayAny.length; i++) {
     if (value === arrayAny[i]) {
       return true
