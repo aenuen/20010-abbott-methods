@@ -76,6 +76,8 @@ import { ensureFootHave } from './ensure/ensureFootHave'
 import { ensureFootNone } from './ensure/ensureFootNone'
 import { ensureHeadHave } from './ensure/ensureHeadHave'
 import { ensureHeadNone } from './ensure/ensureHeadNone'
+// express
+import { parseSort } from './express/parseSort'
 // file
 import { fileBaseName } from './file/fileBaseName'
 import { fileClassify } from './file/fileClassify'
@@ -275,6 +277,7 @@ export {
   browserName,
   browserUserAgent,
   browserWhetherInArray,
+  // case
   caseAllBig,
   caseAllSmall,
   caseFirstBig,
@@ -283,8 +286,10 @@ export {
   classHas,
   classRemove,
   classToggle,
+  // control
   controlInputNumberSpace,
   controlInputPrice,
+  // date
   dateApart,
   dateApartMonth,
   dateApartMonthList,
@@ -300,11 +305,15 @@ export {
   ensureHeadNone,
   ensureHeadHave,
   ensureFootNone,
+  // express
+  parseSort,
+  // file
   fileBaseName,
   fileClassify,
   fileFullName,
   fileSuffixName,
   fileUnit,
+  // format
   formatAllCn,
   formatAllNumber,
   formatDate,
@@ -322,27 +331,35 @@ export {
   formatUrl,
   formatUsername,
   formatZip,
+  // have
   haveAssign,
   haveCn,
+  // hold
   holdCn,
   holdFirst,
   holdLetter,
   holdNumber,
+  // local
   localRead,
   localSave,
+  // month
   monthDifference,
+  // number
   numberAddComma,
   numberAddZero,
   numberGet,
   numberPriceBigWrite,
   numberUnit,
+  // object
   objectDeleteElement,
   objectHasChildren,
   objectLength,
   objectRenameKey,
+  // replace
   replaceAll,
   replaceByObject,
   replaceOne,
+  // some
   someColorHexToRGB,
   someColorRGBToHex,
   someFebruaryDays,
@@ -351,6 +368,7 @@ export {
   someRandomColor,
   someWhetherLeapYear,
   someYearMonthDays,
+  // string
   stringCut,
   stringCutCn,
   stringLoop,
@@ -358,6 +376,7 @@ export {
   stringReverse,
   stringToArrayChar,
   stringToArrayNumber,
+  // time
   timeAgoCn,
   timeAgoEn,
   timeDifference,
@@ -395,6 +414,7 @@ export {
   T_H_I,
   T_M_D_H_I,
   T_Y_M_D_H_I,
+  // type
   typeArray,
   typeBoolean,
   typeDate,
@@ -410,12 +430,15 @@ export {
   typeRegexp,
   typeString,
   typeSymbol,
+  // uniCode
   uniCodeDecode,
   uniCodeEncode,
   urlCodeDecode,
   urlCodeEncode,
+  // urlString
   urlStringQueryObject,
   urlStringQueryOne,
+  // validate
   validateAllCn,
   validateAllNumber,
   validateDate,
@@ -426,6 +449,7 @@ export {
   validatePrice,
   validateRequire,
   validateUsername,
+  // week
   weekAryCn,
   weekAryEn,
   weekGetCn,
