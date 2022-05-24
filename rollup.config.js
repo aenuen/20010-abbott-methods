@@ -15,12 +15,12 @@ export default {
   output: [
     {
       format: "cjs",
-      file: "cjs.js",
+      file: "require.js",
       sourcemap: true
     },
     {
       format: "es",
-      file: "esm.js",
+      file: "import.js",
       sourcemap: true
     }
   ]
