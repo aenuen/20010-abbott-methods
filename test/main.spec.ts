@@ -1,7 +1,7 @@
-import {parseSort} from '../src'
+import {FFHandleMakeFolderPath} from '../nodeTs'
 
-test('测试toBe', () => {
-  console.log(parseSort(['+id','-name'],false))
+test('测试toBe', async () => {
+  console.log(await FFHandleMakeFolderPath('a/b'))
 });
 
 
