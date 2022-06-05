@@ -84,6 +84,8 @@ declare const lightObject: Record<string | number | symbol, any>; // 查询对�
 declare const lightKey: string; // 关键字
 declare const lightValue: string; // 值
 declare const lightColor: string; // 颜色
+declare const summaryParam: Record<string | number | symbol, any>;
+declare const summaryFields: string[];
 // ao
 declare const ao: any[] | Record<string | number | symbol, any>;
 declare const size: number;
