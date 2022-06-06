@@ -1,7 +1,3 @@
-// element
-import {autoQuery} from './element/autoQuery'
-import {keyLight} from './element/keyLight'
-import {summaryMethod} from './element/summaryMethod'
 // calc
 import {calcSum} from './calc/calcSum'
 // addressBar
@@ -77,6 +73,11 @@ import {dateWeekSunday} from './date/dateWeekSunday'
 import {defineBooleanAry} from './define/defineBooleanAry'
 import {defineFace} from './define/defineFace'
 import {defineIsUseAry} from './define/defineIsUseAry'
+// element
+import {autoQuery} from './element/autoQuery'
+import {elTableIndex} from './element/elTableIndex'
+import {keyLight} from './element/keyLight'
+import {summaryMethod} from './element/summaryMethod'
 // ensure
 import {ensureFootHave} from './ensure/ensureFootHave'
 import {ensureFootNone} from './ensure/ensureFootNone'
@@ -240,9 +241,6 @@ import {weekGetCn} from './week/weekGetCn'
 import {weekGetEn} from './week/weekGetEn'
 
 export {
-  autoQuery,
-  keyLight,
-  summaryMethod,
   // calc
   calcSum,
   // addressBar
@@ -317,6 +315,11 @@ export {
   defineBooleanAry,
   defineFace,
   defineIsUseAry,
+  // element
+  autoQuery,
+  elTableIndex,
+  keyLight,
+  summaryMethod,
   // ensure
   ensureFootHave,
   ensureHeadNone,

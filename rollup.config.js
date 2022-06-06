@@ -10,8 +10,7 @@ export default [
         exclude: 'node_modules/**',
         typescript: require('typescript')
       }),
-      sourceMaps(),
-      terser()
+      sourceMaps()
     ],
     output: [
       {
@@ -48,5 +47,5 @@ export default [
         sourcemap: true
       }
     ]
-  }
+  },
 ]
