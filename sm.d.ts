@@ -93,6 +93,8 @@ declare const aoValue: any;
 declare const aoHold: any[] | string | number;
 declare const aoSearch: any;
 declare const aoMatchCase: boolean;
+declare const rows:number;
+declare const columns:number;
 // array
 declare const arrayAny: any[];
 declare const arrayTar: any[];

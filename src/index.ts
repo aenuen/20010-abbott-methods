@@ -25,6 +25,7 @@ import {aoHoldKey} from './ao/aoHoldKey'
 import {aoHoldValue} from './ao/aoHoldValue'
 import {aoKeyName} from './ao/aoKeyName'
 import {aoRandom} from './ao/aoRandom'
+import {aoRandomRAC} from './ao/aoRandomRAC'
 import {aoRepeat} from './ao/aoRepeat'
 import {aoReverse} from './ao/aoReverse'
 import {aoWhetherIn} from './ao/aoWhetherIn'
@@ -264,6 +265,7 @@ export {
   aoHoldValue,
   aoKeyName,
   aoRandom,
+  aoRandomRAC,
   aoRepeat,
   aoReverse,
   aoWhetherIn,
