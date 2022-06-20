@@ -1,6 +1,7 @@
 // element
 import {autoQuery} from './element/autoQuery'
 import {keyLight} from './element/keyLight'
+import {summaryMethod} from './element/summaryMethod'
 // calc
 import {calcSum} from './calc/calcSum'
 // addressBar
@@ -241,6 +242,7 @@ import {weekGetEn} from './week/weekGetEn'
 export {
   autoQuery,
   keyLight,
+  summaryMethod,
   // calc
   calcSum,
   // addressBar
