@@ -5,18 +5,14 @@ declare const number: number;
 declare const fixed: number;
 declare const length: number;
 declare const abs: boolean; // 绝对值
-// FFHandle
-declare const aFile: any;
-declare const fData: any;
-declare const fFile: string;
-declare const fFolder: string;
-declare const fOrFPath: string;
-declare const fOld: string;
-declare const fNew: string;
 // replace
 declare const search: string;
 declare const replace: string;
 declare const replaceObject: Record<string | number | symbol, any>;
+// result
+declare const resultData:Record<string | number | symbol, any>;
+declare const resultMsg:string;
+declare const resultOptions:Record<string | number | symbol, any>;
 // type
 declare const typeValue: any; // 类型值
 // some
