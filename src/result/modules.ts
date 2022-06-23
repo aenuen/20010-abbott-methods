@@ -1,4 +1,4 @@
-class Result {
+export class Result {
   // 预先处理
   private readonly successCode: number;
   private readonly tokenCode: number;
@@ -60,5 +60,3 @@ class Result {
     return this.createResult()
   }
 }
-
-module.exports = Result

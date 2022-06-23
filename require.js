@@ -1833,6 +1833,53 @@ const objectRenameKey = (theObject, objectKey, newKey) => {
     return theObject;
 };
 
+class Result {
+    constructor(resultData, resultMsg = '操作成功', resultOptions) {
+        this.successCode = 200;
+        this.tokenCode = -2;
+        this.errorCode = -1;
+        this.data = null;
+        if (arguments.length === 0) {
+            this.msg = '操作成功';
+        }
+        else if (arguments.length === 1) {
+            this.msg = resultData;
+        }
+        else {
+            this.data = resultData;
+            this.msg = resultMsg;
+            resultOptions && (this.options = resultOptions);
+        }
+    }
+    // 创建处理
+    createResult() {
+        this.code = this.code || this.successCode;
+        let base = { code: this.code, msg: this.msg, data: {} };
+        this.data && (base.data = this.data);
+        this.options && (base = Object.assign(Object.assign({}, base), this.options));
+        return base;
+    }
+    // 返回token失效
+    token(code) {
+        this.code = code || this.tokenCode;
+        return this.json();
+    }
+    // 返回失败
+    error(code) {
+        this.code = code || this.errorCode;
+        return this.json();
+    }
+    // 返回成功
+    success(code) {
+        this.code = code || this.successCode;
+        return this.json();
+    }
+    // 组装成json数据
+    json() {
+        return this.createResult();
+    }
+}
+
 /**
  * @description 十六进制颜色转RGB颜色
  * @param {string} hex
@@ -2718,6 +2765,7 @@ exports.H_M_D_H_I = H_M_D_H_I;
 exports.H_YM = H_YM;
 exports.H_YM_ABBR = H_YM_ABBR;
 exports.H_Y_M_D_H_I = H_Y_M_D_H_I;
+exports.Result = Result;
 exports.T_DATE = T_DATE;
 exports.T_DATETIME = T_DATETIME;
 exports.T_DATETIME_ABBR = T_DATETIME_ABBR;
