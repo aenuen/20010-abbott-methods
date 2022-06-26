@@ -141,8 +141,6 @@ import {objectRenameKey} from './object/objectRenameKey'
 import {replaceAll} from './replace/replaceAll'
 import {replaceByObject} from './replace/replaceByObject'
 import {replaceOne} from './replace/replaceOne'
-// result
-import {Result} from './result/modules'
 // some
 import {someColorHexToRGB} from './some/someColorHexToRGB'
 import {someColorRGBToHex} from './some/someColorRGBToHex'
@@ -385,8 +383,6 @@ export {
   replaceAll,
   replaceByObject,
   replaceOne,
-  // result
-  Result,
   // some
   someColorHexToRGB,
   someColorRGBToHex,
