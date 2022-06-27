@@ -1,4 +1,4 @@
-export class Result {
+class Result {
   // 预先处理
   constructor (data, msg = '操作成功', options) {
     this.sCode = 200
@@ -42,4 +42,7 @@ export class Result {
     this.code = code || this.tCode
     return this.createResult()
   }
+}
+module.exports = {
+  Result
 }

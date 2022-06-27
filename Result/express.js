@@ -1,4 +1,4 @@
-export class Result {
+class Result {
   // 预先处理
   constructor (data, msg = '操作成功', options) {
     this.data = null
@@ -47,4 +47,8 @@ export class Result {
     this.code = code || this.tokenExpiredNumber
     this.json(res)
   }
+}
+
+module.exports = {
+  Result
 }
