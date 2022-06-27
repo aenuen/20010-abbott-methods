@@ -1,6 +1,6 @@
 class Result {
   // 预先处理
-  constructor (data, msg = '操作成功', options) {
+  constructor(data, msg = '操作成功', options) {
     this.data = null
     this.successNumber = 200
     this.errorNumber = -1
@@ -17,7 +17,7 @@ class Result {
   }
 
   // 创建处理
-  createResult () {
+  createResult() {
     this.code = this.code || this.successNumber
     let base = { code: this.code, msg: this.msg }
     this.data && (base.data = this.data)
@@ -26,29 +26,28 @@ class Result {
   }
 
   // 组装成json数据
-  json (res) {
+  json(res) {
     res.json(this.createResult())
   }
 
   // 返回成功
-  success (res, code) {
-    this.code = code || this.successNumber
+  success(res, code) {
+    this.code = code ? +code : this.successNumber
     this.json(res)
   }
 
   // 返回失败
-  error (res, code) {
-    this.code = code || this.errorNumber
+  error(res, code) {
+    this.code = code ? +code : this.errorNumber
     this.json(res)
   }
 
   // 返回token失效
-  token (res, code) {
-    this.code = code || this.tokenExpiredNumber
+  token(res, code) {
+    this.code = code ? +code : this.tokenExpiredNumber
     this.json(res)
   }
 }
-
 module.exports = {
   Result
 }

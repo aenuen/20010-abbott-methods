@@ -1,6 +1,6 @@
 {
   "name": "methods-often",
-  "version": "1.1.27",
+  "version": "1.1.28",
   "description": "",
   "main": "src/index.ts",
   "scripts": {
