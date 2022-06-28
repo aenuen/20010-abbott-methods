@@ -18,7 +18,6 @@ class Result {
 
   // 创建处理
   createResult() {
-    this.code = this.code || this.successNumber
     let base = { code: this.code, msg: this.msg }
     this.data && (base.data = this.data)
     this.options && (base = { ...base, ...this.options })
