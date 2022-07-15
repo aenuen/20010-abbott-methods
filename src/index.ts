@@ -76,7 +76,12 @@ import {defineIsUseAry} from './define/defineIsUseAry'
 // element
 import {autoQuery} from './element/autoQuery'
 import {elTableIndex} from './element/elTableIndex'
-import {keyLight} from './element/keyLight'
+import { keyLight } from './element/keyLight'
+import {shortcutDate} from './element/pickerOptions'
+import {shortcutScope} from './element/pickerOptions'
+import {gtTime} from './element/pickerOptions'
+import {ltTime} from './element/pickerOptions'
+import {scopedTime} from './element/pickerOptions'
 import {summaryMethod} from './element/summaryMethod'
 // ensure
 import {ensureFootHave} from './ensure/ensureFootHave'
@@ -319,6 +324,11 @@ export {
   autoQuery,
   elTableIndex,
   keyLight,
+  shortcutDate,
+  shortcutScope,
+  gtTime,
+  ltTime,
+  scopedTime,
   summaryMethod,
   // ensure
   ensureFootHave,

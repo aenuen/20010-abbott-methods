@@ -82,6 +82,8 @@ declare const lightValue: string; // 值
 declare const lightColor: string; // 颜色
 declare const summaryParam: Record<string | number | symbol, any>;
 declare const summaryFields: string[];
+declare const GtTime: Date;
+declare const LtTime: Date;
 // ao
 declare const ao: any[] | Record<string | number | symbol, any>;
 declare const size: number;

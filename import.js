@@ -1254,6 +1254,123 @@ const keyLight = (lightObject, lightKey, lightValue, lightColor = '#1980ff') => 
         : '--';
 };
 
+/**
+ * @description 日期快捷选项
+ * @return {[{onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}]}
+ */
+const shortcutDate = () => {
+    return [
+        {
+            text: '一周后',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() + 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', date);
+            }
+        },
+        {
+            text: '明天',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() + 3600 * 1000 * 24);
+                picker.$emit('pick', date);
+            }
+        },
+        {
+            text: '今天',
+            onClick(picker) {
+                picker.$emit('pick', new Date());
+            }
+        },
+        {
+            text: '昨天',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() - 3600 * 1000 * 24);
+                picker.$emit('pick', date);
+            }
+        },
+        {
+            text: '一周前',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', date);
+            }
+        }
+    ];
+};
+/**
+ * @description 范围日期快捷选项
+ * @return {[{onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}]}
+ */
+const shortcutScope = () => {
+    return [
+        {
+            text: '最近一周',
+            onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', [start, end]);
+            }
+        },
+        {
+            text: '最近一个月',
+            onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                picker.$emit('pick', [start, end]);
+            }
+        },
+        {
+            text: '最近三个月',
+            onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                picker.$emit('pick', [start, end]);
+            }
+        }
+    ];
+};
+/**
+ * @description 大于时间
+ * @param [gtTime] 大于什么时间
+ * @return {function(*): boolean}
+ */
+const gtTime = (GtTime) => {
+    GtTime = GtTime ? new Date(GtTime) : new Date();
+    return (time) => time.getTime() < GtTime.getTime();
+};
+/**
+ * @description 小于时间
+ * @param [ltTime] 小于什么时间
+ * @return {function(*): boolean}
+ */
+const ltTime = (LtTime) => {
+    LtTime = LtTime ? new Date(LtTime) : new Date();
+    return (time) => time.getTime() > LtTime.getTime();
+};
+/**
+ * @description 范围时间
+ * @param [GtTime] 大于什么时间
+ * @param [LtTime] 小于什么时间
+ * @returns {function(*): boolean}
+ */
+const scopedTime = (GtTime, LtTime) => {
+    GtTime = GtTime ? new Date(GtTime) : new Date();
+    LtTime = LtTime ? new Date(LtTime) : new Date();
+    return (time) => time.getTime() < GtTime.getTime() || time.getTime() > LtTime.getTime();
+};
+
+/**
+ * @description 合计方法
+ * @param {{}} summaryParam
+ * @param {[]} summaryFields
+ * @returns
+ */
 const summaryMethod = (summaryParam, summaryFields) => {
     const { columns, data } = summaryParam;
     const sums = [];
@@ -2704,5 +2821,5 @@ const weekGetEn = (timeValue = new Date()) => {
     }
 };
 
-export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineBooleanAry, defineFace, defineIsUseAry, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSuffixName, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdNumber, keyLight, localRead, localSave, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectHasChildren, objectLength, objectRenameKey, replaceAll, replaceByObject, replaceOne, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
+export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineBooleanAry, defineFace, defineIsUseAry, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSuffixName, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdNumber, keyLight, localRead, localSave, ltTime, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectHasChildren, objectLength, objectRenameKey, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
 //# sourceMappingURL=import.js.map

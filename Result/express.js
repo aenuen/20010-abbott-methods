@@ -2,9 +2,9 @@ class Result {
   // 预先处理
   constructor(data, msg = '操作成功', options) {
     this.data = null
-    this.successNumber = 200
-    this.errorNumber = -1
-    this.tokenExpiredNumber = -2
+    this.successCode = 200
+    this.failCode = -1
+    this.tokenCode = -2
     if (0 === arguments.length) {
       this.msg = '操作成功'
     } else if (1 === arguments.length) {
@@ -31,22 +31,23 @@ class Result {
 
   // 返回成功
   success(res, code) {
-    this.code = code ? +code : this.successNumber
+    this.code = String(code) !== 'undefined' ? +code : this.successCode
     this.json(res)
   }
 
   // 返回失败
   error(res, code) {
-    this.code = code ? +code : this.errorNumber
+    this.code = String(code) !== 'undefined' ? +code : this.failCode
     this.json(res)
   }
 
   // 返回token失效
   token(res, code) {
-    this.code = code ? +code : this.tokenExpiredNumber
+    this.code = String(code) !== 'undefined' ? +code : this.tokenCode
     this.json(res)
   }
 }
+
 module.exports = {
   Result
 }

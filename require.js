@@ -1258,6 +1258,123 @@ const keyLight = (lightObject, lightKey, lightValue, lightColor = '#1980ff') => 
         : '--';
 };
 
+/**
+ * @description 日期快捷选项
+ * @return {[{onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}]}
+ */
+const shortcutDate = () => {
+    return [
+        {
+            text: '一周后',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() + 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', date);
+            }
+        },
+        {
+            text: '明天',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() + 3600 * 1000 * 24);
+                picker.$emit('pick', date);
+            }
+        },
+        {
+            text: '今天',
+            onClick(picker) {
+                picker.$emit('pick', new Date());
+            }
+        },
+        {
+            text: '昨天',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() - 3600 * 1000 * 24);
+                picker.$emit('pick', date);
+            }
+        },
+        {
+            text: '一周前',
+            onClick(picker) {
+                const date = new Date();
+                date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', date);
+            }
+        }
+    ];
+};
+/**
+ * @description 范围日期快捷选项
+ * @return {[{onClick(*): void, text: string}, {onClick(*): void, text: string}, {onClick(*): void, text: string}]}
+ */
+const shortcutScope = () => {
+    return [
+        {
+            text: '最近一周',
+            onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', [start, end]);
+            }
+        },
+        {
+            text: '最近一个月',
+            onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                picker.$emit('pick', [start, end]);
+            }
+        },
+        {
+            text: '最近三个月',
+            onClick(picker) {
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                picker.$emit('pick', [start, end]);
+            }
+        }
+    ];
+};
+/**
+ * @description 大于时间
+ * @param [gtTime] 大于什么时间
+ * @return {function(*): boolean}
+ */
+const gtTime = (GtTime) => {
+    GtTime = GtTime ? new Date(GtTime) : new Date();
+    return (time) => time.getTime() < GtTime.getTime();
+};
+/**
+ * @description 小于时间
+ * @param [ltTime] 小于什么时间
+ * @return {function(*): boolean}
+ */
+const ltTime = (LtTime) => {
+    LtTime = LtTime ? new Date(LtTime) : new Date();
+    return (time) => time.getTime() > LtTime.getTime();
+};
+/**
+ * @description 范围时间
+ * @param [GtTime] 大于什么时间
+ * @param [LtTime] 小于什么时间
+ * @returns {function(*): boolean}
+ */
+const scopedTime = (GtTime, LtTime) => {
+    GtTime = GtTime ? new Date(GtTime) : new Date();
+    LtTime = LtTime ? new Date(LtTime) : new Date();
+    return (time) => time.getTime() < GtTime.getTime() || time.getTime() > LtTime.getTime();
+};
+
+/**
+ * @description 合计方法
+ * @param {{}} summaryParam
+ * @param {[]} summaryFields
+ * @returns
+ */
 const summaryMethod = (summaryParam, summaryFields) => {
     const { columns, data } = summaryParam;
     const sums = [];
@@ -2826,6 +2943,7 @@ exports.formatTelephone = formatTelephone;
 exports.formatUrl = formatUrl;
 exports.formatUsername = formatUsername;
 exports.formatZip = formatZip;
+exports.gtTime = gtTime;
 exports.haveAssign = haveAssign;
 exports.haveCn = haveCn;
 exports.holdCn = holdCn;
@@ -2835,6 +2953,7 @@ exports.holdNumber = holdNumber;
 exports.keyLight = keyLight;
 exports.localRead = localRead;
 exports.localSave = localSave;
+exports.ltTime = ltTime;
 exports.monthDifference = monthDifference;
 exports.numberAddComma = numberAddComma;
 exports.numberAddZero = numberAddZero;
@@ -2848,6 +2967,9 @@ exports.objectRenameKey = objectRenameKey;
 exports.replaceAll = replaceAll;
 exports.replaceByObject = replaceByObject;
 exports.replaceOne = replaceOne;
+exports.scopedTime = scopedTime;
+exports.shortcutDate = shortcutDate;
+exports.shortcutScope = shortcutScope;
 exports.someColorHexToRGB = someColorHexToRGB;
 exports.someColorRGBToHex = someColorRGBToHex;
 exports.someFebruaryDays = someFebruaryDays;

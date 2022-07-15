@@ -1,3 +1,9 @@
+/**
+ * @description 合计方法
+ * @param {{}} summaryParam 
+ * @param {[]} summaryFields 
+ * @returns 
+ */
 export const summaryMethod = (summaryParam: Record<string | number | symbol, any>, summaryFields: string[]) => {
   const {columns, data} = summaryParam
   const sums: any[] = []
