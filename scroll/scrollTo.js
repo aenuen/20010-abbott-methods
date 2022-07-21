@@ -33,11 +33,11 @@ const scrollTo = (to, duration, callback) => {
   }
 
   const requestAnimFrame = (() => window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      function (callback) {
-        window.setTimeout(callback, 1000 / 60)
-      }
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60)
+    }
   )()
 
   const animateScroll = function () {
@@ -55,4 +55,4 @@ const scrollTo = (to, duration, callback) => {
   animateScroll()
 }
 
-module.exports = scrollTo
+module.exports = { scrollTo }
