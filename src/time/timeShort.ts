@@ -1,7 +1,7 @@
-import {H_H_I, H_Y_M_D_H_I} from './timeText'
-import {timeFormat} from './timeFormat'
-import {timeDifference} from './timeDifference'
-import {timeObject} from './timeObject'
+import { H_H_I, H_M_D_H_I, H_Y_M_D_H_I } from './timeText'
+import { timeFormat } from './timeFormat'
+import { timeDifference } from './timeDifference'
+import { timeObject } from './timeObject'
 
 /**
  * @description 短时间
@@ -19,16 +19,16 @@ export const timeShort = (timeValue: any = new Date()) => {
     return diff === oneDaySeconds * 2
       ? '后天 ' + timeFormat(timeValue, H_H_I, true)
       : diff === oneDaySeconds
-        ? '明天 ' + timeFormat(timeValue, H_H_I, true)
-        : diff === 0
-          ? timeFormat(timeValue, H_H_I, true)
-          : diff === -oneDaySeconds
-            ? '昨天 ' + timeFormat(timeValue, H_H_I, true)
-            : diff === -oneDaySeconds * 2
-              ? '前天 ' + timeFormat(timeValue, H_H_I, true)
-              : theObject.y === nowObject?.y
-                ? timeFormat(timeValue, H_H_I, true)
-                : timeFormat(timeValue, H_Y_M_D_H_I, true)
+      ? '明天 ' + timeFormat(timeValue, H_H_I, true)
+      : diff === 0
+      ? timeFormat(timeValue, H_H_I, true)
+      : diff === -oneDaySeconds
+      ? '昨天 ' + timeFormat(timeValue, H_H_I, true)
+      : diff === -oneDaySeconds * 2
+      ? '前天 ' + timeFormat(timeValue, H_H_I, true)
+      : theObject.y === nowObject?.y
+      ? timeFormat(timeValue, H_M_D_H_I, true)
+      : timeFormat(timeValue, H_Y_M_D_H_I, true)
   } else {
     return null
   }
