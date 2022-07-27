@@ -2356,7 +2356,7 @@ const timeShort = (timeValue = new Date()) => {
                         : diff === -oneDaySeconds * 2
                             ? '前天 ' + timeFormat(timeValue, H_H_I, true)
                             : theObject.y === (nowObject === null || nowObject === void 0 ? void 0 : nowObject.y)
-                                ? timeFormat(timeValue, H_H_I, true)
+                                ? timeFormat(timeValue, H_M_D_H_I, true)
                                 : timeFormat(timeValue, H_Y_M_D_H_I, true);
     }
     else {
