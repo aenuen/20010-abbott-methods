@@ -2209,6 +2209,16 @@ const timeDifference = (timeOne, timeTwo, abs = false) => {
 };
 
 /**
+ * @description 时间的日期
+ * @param {*} [timeValue]
+ * @returns {String|Null}
+ */
+const timeGetDate = (timeValue = new Date()) => {
+    const theTime = timeValue || new Date();
+    return timeFormat(theTime, H_DATE);
+};
+
+/**
  * @description 时间的日份
  * @param {*} [timeValue]
  * @returns {String|Null}
@@ -2990,6 +3000,7 @@ exports.timeAgoCn = timeAgoCn;
 exports.timeAgoEn = timeAgoEn;
 exports.timeDifference = timeDifference;
 exports.timeFormat = timeFormat;
+exports.timeGetDate = timeGetDate;
 exports.timeGetDay = timeGetDay;
 exports.timeGetMonth = timeGetMonth;
 exports.timeGetWeek = timeGetWeek;

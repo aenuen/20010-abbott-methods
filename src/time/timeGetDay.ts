@@ -1,4 +1,4 @@
-import {timeObject} from './timeObject'
+import { timeObject } from './timeObject'
 
 /**
  * @description 时间的日份
