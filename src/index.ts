@@ -70,6 +70,7 @@ import { dateOneMonth } from './date/dateOneMonth'
 import { dateOneWeek } from './date/dateOneWeek'
 import { dateWeekSunday } from './date/dateWeekSunday'
 // define
+import { defineAcceptAry } from './define/defineAcceptAry'
 import { defineBooleanAry } from './define/defineBooleanAry'
 import { defineFace } from './define/defineFace'
 import { defineIsUseAry } from './define/defineIsUseAry'
@@ -318,6 +319,7 @@ export {
   dateOneWeek,
   dateWeekSunday,
   // define
+  defineAcceptAry,
   defineBooleanAry,
   defineFace,
   defineIsUseAry,
