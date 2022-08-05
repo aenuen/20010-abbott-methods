@@ -1137,6 +1137,15 @@ const dateOneMonth = (dateValue = new Date()) => {
     }
 };
 
+const defineAcceptAry = {
+    image: 'image/gif,image/jpeg,image/png',
+    excel: 'application/vnd.ms-excel',
+    word: 'application/msword',
+    csv: 'text/csv',
+    pdf: 'application/pdf',
+    zip: 'application/zip'
+};
+
 const defineBooleanAry = [
     { value: 0, label: '否' },
     { value: 1, label: '是' }
@@ -2918,6 +2927,7 @@ exports.dateMonthPrev = dateMonthPrev;
 exports.dateOneMonth = dateOneMonth;
 exports.dateOneWeek = dateOneWeek;
 exports.dateWeekSunday = dateWeekSunday;
+exports.defineAcceptAry = defineAcceptAry;
 exports.defineBooleanAry = defineBooleanAry;
 exports.defineFace = defineFace;
 exports.defineIsUseAry = defineIsUseAry;
