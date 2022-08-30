@@ -1,16 +1,38 @@
 /**
+ * @description 是否array类型
+ * @param {*} typeValue
+ * @returns {Boolean}
+ */
+const typeArray = (typeValue) => Object.prototype.toString.call(typeValue).toLowerCase() === '[object array]';
+
+/**
  * @description 相加
  * @param calcArray
- * @returns {Promise<Number>}
+ * @returns {[]}
  */
 const calcSum = (calcArray) => {
-    return calcArray.reduce((total, current) => {
-        const oneLen = (total.toString().split('.')[1] || '').length;
-        const twoLen = (current.toString().split('.')[1] || '').length;
-        const maxLen = oneLen > twoLen ? oneLen : twoLen;
-        const number = +'1'.padStart(maxLen, '0');
-        return (+total * number + +current * number) / number;
-    });
+    if (typeArray(calcArray) && calcArray.length > 0) {
+        return calcArray.reduce((total, current) => {
+            let oneLen, twoLen;
+            try {
+                oneLen = total.toString().split('.')[1].length;
+            }
+            catch (e) {
+                oneLen = 0;
+            }
+            try {
+                twoLen = current.toString().split('.')[1].length;
+            }
+            catch (e) {
+                twoLen = 0;
+            }
+            const number = Math.pow(10, Math.max(oneLen, twoLen));
+            return (total * number + current * number) / number;
+        });
+    }
+    else {
+        return 0;
+    }
 };
 
 /**
@@ -72,13 +94,6 @@ const addressBarPort = () => location.port;
  * @returns {string}
  */
 const addressBarQuery = () => location.search.substr(1);
-
-/**
- * @description 是否array类型
- * @param {*} typeValue
- * @returns {Boolean}
- */
-const typeArray = (typeValue) => Object.prototype.toString.call(typeValue).toLowerCase() === '[object array]';
 
 /**
  * @description 清除键值-单层
