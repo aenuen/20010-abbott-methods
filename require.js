@@ -1480,9 +1480,15 @@ const ensureHeadNone = (ensureString, ensureAssign) => {
  * @returns {String}
  */
 const fileFullName = (string) => {
-    const a = document.createElement('a');
-    a.href = string;
-    return (a.pathname.match(/\/([^/?#]+)$/i) || ['', ''])[1];
+    const pos1 = string.lastIndexOf('/');
+    const pos2 = string.lastIndexOf('\\');
+    const pos3 = Math.max(pos1, pos2);
+    if (pos3 < 0) {
+        return string;
+    }
+    else {
+        return string.substring(pos3 + 1);
+    }
 };
 
 /**
