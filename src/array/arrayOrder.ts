@@ -1,4 +1,4 @@
-import {typeNumber} from '../type/typeNumber'
+import { typeNumber } from '../type/typeNumber'
 
 /**
  * @description 排序数组

@@ -1,7 +1,5 @@
-import {timeShort} from '../src'
+import { fileSuffixName } from '../src'
 
 test('测试toBe', async () => {
-  console.log(timeShort(1645436741))
-});
-
-
+  console.log(fileSuffixName('a.jpg'))
+})
