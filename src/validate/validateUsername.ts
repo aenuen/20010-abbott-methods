@@ -16,7 +16,7 @@ export const validateUsername = (
   max = 20
 ) => {
   const field = '用户名'
-  if (validateValue.length === 0) {
+  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须填写`))
   } else {
     if (formatUsername(validateValue)) {

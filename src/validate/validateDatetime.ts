@@ -15,7 +15,7 @@ export const validateDatetime = (
   field = '未知',
   action = '填写'
 ) => {
-  if (validateValue.length === 0) {
+  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatDatetime(validateValue)) {

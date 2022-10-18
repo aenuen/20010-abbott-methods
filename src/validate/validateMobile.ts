@@ -14,7 +14,7 @@ export const validateMobile = (
 ) => {
   const field = '手机号码'
   const number = 11
-  if (validateValue.length === 0) {
+  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatMobile(validateValue)) {

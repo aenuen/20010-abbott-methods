@@ -19,7 +19,7 @@ export const validatePrice = (
   min = 1,
   max = 10
 ) => {
-  if (validateValue.length === 0) {
+  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatPrice(validateValue)) {

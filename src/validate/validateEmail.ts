@@ -16,7 +16,7 @@ export const validateEmail = (
   max = 30
 ) => {
   const field = '电子邮箱'
-  if (validateValue.length === 0) {
+  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须填写`))
   } else {
     if (formatEmail(validateValue)) {

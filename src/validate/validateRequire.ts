@@ -17,7 +17,7 @@ export const validateRequire = (
   min: number,
   max: number
 ) => {
-  if (validateValue.length === 0) {
+  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (
