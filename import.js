@@ -2568,7 +2568,7 @@ const urlStringQueryOne = (urlString, name) => {
  * @param {Number} [max]
  */
 const validateAllCn = (rule, validateValue, callback, field = '未知', min = 2, max = 10) => {
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须填写`));
     }
     else {
@@ -2595,7 +2595,7 @@ const validateAllCn = (rule, validateValue, callback, field = '未知', min = 2,
  * @param {String} [action]
  */
 const validateAllNumber = (rule, validateValue, callback, field = '未知', action = '填写') => {
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2617,7 +2617,7 @@ const validateAllNumber = (rule, validateValue, callback, field = '未知', acti
  * @param {String} [action]
  */
 const validateDate = (rule, validateValue, callback, field = '未知', action = '填写') => {
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2639,7 +2639,7 @@ const validateDate = (rule, validateValue, callback, field = '未知', action = 
  * @param {String} [action]
  */
 const validateDatetime = (rule, validateValue, callback, field = '未知', action = '填写') => {
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2662,7 +2662,7 @@ const validateDatetime = (rule, validateValue, callback, field = '未知', actio
  */
 const validateEmail = (rule, validateValue, callback, min = 5, max = 30) => {
     const field = '电子邮箱';
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须填写`));
     }
     else {
@@ -2696,7 +2696,7 @@ const validateErrMsg = (fields) => fields[Object.keys(fields)[0]][0].message;
 const validateMobile = (rule, validateValue, callback, action = '填写') => {
     const field = '手机号码';
     const number = 11;
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2725,12 +2725,13 @@ const validateMobile = (rule, validateValue, callback, action = '填写') => {
  * @param {Number} [max]
  */
 const validatePrice = (rule, validateValue, callback, field = '价格', action = '填写', min = 1, max = 10) => {
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
         if (formatPrice(validateValue)) {
-            if (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max)) {
+            if (validateValue.length < ~~Math.abs(min) ||
+                validateValue.length > ~~Math.abs(max)) {
                 callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
             }
             else {
@@ -2754,13 +2755,14 @@ const validatePrice = (rule, validateValue, callback, field = '价格', action =
  * @param {Number} [max]
  */
 const validateRequire = (rule, validateValue, callback, field, action = '填写', min, max) => {
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
         if (min &&
             max &&
-            (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
+            (validateValue.length < ~~Math.abs(min) ||
+                validateValue.length > ~~Math.abs(max))) {
             callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
         }
         else {
@@ -2779,7 +2781,7 @@ const validateRequire = (rule, validateValue, callback, field, action = '填写'
  */
 const validateUsername = (rule, validateValue, callback, min = 5, max = 20) => {
     const field = '用户名';
-    if (!validateValue || validateValue.length === 0) {
+    if (validateValue.length === 0) {
         callback(new Error(`${field}必须填写`));
     }
     else {

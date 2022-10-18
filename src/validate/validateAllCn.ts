@@ -17,7 +17,7 @@ export const validateAllCn = (
   min = 2,
   max = 10
 ) => {
-  if (!validateValue || validateValue.length === 0) {
+  if (validateValue.length === 0) {
     callback(new Error(`${field}必须填写`))
   } else {
     if (formatAllCn(validateValue)) {

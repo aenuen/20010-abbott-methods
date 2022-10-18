@@ -17,13 +17,14 @@ export const validateRequire = (
   min: number,
   max: number
 ) => {
-  if (!validateValue || validateValue.length === 0) {
+  if (validateValue.length === 0) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (
       min &&
       max &&
-      (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))
+      (validateValue.length < ~~Math.abs(min) ||
+        validateValue.length > ~~Math.abs(max))
     ) {
       callback(
         new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`)

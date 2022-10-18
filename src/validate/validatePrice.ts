@@ -19,11 +19,14 @@ export const validatePrice = (
   min = 1,
   max = 10
 ) => {
-  if (!validateValue || validateValue.length === 0) {
+  if (validateValue.length === 0) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatPrice(validateValue)) {
-      if (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max)) {
+      if (
+        validateValue.length < ~~Math.abs(min) ||
+        validateValue.length > ~~Math.abs(max)
+      ) {
         callback(
           new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`)
         )
