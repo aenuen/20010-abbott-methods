@@ -10,7 +10,7 @@ export const objectGetKeyAndValue = (
   const value = [] as any[]
   Object.keys(theObject).forEach((keys) => {
     key.push(String(keys))
-    key.push(String(theObject[keys]))
+    value.push(String(theObject[keys]))
   })
   return { key, value }
 }

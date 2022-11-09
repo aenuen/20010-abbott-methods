@@ -1951,7 +1951,7 @@ const objectGetKeyAndValue = (theObject) => {
     const value = [];
     Object.keys(theObject).forEach((keys) => {
         key.push(String(keys));
-        key.push(String(theObject[keys]));
+        value.push(String(theObject[keys]));
     });
     return { key, value };
 };
