@@ -140,8 +140,8 @@ export { numberPriceBigWrite } from './number/numberPriceBigWrite'
 export { numberUnit } from './number/numberUnit'
 // object
 export { objectDeleteElement } from './object/objectDeleteElement'
+export { objectGetKeyAndValue } from './object/objectGetKeyAndValue'
 export { objectHasChildren } from './object/objectHasChildren'
-export { objectKeyAndValue } from './object/objectKeyAndValue'
 export { objectLength } from './object/objectLength'
 export { objectRenameKey } from './object/objectRenameKey'
 // replace

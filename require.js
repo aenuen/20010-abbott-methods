@@ -1942,6 +1942,21 @@ const objectDeleteElement = (theObject, objectKey) => {
 };
 
 /**
+ * @description 获取object的key和value，输出两个数组
+ * @param {Object} theObject
+ * @returns {[]}
+ */
+const objectGetKeyAndValue = (theObject) => {
+    const key = [];
+    const value = [];
+    Object.keys(theObject).forEach((keys) => {
+        key.push(String(keys));
+        key.push(String(theObject[keys]));
+    });
+    return { key, value };
+};
+
+/**
  * @description 是否有字节点
  * @param {Object} theObject 要检查的对像
  * @param {String} [nodeName] 节点名称
@@ -1950,21 +1965,6 @@ const objectDeleteElement = (theObject, objectKey) => {
 const objectHasChildren = (theObject, nodeName) => {
     nodeName = nodeName || 'children';
     return theObject[nodeName] && theObject[nodeName].length > 0;
-};
-
-/**
- * @description 获取object的key和value，输出两个数组
- * @param {Object} theObject
- * @returns {[]}
- */
-const objectKeyAndValue = (theObject) => {
-    const keysAry = [];
-    const valueAry = [];
-    Object.keys(theObject).forEach((keys) => {
-        keysAry.push(String(keys));
-        valueAry.push(theObject[keys]);
-    });
-    return [keysAry, valueAry];
 };
 
 /**
@@ -3019,8 +3019,8 @@ exports.numberGet = numberGet;
 exports.numberPriceBigWrite = numberPriceBigWrite;
 exports.numberUnit = numberUnit;
 exports.objectDeleteElement = objectDeleteElement;
+exports.objectGetKeyAndValue = objectGetKeyAndValue;
 exports.objectHasChildren = objectHasChildren;
-exports.objectKeyAndValue = objectKeyAndValue;
 exports.objectLength = objectLength;
 exports.objectRenameKey = objectRenameKey;
 exports.replaceAll = replaceAll;
