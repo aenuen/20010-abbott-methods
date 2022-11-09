@@ -1,189 +1,190 @@
 // calc
-import { calcSum } from './calc/calcSum'
+export { calcSum } from './calc/calcSum'
 // addressBar
-import { addressBarCurrent } from './addressBar/addressBarCurrent'
-import { addressBarFilePath } from './addressBar/addressBarFilePath'
-import { addressBarFrom } from './addressBar/addressBarFrom'
-import { addressBarHash } from './addressBar/addressBarHash'
-import { addressBarHead } from './addressBar/addressBarHead'
-import { addressBarHost } from './addressBar/addressBarHost'
-import { addressBarHttp } from './addressBar/addressBarHttp'
-import { addressBarName } from './addressBar/addressBarName'
-import { addressBarPort } from './addressBar/addressBarPort'
-import { addressBarQuery } from './addressBar/addressBarQuery'
+export { addressBarCurrent } from './addressBar/addressBarCurrent'
+export { addressBarFilePath } from './addressBar/addressBarFilePath'
+export { addressBarFrom } from './addressBar/addressBarFrom'
+export { addressBarHash } from './addressBar/addressBarHash'
+export { addressBarHead } from './addressBar/addressBarHead'
+export { addressBarHost } from './addressBar/addressBarHost'
+export { addressBarHttp } from './addressBar/addressBarHttp'
+export { addressBarName } from './addressBar/addressBarName'
+export { addressBarPort } from './addressBar/addressBarPort'
+export { addressBarQuery } from './addressBar/addressBarQuery'
 // ao
-import { aoChunk } from './ao/aoChunk'
-import { aoCleanKeyAll } from './ao/aoCleanKeyAll'
-import { aoCleanKeyOne } from './ao/aoCleanKeyOne'
-import { aoDeleteEmpty } from './ao/aoDeleteEmpty'
-import { aoDeleteKey } from './ao/aoDeleteKey'
-import { aoDeleteValue } from './ao/aoDeleteValue'
-import { aoHoldKey } from './ao/aoHoldKey'
-import { aoHoldValue } from './ao/aoHoldValue'
-import { aoKeyName } from './ao/aoKeyName'
-import { aoRandom } from './ao/aoRandom'
-import { aoRandomRAC } from './ao/aoRandomRAC'
-import { aoRepeat } from './ao/aoRepeat'
-import { aoReverse } from './ao/aoReverse'
-import { aoWhetherIn } from './ao/aoWhetherIn'
+export { aoChunk } from './ao/aoChunk'
+export { aoCleanKeyAll } from './ao/aoCleanKeyAll'
+export { aoCleanKeyOne } from './ao/aoCleanKeyOne'
+export { aoDeleteEmpty } from './ao/aoDeleteEmpty'
+export { aoDeleteKey } from './ao/aoDeleteKey'
+export { aoDeleteValue } from './ao/aoDeleteValue'
+export { aoHoldKey } from './ao/aoHoldKey'
+export { aoHoldValue } from './ao/aoHoldValue'
+export { aoKeyName } from './ao/aoKeyName'
+export { aoRandom } from './ao/aoRandom'
+export { aoRandomRAC } from './ao/aoRandomRAC'
+export { aoRepeat } from './ao/aoRepeat'
+export { aoReverse } from './ao/aoReverse'
+export { aoWhetherIn } from './ao/aoWhetherIn'
 // array
-import { arrayDiKaErJi } from './array/arrayDiKaErJi'
-import { arrayFlatten } from './array/arrayFlatten'
-import { arrayHasOne } from './array/arrayHasOne'
-import { arrayIntersection } from './array/arrayIntersection'
-import { arrayOrder } from './array/arrayOrder'
-import { arrayOrderByField } from './array/arrayOrderByField'
-import { arrayRatioReplace } from './array/arrayRatioReplace'
-import { arrayToStringChar } from './array/arrayToStringChar'
-import { arrayUnion } from './array/arrayUnion'
-import { arrayWhetherIn } from './array/arrayWhetherIn'
+export { arrayDiKaErJi } from './array/arrayDiKaErJi'
+export { arrayFlatten } from './array/arrayFlatten'
+export { arrayHasOne } from './array/arrayHasOne'
+export { arrayIntersection } from './array/arrayIntersection'
+export { arrayOrder } from './array/arrayOrder'
+export { arrayOrderByField } from './array/arrayOrderByField'
+export { arrayRatioReplace } from './array/arrayRatioReplace'
+export { arrayToStringChar } from './array/arrayToStringChar'
+export { arrayUnion } from './array/arrayUnion'
+export { arrayWhetherIn } from './array/arrayWhetherIn'
 // browser
-import { browserInfoObject } from './browser/browserInfoObject'
-import { browserIsMobile } from './browser/browserIsMobile'
-import { browserIsPc } from './browser/browserIsPc'
-import { browserName } from './browser/browserName'
-import { browserUserAgent } from './browser/browserUserAgent'
-import { browserWhetherInArray } from './browser/browserWhetherInArray'
+export { browserInfoObject } from './browser/browserInfoObject'
+export { browserIsMobile } from './browser/browserIsMobile'
+export { browserIsPc } from './browser/browserIsPc'
+export { browserName } from './browser/browserName'
+export { browserUserAgent } from './browser/browserUserAgent'
+export { browserWhetherInArray } from './browser/browserWhetherInArray'
 // case
-import { caseAllBig } from './case/caseAllBig'
-import { caseAllSmall } from './case/caseAllSmall'
-import { caseFirstBig } from './case/caseFirstBig'
-import { caseWordFirstBig } from './case/caseWordFirstBig'
+export { caseAllBig } from './case/caseAllBig'
+export { caseAllSmall } from './case/caseAllSmall'
+export { caseFirstBig } from './case/caseFirstBig'
+export { caseWordFirstBig } from './case/caseWordFirstBig'
 // class
-import { classAdd } from './class/classAdd'
-import { classHas } from './class/classHas'
-import { classRemove } from './class/classRemove'
-import { classToggle } from './class/classToggle'
+export { classAdd } from './class/classAdd'
+export { classHas } from './class/classHas'
+export { classRemove } from './class/classRemove'
+export { classToggle } from './class/classToggle'
 // controlInput
-import { controlInputNumberSpace } from './controlInput/controlInputNumberSpace'
-import { controlInputPrice } from './controlInput/controlInputPrice'
+export { controlInputNumberSpace } from './controlInput/controlInputNumberSpace'
+export { controlInputPrice } from './controlInput/controlInputPrice'
 // date
-import { dateApart } from './date/dateApart'
-import { dateApartMonth } from './date/dateApartMonth'
-import { dateApartMonthList } from './date/dateApartMonthList'
-import { dateDifference } from './date/dateDifference'
-import { dateMonthFoot } from './date/dateMonthFoot'
-import { dateMonthHead } from './date/dateMonthHead'
-import { dateMonthNext } from './date/dateMonthNext'
-import { dateMonthPrev } from './date/dateMonthPrev'
-import { dateOneMonth } from './date/dateOneMonth'
-import { dateOneWeek } from './date/dateOneWeek'
-import { dateWeekSunday } from './date/dateWeekSunday'
+export { dateApart } from './date/dateApart'
+export { dateApartMonth } from './date/dateApartMonth'
+export { dateApartMonthList } from './date/dateApartMonthList'
+export { dateDifference } from './date/dateDifference'
+export { dateMonthFoot } from './date/dateMonthFoot'
+export { dateMonthHead } from './date/dateMonthHead'
+export { dateMonthNext } from './date/dateMonthNext'
+export { dateMonthPrev } from './date/dateMonthPrev'
+export { dateOneMonth } from './date/dateOneMonth'
+export { dateOneWeek } from './date/dateOneWeek'
+export { dateWeekSunday } from './date/dateWeekSunday'
 // define
-import { defineAcceptAry } from './define/defineAcceptAry'
-import { defineBooleanAry } from './define/defineBooleanAry'
-import { defineFace } from './define/defineFace'
-import { defineIsUseAry } from './define/defineIsUseAry'
+export { defineAcceptAry } from './define/defineAcceptAry'
+export { defineBooleanAry } from './define/defineBooleanAry'
+export { defineFace } from './define/defineFace'
+export { defineIsUseAry } from './define/defineIsUseAry'
 // element
-import { autoQuery } from './element/autoQuery'
-import { elTableIndex } from './element/elTableIndex'
-import { keyLight } from './element/keyLight'
-import { shortcutDate } from './element/pickerOptions'
-import { shortcutScope } from './element/pickerOptions'
-import { gtTime } from './element/pickerOptions'
-import { ltTime } from './element/pickerOptions'
-import { scopedTime } from './element/pickerOptions'
-import { summaryMethod } from './element/summaryMethod'
+export { autoQuery } from './element/autoQuery'
+export { elTableIndex } from './element/elTableIndex'
+export { keyLight } from './element/keyLight'
+export { shortcutDate } from './element/pickerOptions'
+export { shortcutScope } from './element/pickerOptions'
+export { gtTime } from './element/pickerOptions'
+export { ltTime } from './element/pickerOptions'
+export { scopedTime } from './element/pickerOptions'
+export { summaryMethod } from './element/summaryMethod'
 // ensure
-import { ensureFootHave } from './ensure/ensureFootHave'
-import { ensureFootNone } from './ensure/ensureFootNone'
-import { ensureHeadHave } from './ensure/ensureHeadHave'
-import { ensureHeadNone } from './ensure/ensureHeadNone'
+export { ensureFootHave } from './ensure/ensureFootHave'
+export { ensureFootNone } from './ensure/ensureFootNone'
+export { ensureHeadHave } from './ensure/ensureHeadHave'
+export { ensureHeadNone } from './ensure/ensureHeadNone'
 // file
-import { fileBaseName } from './file/fileBaseName'
-import { fileClassify } from './file/fileClassify'
-import { fileFullName } from './file/fileFullName'
-import { fileSuffixName } from './file/fileSuffixName'
-import { fileUnit } from './file/fileUnit'
+export { fileBaseName } from './file/fileBaseName'
+export { fileClassify } from './file/fileClassify'
+export { fileFullName } from './file/fileFullName'
+export { fileSuffixName } from './file/fileSuffixName'
+export { fileUnit } from './file/fileUnit'
 // filter
-import { filterBoolean } from './filter/filterBoolean'
-import { filterDate } from './filter/filterDate'
-import { filterDateHI } from './filter/filterDateHI'
-import { filterDatetime } from './filter/filterDatetime'
-import { filterIsUse } from './filter/filterIsUse'
+export { filterBoolean } from './filter/filterBoolean'
+export { filterDate } from './filter/filterDate'
+export { filterDateHI } from './filter/filterDateHI'
+export { filterDatetime } from './filter/filterDatetime'
+export { filterIsUse } from './filter/filterIsUse'
 // format
-import { formatAllCn } from './format/formatAllCn'
-import { formatAllNumber } from './format/formatAllNumber'
-import { formatDate } from './format/formatDate'
-import { formatDatetime } from './format/formatDatetime'
-import { formatDomain } from './format/formatDomain'
-import { formatEmail } from './format/formatEmail'
-import { formatExternal } from './format/formatExternal'
-import { formatHexColor } from './format/formatHexColor'
-import { formatIdCard } from './format/formatIdCard'
-import { formatImageBase } from './format/formatImageBase'
-import { formatIp } from './format/formatIp'
-import { formatMobile } from './format/formatMobile'
-import { formatPrice } from './format/formatPrice'
-import { formatTelephone } from './format/formatTelephone'
-import { formatUrl } from './format/formatUrl'
-import { formatUsername } from './format/formatUsername'
-import { formatZip } from './format/formatZip'
+export { formatAllCn } from './format/formatAllCn'
+export { formatAllNumber } from './format/formatAllNumber'
+export { formatDate } from './format/formatDate'
+export { formatDatetime } from './format/formatDatetime'
+export { formatDomain } from './format/formatDomain'
+export { formatEmail } from './format/formatEmail'
+export { formatExternal } from './format/formatExternal'
+export { formatHexColor } from './format/formatHexColor'
+export { formatIdCard } from './format/formatIdCard'
+export { formatImageBase } from './format/formatImageBase'
+export { formatIp } from './format/formatIp'
+export { formatMobile } from './format/formatMobile'
+export { formatPrice } from './format/formatPrice'
+export { formatTelephone } from './format/formatTelephone'
+export { formatUrl } from './format/formatUrl'
+export { formatUsername } from './format/formatUsername'
+export { formatZip } from './format/formatZip'
 // have
-import { haveAssign } from './have/haveAssign'
-import { haveCn } from './have/haveCn'
+export { haveAssign } from './have/haveAssign'
+export { haveCn } from './have/haveCn'
 // hold
-import { holdCn } from './hold/holdCn'
-import { holdFirst } from './hold/holdFirst'
-import { holdLetter } from './hold/holdLetter'
-import { holdNumber } from './hold/holdNumber'
+export { holdCn } from './hold/holdCn'
+export { holdFirst } from './hold/holdFirst'
+export { holdLetter } from './hold/holdLetter'
+export { holdNumber } from './hold/holdNumber'
 // local
-import { localRead } from './local/localRead'
-import { localSave } from './local/localSave'
+export { localRead } from './local/localRead'
+export { localSave } from './local/localSave'
 // month
-import { monthDifference } from './month/monthDifference'
+export { monthDifference } from './month/monthDifference'
 // number
-import { numberAddComma } from './number/numberAddComma'
-import { numberAddZero } from './number/numberAddZero'
-import { numberGet } from './number/numberGet'
-import { numberPriceBigWrite } from './number/numberPriceBigWrite'
-import { numberUnit } from './number/numberUnit'
+export { numberAddComma } from './number/numberAddComma'
+export { numberAddZero } from './number/numberAddZero'
+export { numberGet } from './number/numberGet'
+export { numberPriceBigWrite } from './number/numberPriceBigWrite'
+export { numberUnit } from './number/numberUnit'
 // object
-import { objectDeleteElement } from './object/objectDeleteElement'
-import { objectHasChildren } from './object/objectHasChildren'
-import { objectLength } from './object/objectLength'
-import { objectRenameKey } from './object/objectRenameKey'
+export { objectDeleteElement } from './object/objectDeleteElement'
+export { objectHasChildren } from './object/objectHasChildren'
+export { objectKeyAndValue } from './object/objectKeyAndValue'
+export { objectLength } from './object/objectLength'
+export { objectRenameKey } from './object/objectRenameKey'
 // replace
-import { replaceAll } from './replace/replaceAll'
-import { replaceByObject } from './replace/replaceByObject'
-import { replaceOne } from './replace/replaceOne'
+export { replaceAll } from './replace/replaceAll'
+export { replaceByObject } from './replace/replaceByObject'
+export { replaceOne } from './replace/replaceOne'
 // some
-import { someColorHexToRGB } from './some/someColorHexToRGB'
-import { someColorRGBToHex } from './some/someColorRGBToHex'
-import { someFebruaryDays } from './some/someFebruaryDays'
-import { someMaxZIndex } from './some/someMaxZIndex'
-import { somePluralize } from './some/somePluralize'
-import { someRandomColor } from './some/someRandomColor'
-import { someWhetherLeapYear } from './some/someWhetherLeapYear'
-import { someYearMonthDays } from './some/someYearMonthDays'
+export { someColorHexToRGB } from './some/someColorHexToRGB'
+export { someColorRGBToHex } from './some/someColorRGBToHex'
+export { someFebruaryDays } from './some/someFebruaryDays'
+export { someMaxZIndex } from './some/someMaxZIndex'
+export { somePluralize } from './some/somePluralize'
+export { someRandomColor } from './some/someRandomColor'
+export { someWhetherLeapYear } from './some/someWhetherLeapYear'
+export { someYearMonthDays } from './some/someYearMonthDays'
 // string
-import { stringCut } from './string/stringCut'
-import { stringCutCn } from './string/stringCutCn'
-import { stringLoop } from './string/stringLoop'
-import { stringRandom } from './string/stringRandom'
-import { stringReverse } from './string/stringReverse'
-import { stringToArrayChar } from './string/stringToArrayChar'
-import { stringToArrayNumber } from './string/stringToArrayNumber'
+export { stringCut } from './string/stringCut'
+export { stringCutCn } from './string/stringCutCn'
+export { stringLoop } from './string/stringLoop'
+export { stringRandom } from './string/stringRandom'
+export { stringReverse } from './string/stringReverse'
+export { stringToArrayChar } from './string/stringToArrayChar'
+export { stringToArrayNumber } from './string/stringToArrayNumber'
 // time
-import { timeAgoCn } from './time/timeAgoCn'
-import { timeAgoEn } from './time/timeAgoEn'
-import { timeDifference } from './time/timeDifference'
-import { timeFormat } from './time/timeFormat'
-import { timeGetDate } from './time/timeGetDate'
-import { timeGetDay } from './time/timeGetDay'
-import { timeGetMonth } from './time/timeGetMonth'
-import { timeGetWeek } from './time/timeGetWeek'
-import { timeGetYear } from './time/timeGetYear'
-import { timeGetYearMonth } from './time/timeGetYearMonth'
-import { timeIsEarly } from './time/timeIsEarly'
-import { timeNewDate } from './time/timeNewDate'
-import { timeObject } from './time/timeObject'
-import { timeRelativeTime } from './time/timeRelativeTime'
-import { timeSecondBar } from './time/timeSecondBar'
-import { timeShort } from './time/timeShort'
-import { timestamp } from './time/timestamp'
-import { timeStampIsMillisecond } from './time/timeStampIsMillisecond'
-import {
+export { timeAgoCn } from './time/timeAgoCn'
+export { timeAgoEn } from './time/timeAgoEn'
+export { timeDifference } from './time/timeDifference'
+export { timeFormat } from './time/timeFormat'
+export { timeGetDate } from './time/timeGetDate'
+export { timeGetDay } from './time/timeGetDay'
+export { timeGetMonth } from './time/timeGetMonth'
+export { timeGetWeek } from './time/timeGetWeek'
+export { timeGetYear } from './time/timeGetYear'
+export { timeGetYearMonth } from './time/timeGetYearMonth'
+export { timeIsEarly } from './time/timeIsEarly'
+export { timeNewDate } from './time/timeNewDate'
+export { timeObject } from './time/timeObject'
+export { timeRelativeTime } from './time/timeRelativeTime'
+export { timeSecondBar } from './time/timeSecondBar'
+export { timeShort } from './time/timeShort'
+export { timestamp } from './time/timestamp'
+export { timeStampIsMillisecond } from './time/timeStampIsMillisecond'
+export {
   H_DATE,
   H_DATE_ABBR,
   H_DATETIME,
@@ -206,290 +207,43 @@ import {
   T_YM_ABBR
 } from './time/timeText'
 // type
-import { typeArray } from './type/typeArray'
-import { typeBoolean } from './type/typeBoolean'
-import { typeDate } from './type/typeDate'
-import { typeEmpty } from './type/typeEmpty'
-import { typeFloat } from './type/typeFloat'
-import { typeFunction } from './type/typeFunction'
-import { typeHTMLElement } from './type/typeHTMLElement'
-import { typeInt } from './type/typeInt'
-import { typeIntMinus } from './type/typeIntMinus'
-import { typeIntPositive } from './type/typeIntPositive'
-import { typeNumber } from './type/typeNumber'
-import { typeObject } from './type/typeObject'
-import { typeRegexp } from './type/typeRegexp'
-import { typeString } from './type/typeString'
-import { typeSymbol } from './type/typeSymbol'
+export { typeArray } from './type/typeArray'
+export { typeBoolean } from './type/typeBoolean'
+export { typeDate } from './type/typeDate'
+export { typeEmpty } from './type/typeEmpty'
+export { typeFloat } from './type/typeFloat'
+export { typeFunction } from './type/typeFunction'
+export { typeHTMLElement } from './type/typeHTMLElement'
+export { typeInt } from './type/typeInt'
+export { typeIntMinus } from './type/typeIntMinus'
+export { typeIntPositive } from './type/typeIntPositive'
+export { typeNumber } from './type/typeNumber'
+export { typeObject } from './type/typeObject'
+export { typeRegexp } from './type/typeRegexp'
+export { typeString } from './type/typeString'
+export { typeSymbol } from './type/typeSymbol'
 // uniCode
-import { uniCodeDecode } from './uniCode/uniCodeDecode'
-import { uniCodeEncode } from './uniCode/uniCodeEncode'
+export { uniCodeDecode } from './uniCode/uniCodeDecode'
+export { uniCodeEncode } from './uniCode/uniCodeEncode'
 // urlCode
-import { urlCodeDecode } from './urlCode/urlCodeDecode'
-import { urlCodeEncode } from './urlCode/urlCodeEncode'
+export { urlCodeDecode } from './urlCode/urlCodeDecode'
+export { urlCodeEncode } from './urlCode/urlCodeEncode'
 // urlString
-import { urlStringQueryObject } from './urlString/urlStringQueryObject'
-import { urlStringQueryOne } from './urlString/urlStringQueryOne'
+export { urlStringQueryObject } from './urlString/urlStringQueryObject'
+export { urlStringQueryOne } from './urlString/urlStringQueryOne'
 // validate
-import { validateAllCn } from './validate/validateAllCn'
-import { validateAllNumber } from './validate/validateAllNumber'
-import { validateDate } from './validate/validateDate'
-import { validateDatetime } from './validate/validateDatetime'
-import { validateEmail } from './validate/validateEmail'
-import { validateErrMsg } from './validate/validateErrMsg'
-import { validateMobile } from './validate/validateMobile'
-import { validatePrice } from './validate/validatePrice'
-import { validateRequire } from './validate/validateRequire'
-import { validateUsername } from './validate/validateUsername'
+export { validateAllCn } from './validate/validateAllCn'
+export { validateAllNumber } from './validate/validateAllNumber'
+export { validateDate } from './validate/validateDate'
+export { validateDatetime } from './validate/validateDatetime'
+export { validateEmail } from './validate/validateEmail'
+export { validateErrMsg } from './validate/validateErrMsg'
+export { validateMobile } from './validate/validateMobile'
+export { validatePrice } from './validate/validatePrice'
+export { validateRequire } from './validate/validateRequire'
+export { validateUsername } from './validate/validateUsername'
 // week
-import { weekAryCn } from './week/weekAryCn'
-import { weekAryEn } from './week/weekAryEn'
-import { weekGetCn } from './week/weekGetCn'
-import { weekGetEn } from './week/weekGetEn'
-
-export {
-  // calc
-  calcSum,
-  // addressBar
-  addressBarCurrent,
-  addressBarFilePath,
-  addressBarFrom,
-  addressBarHash,
-  addressBarHead,
-  addressBarHost,
-  addressBarHttp,
-  addressBarName,
-  addressBarPort,
-  addressBarQuery,
-  // ao
-  aoChunk,
-  aoCleanKeyAll,
-  aoCleanKeyOne,
-  aoDeleteEmpty,
-  aoDeleteKey,
-  aoDeleteValue,
-  aoHoldKey,
-  aoHoldValue,
-  aoKeyName,
-  aoRandom,
-  aoRandomRAC,
-  aoRepeat,
-  aoReverse,
-  aoWhetherIn,
-  // array
-  arrayDiKaErJi,
-  arrayFlatten,
-  arrayHasOne,
-  arrayIntersection,
-  arrayOrder,
-  arrayOrderByField,
-  arrayRatioReplace,
-  arrayToStringChar,
-  arrayUnion,
-  arrayWhetherIn,
-  // browser
-  browserInfoObject,
-  browserIsMobile,
-  browserIsPc,
-  browserName,
-  browserUserAgent,
-  browserWhetherInArray,
-  // case
-  caseAllBig,
-  caseAllSmall,
-  caseFirstBig,
-  caseWordFirstBig,
-  classAdd,
-  classHas,
-  classRemove,
-  classToggle,
-  // control
-  controlInputNumberSpace,
-  controlInputPrice,
-  // date
-  dateApart,
-  dateApartMonth,
-  dateApartMonthList,
-  dateDifference,
-  dateMonthFoot,
-  dateMonthHead,
-  dateMonthNext,
-  dateMonthPrev,
-  dateOneMonth,
-  dateOneWeek,
-  dateWeekSunday,
-  // define
-  defineAcceptAry,
-  defineBooleanAry,
-  defineFace,
-  defineIsUseAry,
-  // element
-  autoQuery,
-  elTableIndex,
-  keyLight,
-  shortcutDate,
-  shortcutScope,
-  gtTime,
-  ltTime,
-  scopedTime,
-  summaryMethod,
-  // ensure
-  ensureFootHave,
-  ensureHeadNone,
-  ensureHeadHave,
-  ensureFootNone,
-  // file
-  fileBaseName,
-  fileClassify,
-  fileFullName,
-  fileSuffixName,
-  fileUnit,
-  // filter
-  filterBoolean,
-  filterDate,
-  filterDateHI,
-  filterDatetime,
-  filterIsUse,
-  // format
-  formatAllCn,
-  formatAllNumber,
-  formatDate,
-  formatDatetime,
-  formatDomain,
-  formatEmail,
-  formatExternal,
-  formatHexColor,
-  formatIdCard,
-  formatImageBase,
-  formatIp,
-  formatMobile,
-  formatPrice,
-  formatTelephone,
-  formatUrl,
-  formatUsername,
-  formatZip,
-  // have
-  haveAssign,
-  haveCn,
-  // hold
-  holdCn,
-  holdFirst,
-  holdLetter,
-  holdNumber,
-  // local
-  localRead,
-  localSave,
-  // month
-  monthDifference,
-  // number
-  numberAddComma,
-  numberAddZero,
-  numberGet,
-  numberPriceBigWrite,
-  numberUnit,
-  // object
-  objectDeleteElement,
-  objectHasChildren,
-  objectLength,
-  objectRenameKey,
-  // replace
-  replaceAll,
-  replaceByObject,
-  replaceOne,
-  // some
-  someColorHexToRGB,
-  someColorRGBToHex,
-  someFebruaryDays,
-  someMaxZIndex,
-  somePluralize,
-  someRandomColor,
-  someWhetherLeapYear,
-  someYearMonthDays,
-  // string
-  stringCut,
-  stringCutCn,
-  stringLoop,
-  stringRandom,
-  stringReverse,
-  stringToArrayChar,
-  stringToArrayNumber,
-  // time
-  timeAgoCn,
-  timeAgoEn,
-  timeDifference,
-  timeFormat,
-  timeGetDate,
-  timeGetDay,
-  timeGetMonth,
-  timeGetWeek,
-  timeGetYear,
-  timeGetYearMonth,
-  timeIsEarly,
-  timeNewDate,
-  timeObject,
-  timeRelativeTime,
-  timeSecondBar,
-  timeShort,
-  timestamp,
-  timeStampIsMillisecond,
-  H_YM,
-  H_YM_ABBR,
-  H_DATE,
-  H_DATE_ABBR,
-  H_MH,
-  H_DATETIME,
-  H_DATETIME_ABBR,
-  H_H_I,
-  H_M_D_H_I,
-  H_Y_M_D_H_I,
-  T_YM,
-  T_YM_ABBR,
-  T_DATE,
-  T_DATE_ABBR,
-  T_MH,
-  T_DATETIME,
-  T_DATETIME_ABBR,
-  T_H_I,
-  T_M_D_H_I,
-  T_Y_M_D_H_I,
-  // type
-  typeArray,
-  typeBoolean,
-  typeDate,
-  typeEmpty,
-  typeFloat,
-  typeFunction,
-  typeHTMLElement,
-  typeInt,
-  typeIntMinus,
-  typeIntPositive,
-  typeNumber,
-  typeObject,
-  typeRegexp,
-  typeString,
-  typeSymbol,
-  // uniCode
-  uniCodeDecode,
-  uniCodeEncode,
-  urlCodeDecode,
-  urlCodeEncode,
-  // urlString
-  urlStringQueryObject,
-  urlStringQueryOne,
-  // validate
-  validateAllCn,
-  validateAllNumber,
-  validateDate,
-  validateDatetime,
-  validateEmail,
-  validateErrMsg,
-  validateMobile,
-  validatePrice,
-  validateRequire,
-  validateUsername,
-  // week
-  weekAryCn,
-  weekAryEn,
-  weekGetCn,
-  weekGetEn
-}
+export { weekAryCn } from './week/weekAryCn'
+export { weekAryEn } from './week/weekAryEn'
+export { weekGetCn } from './week/weekGetCn'
+export { weekGetEn } from './week/weekGetEn'

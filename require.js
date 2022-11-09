@@ -1953,6 +1953,21 @@ const objectHasChildren = (theObject, nodeName) => {
 };
 
 /**
+ * @description 获取object的key和value，输出两个数组
+ * @param {Object} theObject
+ * @returns {[]}
+ */
+const objectKeyAndValue = (theObject) => {
+    const keysAry = [];
+    const valueAry = [];
+    Object.keys(theObject).forEach((keys) => {
+        keysAry.push(String(keys));
+        valueAry.push(theObject[keys]);
+    });
+    return [keysAry, valueAry];
+};
+
+/**
  * @description 获取object的长度
  * @param {Object} theObject
  * @returns {Number}
@@ -3005,6 +3020,7 @@ exports.numberPriceBigWrite = numberPriceBigWrite;
 exports.numberUnit = numberUnit;
 exports.objectDeleteElement = objectDeleteElement;
 exports.objectHasChildren = objectHasChildren;
+exports.objectKeyAndValue = objectKeyAndValue;
 exports.objectLength = objectLength;
 exports.objectRenameKey = objectRenameKey;
 exports.replaceAll = replaceAll;

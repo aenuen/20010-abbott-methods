@@ -1,5 +1,5 @@
-import { fileSuffixName } from '../src'
+import { objectKeyAndValue } from '../src'
 
 test('测试toBe', async () => {
-  console.log(fileSuffixName('a.jpg'))
+  console.log(objectKeyAndValue({ a: 1 }))
 })
