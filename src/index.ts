@@ -149,6 +149,7 @@ export { replaceAll } from './replace/replaceAll'
 export { replaceByObject } from './replace/replaceByObject'
 export { replaceOne } from './replace/replaceOne'
 // some
+export { someLetter26 } from './some/someLetter26'
 export { someColorHexToRGB } from './some/someColorHexToRGB'
 export { someColorRGBToHex } from './some/someColorRGBToHex'
 export { someFebruaryDays } from './some/someFebruaryDays'

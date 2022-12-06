@@ -1995,6 +1995,26 @@ const objectRenameKey = (theObject, objectKey, newKey) => {
     return theObject;
 };
 
+/*
+ * @Author: abbott
+ * @Date: 2022-12-06 16:34:32
+ * @LastEditors: abbott
+ * @LastEditTime: 2022-12-06 16:48:23
+ * @Description:
+ */
+/**
+ * @description 26个小写字母
+ * @param {Boolean} [isBig]
+ * @returns {String}
+ */
+const someLetter26 = (isBig = false) => {
+    let result = '';
+    for (let index = 0; index < 26; index++) {
+        result += String.fromCharCode((isBig ? 65 : 97) + index);
+    }
+    return result;
+};
+
 /**
  * @description 十六进制颜色转RGB颜色
  * @param {string} hex
@@ -3032,6 +3052,7 @@ exports.shortcutScope = shortcutScope;
 exports.someColorHexToRGB = someColorHexToRGB;
 exports.someColorRGBToHex = someColorRGBToHex;
 exports.someFebruaryDays = someFebruaryDays;
+exports.someLetter26 = someLetter26;
 exports.someMaxZIndex = someMaxZIndex;
 exports.somePluralize = somePluralize;
 exports.someRandomColor = someRandomColor;
