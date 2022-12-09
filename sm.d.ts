@@ -103,3 +103,9 @@ declare const arrayAny1: any[]
 declare const arrayAny2: any[]
 declare const arrayField: string | number
 declare const arrayOrder: boolean
+// mysql
+declare const mysqlArray: any[]
+declare const mysqlObject: Record<string | number | symbol, any>
+declare const mysqlAs: any[] | string
+declare const mysqlOs: Record<string | number | symbol, any> | string
+declare const mysqlMulti: any[] | Record<string | number | symbol, any> | string

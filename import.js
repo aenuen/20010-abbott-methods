@@ -1831,6 +1831,240 @@ const monthDifference = (timeOne, timeTwo, abs) => {
 };
 
 /**
+ * @description 处理数据连接,使用在addNumber语句
+ * @param {{}|string} mysqlModel 数据
+ * @returns {string}
+ */
+const concatNumber = (mysqlOs) => {
+    if (typeObject(mysqlOs)) {
+        return objectAction$4(mysqlOs);
+    }
+    else if (typeString(mysqlOs)) {
+        return mysqlOs;
+    }
+    else {
+        return '';
+    }
+};
+const objectAction$4 = (mysqlObject) => {
+    const result = [];
+    Object.keys(mysqlObject).forEach((key) => {
+        result.push(`\`${key}\`=\`${key}\`+'${mysqlObject[key]}'`);
+    });
+    return result.join(',');
+};
+
+/**
+ * @description 处理数据连接,使用在addString语句
+ * @param {{}|string} mysqlOs 数据
+ * @returns {string}
+ */
+const concatString = (mysqlOs) => {
+    if (typeObject(mysqlOs)) {
+        return objectAction$3(mysqlOs);
+    }
+    else if (typeString(mysqlOs)) {
+        return mysqlOs;
+    }
+    else {
+        return '';
+    }
+};
+const objectAction$3 = (mysqlObject) => {
+    const result = [];
+    Object.keys(mysqlObject).forEach((key) => {
+        result.push(`\`${key}\`=concat(\`${key}\`,'${mysqlObject[key]}')`);
+    });
+    return result.join(',');
+};
+
+/**
+ * @description 整理搜索条件
+ * @param {[]} mysqlAs 参数
+ * @param {byAnd} bySpace 语名前是否加" and "
+ * @returns {string}
+ */
+const modelAnd = (mysqlAs) => {
+    if (typeArray(mysqlAs)) {
+        return arrayAction(mysqlAs);
+    }
+    else if (typeString(mysqlAs)) {
+        return mysqlAs;
+    }
+    else {
+        return '';
+    }
+};
+const arrayAction = (mysqlArray) => {
+    const result = [];
+    for (let i = 0; i < mysqlArray.length; i++) {
+        const row = mysqlArray[i];
+        const key = row[0];
+        const value = row[1];
+        const char = row[2];
+        if (char === '=') {
+            result.push(`\`${key}\`='${value}'`);
+        }
+        else if (char === '!') {
+            result.push(`\`${key}\` != '${value}'`);
+        }
+        else if (char === 'in') {
+            result.push(`\`${key}\` in (${value.join(',')})`);
+        }
+        else if (char === '!in') {
+            result.push(`\`${key}\` not in (${value.join(',')})`);
+        }
+        else if (char === 'like') {
+            result.push(`\`${key}\` like '%${value}%'`);
+        }
+        else if (char === '!like') {
+            result.push(`\`${key}\` not like '%${value}%'`);
+        }
+        else if (char === 'scope') {
+            if (value && typeArray(value) && value.length >= 2) {
+                result.push(`\`${key}\` > '${value[0]}'`);
+                result.push(`\`${key}\` < '${value[1]}'`);
+            }
+        }
+        else if (char === '<') {
+            result.push(value ? `\`${key}\` < '${value}'` : '');
+        }
+        else if (char === '<=') {
+            result.push(value ? `\`${key}\` <= '${value}'` : '');
+        }
+        else if (char === '>') {
+            result.push(value ? `\`${key}\` > '${value}'` : '');
+        }
+        else if (char === '=>') {
+            result.push(value ? `\`${key}\` >= '${value}'` : '');
+        }
+    }
+    return result.join(' and ');
+};
+
+/**
+ * @description 处理Where数据,使用在query、update或delete语句
+ * @param {[]|{}|string} mysqlMulti 数据
+ * @param {boolean} [byAnd] 是否在语名前加“ and ”
+ * @returns {string}
+ */
+const modelWhere = (mysqlMulti) => {
+    if (typeObject(mysqlMulti)) {
+        return objectAction$2(mysqlMulti);
+    }
+    else if (typeArray(mysqlMulti)) {
+        return modelAnd(mysqlMulti);
+    }
+    else if (typeString(mysqlMulti)) {
+        return mysqlMulti;
+    }
+    else {
+        return '';
+    }
+};
+const objectAction$2 = (mysqlObject) => {
+    const result = [];
+    Object.keys(mysqlObject).forEach((key) => {
+        result.push(`\`${key}\`='${mysqlObject[key]}'`);
+    });
+    return result.join(',');
+};
+
+/**
+ * @description 条件处理
+ * @param {[]|null|{}|string} [where] 条件
+ * @returns
+ */
+const handleWhere = (mysqlMulti) => {
+    return mysqlMulti ? modelWhere(mysqlMulti) : '1=1';
+};
+
+/**
+ * @description 处理Comma数据,使用在update语句
+ * @param {{}} mysqlOs 数据
+ * @returns {string}
+ */
+const modelComma = (mysqlOs) => {
+    if (typeObject(mysqlOs)) {
+        return objectAction$1(mysqlOs);
+    }
+    else if (typeString(mysqlOs)) {
+        return mysqlOs;
+    }
+    else {
+        return '';
+    }
+};
+const objectAction$1 = (mysqlObject) => {
+    const result = [];
+    Object.keys(mysqlObject).forEach((key) => {
+        result.push(`\`${key}\`='${mysqlObject[key]}'`);
+    });
+    return result.join(',');
+};
+
+/**
+ * @description 处理Values数据,使用在insert语句
+ * @param {{}|string} mysqlOs 数据
+ * @returns {string}
+ */
+const modelValues = (mysqlOs) => {
+    if (typeObject(mysqlOs)) {
+        return objectAction(mysqlOs);
+    }
+    else if (typeString(mysqlOs)) {
+        return mysqlOs;
+    }
+    else {
+        return '';
+    }
+};
+const objectAction = (mysqlObject) => {
+    const keys = [];
+    const values = [];
+    Object.keys(mysqlObject).forEach((key) => {
+        keys.push(`\`${key}\``);
+        values.push(`'${mysqlObject[key]}'`);
+    });
+    if (keys.length > 0 && values.length > 0 && keys.length === values.length) {
+        return `(${keys.join(',')}) values (${values.join(',')})`;
+    }
+    else {
+        return '';
+    }
+};
+
+/**
+ * @description 解析字符串得出排序SQL语句
+ * @param {[]|string} mysqlAs 排序数据
+ * @param {boolean} byOrder 是否在语名前加"order by "
+ * @returns {string}
+ */
+const parseSort = (mysqlAs, byOrder = true) => {
+    if (typeArray(mysqlAs)) {
+        let sql = '';
+        if (mysqlAs.length > 0) {
+            for (let i = 0; i < mysqlAs.length; i++) {
+                const sort = mysqlAs[i];
+                const symbol = sort[0];
+                const field = sort.slice(1, sort.length);
+                const order = symbol === '+' ? 'asc' : 'desc';
+                sql += `${field} ${order}` + ',';
+            }
+            sql = sql.slice(0, -1);
+            sql = byOrder ? ` order by ${sql}` : sql;
+        }
+        return sql;
+    }
+    else if (typeString(mysqlAs)) {
+        return byOrder ? ` order by ${mysqlAs}` : mysqlAs;
+    }
+    else {
+        return '';
+    }
+};
+
+/**
  * @description 数字加逗号
  * @param {Number|String} number
  * @returns {String}
@@ -1995,11 +2229,11 @@ const objectRenameKey = (theObject, objectKey, newKey) => {
  * @Author: abbott
  * @Date: 2022-12-06 16:34:32
  * @LastEditors: abbott
- * @LastEditTime: 2022-12-06 16:48:23
+ * @LastEditTime: 2022-12-06 16:52:45
  * @Description:
  */
 /**
- * @description 26个小写字母
+ * @description 26个字母 true 大写 无参数或false 小写
  * @param {Boolean} [isBig]
  * @returns {String}
  */
@@ -2898,5 +3132,5 @@ const weekGetEn = (timeValue = new Date()) => {
     }
 };
 
-export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAcceptAry, defineBooleanAry, defineFace, defineIsUseAry, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSuffixName, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdNumber, keyLight, localRead, localSave, ltTime, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
+export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, concatNumber, concatString, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAcceptAry, defineBooleanAry, defineFace, defineIsUseAry, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSuffixName, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, handleWhere, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdNumber, keyLight, localRead, localSave, ltTime, modelAnd, modelComma, modelValues, modelWhere, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, parseSort, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
 //# sourceMappingURL=import.js.map
