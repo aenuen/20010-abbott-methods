@@ -1980,6 +1980,74 @@ const handleWhere = (mysqlMulti) => {
 };
 
 /**
+ * @description 整理搜索条件
+ * @param {[]} param 参数
+ * @param {boolean} [byAnd] 语名前是否加" and "
+ * @returns {string}
+ */
+const listParam = (mysqlAs) => {
+    if (typeArray(mysqlAs)) {
+        const result = [];
+        for (let i = 0; i < mysqlAs.length; i++) {
+            const row = mysqlAs[i];
+            const key = row[0];
+            const value = row[1];
+            const char = row[2];
+            if (char === '=') {
+                result.push(value ? `\`${key}\`='${value}'` : '');
+            }
+            else if (char === '!=') {
+                result.push(value ? `\`${key}\` != '${value}'` : '');
+            }
+            else if (char === 'in') {
+                result.push(value ? `\`${key}\` in (${value.join(',')})` : '');
+            }
+            else if (char === '!in') {
+                result.push(value ? `\`${key}\` not in (${value.join(',')})` : '');
+            }
+            else if (char === 'like') {
+                result.push(value ? `\`${key}\` like '%${value}%'` : '');
+            }
+            else if (char === '!like') {
+                result.push(value ? `\`${key}\` not like '%${value}%'` : '');
+            }
+            else if (char === 'scope') {
+                if (value && typeArray(value) && value.length >= 2) {
+                    result.push(`\`${key}\` >= '${value[0]}'`);
+                    result.push(`\`${key}\` <= '${value[1]}'`);
+                }
+            }
+            else if (char === '<') {
+                result.push(value ? `\`${key}\` < '${value}'` : '');
+            }
+            else if (char === '<=') {
+                result.push(value ? `\`${key}\` <= '${value}'` : '');
+            }
+            else if (char === '>') {
+                result.push(value ? `\`${key}\` > '${value}'` : '');
+            }
+            else if (char === '=>') {
+                result.push(value ? `\`${key}\` >= '${value}'` : '');
+            }
+        }
+        const newResult = [];
+        for (let i = 0; i < result.length; i++) {
+            const line = result[i];
+            if (line) {
+                newResult.push(line);
+            }
+        }
+        return newResult.join(' and ');
+    }
+    else if (typeString(mysqlAs)) {
+        return mysqlAs;
+    }
+    else {
+        return '';
+    }
+};
+
+/**
  * @description 处理Comma数据,使用在update语句
  * @param {{}} mysqlOs 数据
  * @returns {string}
@@ -3132,5 +3200,5 @@ const weekGetEn = (timeValue = new Date()) => {
     }
 };
 
-export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, concatNumber, concatString, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAcceptAry, defineBooleanAry, defineFace, defineIsUseAry, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSuffixName, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, handleWhere, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdNumber, keyLight, localRead, localSave, ltTime, modelAnd, modelComma, modelValues, modelWhere, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, parseSort, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
+export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, concatNumber, concatString, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAcceptAry, defineBooleanAry, defineFace, defineIsUseAry, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSuffixName, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, handleWhere, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdNumber, keyLight, listParam, localRead, localSave, ltTime, modelAnd, modelComma, modelValues, modelWhere, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, parseSort, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
 //# sourceMappingURL=import.js.map
