@@ -1707,6 +1707,13 @@ const formatIp = (string) => {
 };
 
 /**
+ * @description 是否统一信用代码格式
+ * @param {String} string
+ * @returns {Boolean}
+ */
+const formatLicense = (string) => /^[A-Z0-9]{15}$|^[A-Z0-9]{17}$|^[A-Z0-9]{18}$|^[A-Z0-9]{20}$/.test(String(string));
+
+/**
  * @description 是否 mobile 格式
  * @param {String} string
  * @returns {Boolean}
@@ -3028,6 +3035,57 @@ const validateEmail = (rule, validateValue, callback, min = 5, max = 30) => {
 const validateErrMsg = (fields) => fields[Object.keys(fields)[0]][0].message;
 
 /**
+ * @desc 验证是否身份证号码格式
+ * @param {*} rule
+ * @param {String} validateValue
+ * @param {*} callback
+ * @param {String} action
+ */
+const validateIdCard = (rule, validateValue, callback, action = '填写') => {
+    const field = '身份证号码';
+    const number = 18;
+    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+        callback(new Error(`${field}必须${action}`));
+    }
+    else {
+        if (formatIdCard(validateValue)) {
+            if (validateValue.length !== number) {
+                callback(new Error(`${field}为${number}个字符`));
+            }
+            else {
+                callback();
+            }
+        }
+        else {
+            callback(new Error(`请${action}正确的${field}`));
+        }
+    }
+};
+
+/**
+ * @desc 验证是否dateTime格式
+ * @param {*} rule
+ * @param {String} validateValue
+ * @param {*} callback
+ * @param {String} field
+ * @param {String} [action]
+ */
+const validateLicense = (rule, validateValue, callback, action = '填写') => {
+    const field = '统一信用代码';
+    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+        callback(new Error(`${field}必须${action}`));
+    }
+    else {
+        if (formatLicense(validateValue)) {
+            callback();
+        }
+        else {
+            callback(new Error(`${field}格式不正确`));
+        }
+    }
+};
+
+/**
  * @desc 验证是否手机号码格式
  * @param {*} rule
  * @param {String} validateValue
@@ -3319,6 +3377,7 @@ exports.formatHexColor = formatHexColor;
 exports.formatIdCard = formatIdCard;
 exports.formatImageBase = formatImageBase;
 exports.formatIp = formatIp;
+exports.formatLicense = formatLicense;
 exports.formatMobile = formatMobile;
 exports.formatPrice = formatPrice;
 exports.formatTelephone = formatTelephone;
@@ -3422,6 +3481,8 @@ exports.validateDate = validateDate;
 exports.validateDatetime = validateDatetime;
 exports.validateEmail = validateEmail;
 exports.validateErrMsg = validateErrMsg;
+exports.validateIdCard = validateIdCard;
+exports.validateLicense = validateLicense;
 exports.validateMobile = validateMobile;
 exports.validatePrice = validatePrice;
 exports.validateRequire = validateRequire;
