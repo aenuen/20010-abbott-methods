@@ -1,7 +1,13 @@
 export const defineAcceptAry = {
-  image: 'image/gif,image/jpeg,image/png',
-  excel: 'application/vnd.ms-excel',
-  word: 'application/msword',
+  imgAll: 'image/*',
+  gif: 'image/gif',
+  jpg: 'image/jpg',
+  jpeg: 'image/jpeg,',
+  png: 'image/png',
+  xls: 'application/vnd.ms-excel',
+  xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  doc: 'application/msword',
+  docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   csv: 'text/csv',
   pdf: 'application/pdf',
   zip: 'application/zip'
