@@ -70,7 +70,7 @@ export { dateOneMonth } from './date/dateOneMonth'
 export { dateOneWeek } from './date/dateOneWeek'
 export { dateWeekSunday } from './date/dateWeekSunday'
 // define
-export { defineAcceptAry } from './define/defineAcceptAry'
+export { defineAccept } from './define/defineAccept'
 export { defineBooleanAry } from './define/defineBooleanAry'
 export { defineFace } from './define/defineFace'
 export { defineIsUseAry } from './define/defineIsUseAry'

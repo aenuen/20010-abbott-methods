@@ -1152,7 +1152,7 @@ const dateOneMonth = (dateValue = new Date()) => {
     }
 };
 
-const defineAcceptAry = {
+const defineAccept = {
     imgAll: 'image/*',
     gif: 'image/gif',
     jpg: 'image/jpg',
@@ -3353,7 +3353,7 @@ exports.dateMonthPrev = dateMonthPrev;
 exports.dateOneMonth = dateOneMonth;
 exports.dateOneWeek = dateOneWeek;
 exports.dateWeekSunday = dateWeekSunday;
-exports.defineAcceptAry = defineAcceptAry;
+exports.defineAccept = defineAccept;
 exports.defineBooleanAry = defineBooleanAry;
 exports.defineFace = defineFace;
 exports.defineIsUseAry = defineIsUseAry;

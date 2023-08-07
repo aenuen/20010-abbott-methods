@@ -1,4 +1,4 @@
-export const defineAcceptAry = {
+export const defineAccept = {
   imgAll: 'image/*',
   gif: 'image/gif',
   jpg: 'image/jpg',
