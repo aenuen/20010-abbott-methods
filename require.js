@@ -1152,6 +1152,13 @@ const dateOneMonth = (dateValue = new Date()) => {
     }
 };
 
+/*
+ * @Author: abbott
+ * @Date: 2023-02-27 15:08:34
+ * @LastEditors: abbott
+ * @LastEditTime: 2023-08-17 15:22:57
+ * @Description:
+ */
 const accept = {
     imgAll: 'image/*',
     gif: 'image/gif',
@@ -1168,11 +1175,12 @@ const accept = {
 };
 const defineAccept = (ary) => {
     const n = [];
-    ary.forEach((i) => {
-        if (accept[i]) {
-            n.push(accept[i]);
+    for (let index = 0; index < ary.length; index++) {
+        const element = ary[index];
+        if (accept[element]) {
+            n.push(accept[element]);
         }
-    });
+    }
     return n.join(',');
 };
 
