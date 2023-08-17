@@ -1148,7 +1148,7 @@ const dateOneMonth = (dateValue = new Date()) => {
     }
 };
 
-const defineAccept = {
+const accept = {
     imgAll: 'image/*',
     gif: 'image/gif',
     jpg: 'image/jpg',
@@ -1161,6 +1161,15 @@ const defineAccept = {
     csv: 'text/csv',
     pdf: 'application/pdf',
     zip: 'application/zip'
+};
+const defineAccept = (ary) => {
+    const n = [];
+    ary.forEach((i) => {
+        if (accept[i]) {
+            n.push(accept[i]);
+        }
+    });
+    return n.join(',');
 };
 
 const defineBooleanAry = [
