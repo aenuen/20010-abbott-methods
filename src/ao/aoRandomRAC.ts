@@ -1,4 +1,4 @@
-import {aoRandom} from './aoRandom'
+import { aoRandom } from './aoRandom'
 /**
  * @description 随机生成ao中的值并排队行列
  * @param {[]|{}} ao array或object

@@ -1,4 +1,4 @@
-import {aoReverse} from '../ao/aoReverse'
+import { aoReverse } from '../ao/aoReverse'
 
 /**
  * @description 根据字段进行arrayAny的排序
@@ -9,7 +9,11 @@ import {aoReverse} from '../ao/aoReverse'
  * @example arrayOrderByField([[1, "a", 9], [2, "b", 8], [3, "c", 7], [4, "d", 6]], 1, false)
  * @example arrayOrderByField([{"a": 3}, {"a": 2}, {"a": 1}], "a")
  */
-export const arrayOrderByField = (arrayAny: any[], arrayField: string | number, arrayOrder: boolean): any[] => {
+export const arrayOrderByField = (
+  arrayAny: any[],
+  arrayField: string | number,
+  arrayOrder: boolean
+): any[] => {
   const result = arrayAny.sort(function (a, b) {
     const x = a[arrayField]
     const y = b[arrayField]
