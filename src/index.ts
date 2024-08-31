@@ -131,6 +131,7 @@ export { haveCn } from './have/haveCn'
 export { holdCn } from './hold/holdCn'
 export { holdFirst } from './hold/holdFirst'
 export { holdLetter } from './hold/holdLetter'
+export { holdLetterNumber } from './hold/holdLetterNumber'
 export { holdNumber } from './hold/holdNumber'
 // month
 export { monthDifference } from './month/monthDifference'

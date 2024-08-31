@@ -1871,6 +1871,15 @@ const holdLetter = (string) => {
 };
 
 /**
+ * @description 保留字母和数学
+ * @param {string} string
+ * @returns {string}
+ */
+const holdLetterNumber = (string) => {
+    return string.replace(/[^0-9a-zA-Z]/g, '');
+};
+
+/**
  * @description 保留数字
  * @param {string} string
  * @returns {string}
@@ -3203,6 +3212,7 @@ exports.haveCn = haveCn;
 exports.holdCn = holdCn;
 exports.holdFirst = holdFirst;
 exports.holdLetter = holdLetter;
+exports.holdLetterNumber = holdLetterNumber;
 exports.holdNumber = holdNumber;
 exports.keyLight = keyLight;
 exports.ltTime = ltTime;
