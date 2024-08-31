@@ -96,6 +96,7 @@ export { ensureHeadNone } from './ensure/ensureHeadNone'
 export { fileBaseName } from './file/fileBaseName'
 export { fileClassify } from './file/fileClassify'
 export { fileFullName } from './file/fileFullName'
+export { fileSave } from './file/fileSave'
 export { fileSuffixName } from './file/fileSuffixName'
 export { fileUnit } from './file/fileUnit'
 // filter
@@ -168,6 +169,9 @@ export { stringRandom } from './string/stringRandom'
 export { stringReverse } from './string/stringReverse'
 export { stringToArrayChar } from './string/stringToArrayChar'
 export { stringToArrayNumber } from './string/stringToArrayNumber'
+// tel
+export { telToArray } from './tel/telToArray'
+export { telToFull } from './tel/telToFull'
 // time
 export { timeAgoCn } from './time/timeAgoCn'
 export { timeAgoEn } from './time/timeAgoEn'

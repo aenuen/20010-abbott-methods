@@ -1611,6 +1611,24 @@ const fileClassify = (string) => {
 };
 
 /**
+ * @description 将文件流保存到本地
+ * @param {string} fileName
+ * @param {string} type
+ * @param {blob} file
+ */
+const fileSave = (fileName = 'log', type = 'doc', file) => {
+    const blob = new Blob([file]);
+    const link = document.createElement('a');
+    const href = window.URL.createObjectURL(blob);
+    link.href = href;
+    link.download = `${fileName}.${type}`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(href);
+};
+
+/**
  * @description 文件大小的单位
  * @param {Number} fileSize 文件大小
  * @param {Number} fixed 保留浮点位数
@@ -2254,6 +2272,43 @@ const stringToArrayNumber = (string, number) => {
         array.push(theString.substr(i * theNumber, theNumber));
     }
     return array;
+};
+
+/**
+ * @description 将固定电话字符串转成数组
+ * @param {string} telString
+ * @returns {Array}
+ */
+const telToArray = (telString) => {
+    const regex = /^(\(\d+\))?\s*(\d+)\s*(转\s*\d+)?$/;
+    const match = telString.match(regex);
+    if (match) {
+        return [
+            match[1] ? match[1].slice(1, -1) : '',
+            match[2],
+            match[3] ? match[3].slice(2) : ''
+        ];
+    }
+    return ['', '', ''];
+};
+
+/**
+ * @description 格式化电话号码
+ * @param {number|string} areaNumber 区号
+ * @param {number|string} telephoneNumber 固定电话
+ * @param {number|string} extensionNumber 转分机号
+ * @returns {number|string}
+ */
+const telToFull = (areaNumber, telephoneNumber, extensionNumber) => {
+    let formattedTel = '';
+    if (telephoneNumber) {
+        formattedTel = telephoneNumber;
+        formattedTel = areaNumber ? `(${areaNumber})${formattedTel}` : formattedTel;
+        formattedTel = extensionNumber
+            ? `${formattedTel}转${extensionNumber}`
+            : formattedTel;
+    }
+    return formattedTel;
 };
 
 /**
@@ -3116,6 +3171,7 @@ exports.ensureHeadNone = ensureHeadNone;
 exports.fileBaseName = fileBaseName;
 exports.fileClassify = fileClassify;
 exports.fileFullName = fileFullName;
+exports.fileSave = fileSave;
 exports.fileSuffixName = fileSuffixName;
 exports.fileUnit = fileUnit;
 exports.filterBoolean = filterBoolean;
@@ -3185,6 +3241,8 @@ exports.stringReverse = stringReverse;
 exports.stringToArrayChar = stringToArrayChar;
 exports.stringToArrayNumber = stringToArrayNumber;
 exports.summaryMethod = summaryMethod;
+exports.telToArray = telToArray;
+exports.telToFull = telToFull;
 exports.timeAgoCn = timeAgoCn;
 exports.timeAgoEn = timeAgoEn;
 exports.timeDifference = timeDifference;
