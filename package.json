@@ -1,7 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/jsconfig",
   "name": "abbott-methods",
-  "version": "1.0.14",
-  "description": "",
+  "version": "1.0.15",
+  "description": "methods,functions,method,function",
   "main": "src/index.ts",
   "scripts": {
     "pro": "rollup -c",
@@ -13,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aenuen/20010-abbott-methods.git"
+    "url": "git+https://github.com/aenuen/10010-abbott-methods.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aenuen/20010-abbott-methods/issues"
+    "url": "https://github.com/aenuen/10010-abbott-methods/issues"
   },
-  "homepage": "https://github.com/aenuen/20010-abbott-methods#readme",
+  "homepage": "https://github.com/aenuen/10010-abbott-methods#readme",
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",

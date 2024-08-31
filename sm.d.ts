@@ -67,6 +67,10 @@ declare const ensureString: number | string // 字符(串)
 declare const ensureAssign: number | string // 指定的字符（串）
 // file
 declare const fileSize: number // 文件大小
+declare const fileName: string // 文件名
+declare const fileSuffix: string // 文件后缀
+declare const fileType: string // 文件类型
+
 // local
 declare const localKey: string // key或名称
 declare const localValue: string // 值
