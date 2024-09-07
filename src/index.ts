@@ -98,6 +98,7 @@ export { fileClassify } from './file/fileClassify'
 export { fileFullName } from './file/fileFullName'
 export { fileSave } from './file/fileSave'
 export { fileSuffixName } from './file/fileSuffixName'
+export { fileType } from './file/fileType'
 export { fileUnit } from './file/fileUnit'
 // filter
 export { filterBoolean } from './filter/filterBoolean'
