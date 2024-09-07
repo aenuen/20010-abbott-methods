@@ -854,11 +854,7 @@ const timeFormat = (timeValue = new Date(), format = H_DATETIME, zero = true) =>
     if (theObject !== null) {
         return format.replace(/{([ymdhisw])+}/g, (result, key) => {
             const timeValue = theObject[key];
-            return key === 'w'
-                ? ['日', '一', '二', '三', '四', '五', '六'][timeValue]
-                : zero
-                    ? String(timeValue).padStart(2, '0')
-                    : String(timeValue);
+            return key === 'w' ? ['日', '一', '二', '三', '四', '五', '六'][timeValue] : zero ? String(timeValue).padStart(2, '0') : String(timeValue);
         });
     }
     else {
@@ -1633,48 +1629,34 @@ const fileSave = (fileName = 'log', fileSuffix = 'doc', fileType) => {
 const fileType = (string) => {
     const suffixName = fileSuffixName(string);
     const array = [
-        { n: 'word', v: ['doc', 'docx', 'dot'] },
-        { n: 'excel', v: ['xls', 'xlsx'] },
-        { n: 'ppt', v: ['ppt', 'pptx'] },
-        { n: 'pdf', v: ['pdf'] },
-        { n: 'txt', v: ['txt'] },
-        { n: 'html', v: ['htm', 'html'] },
-        { n: 'pic', v: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
-        {
-            n: 'video',
-            v: [
-                'avi',
-                'rm',
-                'mpg',
-                'mpeg',
-                'mpe',
-                'wmv',
-                'mp4',
-                'mkv',
-                'vob',
-                '3gp',
-                'mov'
-            ]
-        },
-        { n: 'audio', v: ['wav', 'mp3', 'wma', 'aif', 'cda', 'mid', 'caf', 'amr'] },
-        { n: 'apk', v: ['apk'] },
-        { n: 'exe', v: ['exe'] },
-        { n: 'zip', v: ['zip'] },
-        { n: 'rar', v: ['rar'] },
-        { n: 'tif', v: ['tif'] },
-        { n: 'axure', v: ['rp'] },
-        { n: 'ai', v: ['ai'] },
-        { n: 'bat', v: ['bat'] },
-        { n: 'css', v: ['css'] },
-        { n: 'csv', v: ['csv'] }
+        { name: 'word', value: ['doc', 'docx', 'dot'] },
+        { name: 'excel', value: ['xls', 'xlsx'] },
+        { name: 'ppt', value: ['ppt', 'pptx'] },
+        { name: 'pdf', value: ['pdf'] },
+        { name: 'txt', value: ['txt'] },
+        { name: 'html', value: ['htm', 'html'] },
+        { name: 'pic', value: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
+        { name: 'video', value: ['avi', 'rm', 'mpg', 'mpeg', 'mpe', 'wmv', 'mp4', 'mkv', 'vob', '3gp', 'mov'] },
+        { name: 'audio', value: ['wav', 'mp3', 'wma', 'aif', 'cda', 'mid', 'caf', 'amr'] },
+        { name: 'apk', value: ['apk'] },
+        { name: 'exe', value: ['exe'] },
+        { name: 'zip', value: ['zip'] },
+        { name: 'rar', value: ['rar'] },
+        { name: 'tif', value: ['tif'] },
+        { name: 'axure', value: ['rp'] },
+        { name: 'ai', value: ['ai'] },
+        { name: 'bat', value: ['bat'] },
+        { name: 'css', value: ['css'] },
+        { name: 'csv', value: ['csv'] }
     ];
     let result = 'other';
-    for (let i = 0; i < array.length; i++) {
-        if (array[i].v.includes(suffixName)) {
-            result = array[i].n;
-            break;
+    array.every((item) => {
+        if (item.value.includes(suffixName)) {
+            result = item.name;
+            return false;
         }
-    }
+        return true;
+    });
     return result;
 };
 

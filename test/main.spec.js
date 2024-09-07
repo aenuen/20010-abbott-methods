@@ -5,8 +5,8 @@
  * @LastEditTime: 2023-08-17 15:13:21
  * @Description:
  */
-import { telToArray } from '../src'
+const { fileType } = require('../require')
 
 test('测试toBe', async () => {
-  console.log(telToArray('0591-83370010-1100'))
+  console.log(fileType('a.jpg'))
 })
