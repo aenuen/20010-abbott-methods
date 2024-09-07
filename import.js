@@ -1625,6 +1625,60 @@ const fileSave = (fileName = 'log', fileSuffix = 'doc', fileType) => {
 };
 
 /**
+ * https://www.iconfont.cn/collections/detail?spm=a313x.collections_index.i1.d9df05512.4e8d3a81H6tDBw&cid=49504
+ * @description 从字符串中提取文件的后缀名并进行分类
+ * @param {String} string
+ * @returns {String}
+ */
+const fileType = (string) => {
+    const suffixName = fileSuffixName(string);
+    const array = [
+        { n: 'word', v: ['doc', 'docx', 'dot'] },
+        { n: 'excel', v: ['xls', 'xlsx'] },
+        { n: 'ppt', v: ['ppt', 'pptx'] },
+        { n: 'pdf', v: ['pdf'] },
+        { n: 'txt', v: ['txt'] },
+        { n: 'html', v: ['htm', 'html'] },
+        { n: 'pic', v: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
+        {
+            n: 'video',
+            v: [
+                'avi',
+                'rm',
+                'mpg',
+                'mpeg',
+                'mpe',
+                'wmv',
+                'mp4',
+                'mkv',
+                'vob',
+                '3gp',
+                'mov'
+            ]
+        },
+        { n: 'audio', v: ['wav', 'mp3', 'wma', 'aif', 'cda', 'mid', 'caf', 'amr'] },
+        { n: 'apk', v: ['apk'] },
+        { n: 'exe', v: ['exe'] },
+        { n: 'zip', v: ['zip'] },
+        { n: 'rar', v: ['rar'] },
+        { n: 'tif', v: ['tif'] },
+        { n: 'axure', v: ['rp'] },
+        { n: 'ai', v: ['ai'] },
+        { n: 'bat', v: ['bat'] },
+        { n: 'css', v: ['css'] },
+        { n: 'csv', v: ['csv'] }
+    ];
+    let result = 'other';
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].v.includes(suffixName)) {
+            result = array[i].n;
+            break;
+        }
+    }
+    return result;
+};
+
+/**
  * @description 文件大小的单位
  * @param {Number} fileSize 文件大小
  * @param {Number} fixed 保留浮点位数
@@ -3079,5 +3133,5 @@ const weekGetEn = (timeValue = new Date()) => {
     }
 };
 
-export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAccept, defineBooleanAry, defineFace, defineIsUseAry, dictGetNameByValue, dictGetValueByName, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSave, fileSuffixName, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatLicense, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdLetterNumber, holdNumber, keyLight, ltTime, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, objectReset, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, telToArray, telToFull, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateIdCard, validateLicense, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
+export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAccept, defineBooleanAry, defineFace, defineIsUseAry, dictGetNameByValue, dictGetValueByName, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSave, fileSuffixName, fileType, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatLicense, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdLetterNumber, holdNumber, keyLight, ltTime, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, objectReset, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, telToArray, telToFull, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateIdCard, validateLicense, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
 //# sourceMappingURL=import.js.map
