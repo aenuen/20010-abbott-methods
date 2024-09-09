@@ -12,6 +12,8 @@ export const fileType = (string: string): string => {
     { name: 'excel', value: ['xls', 'xlsx'] },
     { name: 'ppt', value: ['ppt', 'pptx'] },
     { name: 'pdf', value: ['pdf'] },
+    { n: 'ofd', v: ['ofd'] },
+    { n: 'xml', v: ['xml'] },
     { name: 'txt', value: ['txt'] },
     { name: 'html', value: ['htm', 'html'] },
     { name: 'pic', value: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
@@ -29,7 +31,7 @@ export const fileType = (string: string): string => {
     { name: 'csv', value: ['csv'] }
   ]
   let result = 'other'
-  array.every((item) => {
+  array.every((item: Record<string | number | symbol, any>) => {
     if (item.value.includes(suffixName)) {
       result = item.name
       return false

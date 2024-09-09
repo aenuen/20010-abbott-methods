@@ -1567,6 +1567,8 @@ const fileClassify = (string) => {
     const array = [
         { n: 'doc', v: ['doc', 'docx', 'dot', 'docx'] },
         { n: 'txt', v: ['txt'] },
+        { n: 'ofd', v: ['ofd'] },
+        { n: 'xml', v: ['xml'] },
         { n: 'xls', v: ['xls', 'xlsx'] },
         { n: 'ppt', v: ['ppt', 'pptx'] },
         { n: 'pdf', v: ['pdf'] },
@@ -1574,19 +1576,7 @@ const fileClassify = (string) => {
         { n: 'pic', v: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
         {
             n: 'vid',
-            v: [
-                'avi',
-                'rm',
-                'mpg',
-                'mpeg',
-                'mpe',
-                'wmv',
-                'mp4',
-                'mkv',
-                'vob',
-                '3gp',
-                'mov'
-            ]
+            v: ['avi', 'rm', 'mpg', 'mpeg', 'mpe', 'wmv', 'mp4', 'mkv', 'vob', '3gp', 'mov']
         },
         { n: 'aud', v: ['wav', 'mp3', 'wma', 'aif', 'cda', 'mid', 'caf', 'amr'] },
         { n: 'app', v: ['exe', 'app', 'ipa', 'apk'] },
@@ -1633,6 +1623,8 @@ const fileType = (string) => {
         { name: 'excel', value: ['xls', 'xlsx'] },
         { name: 'ppt', value: ['ppt', 'pptx'] },
         { name: 'pdf', value: ['pdf'] },
+        { n: 'ofd', v: ['ofd'] },
+        { n: 'xml', v: ['xml'] },
         { name: 'txt', value: ['txt'] },
         { name: 'html', value: ['htm', 'html'] },
         { name: 'pic', value: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
