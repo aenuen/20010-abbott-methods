@@ -772,7 +772,7 @@ const typeString = (typeValue) => Object.prototype.toString.call(typeValue).toLo
  * @param {String} string
  * @returns {Boolean}
  */
-const formatAllNumber = (string) => /^[0-9]+$/.test(String(string));
+const formatAllNumber = (string) => /^-?\d+(\.\d+)?$/.test(String(string));
 
 /**
  * @description 获取时间对象
@@ -1722,6 +1722,20 @@ const filterIsUse = (value) => {
 const formatAllCn = (string) => /^[\u4e00-\u9fa5]+$/i.test(String(string));
 
 /**
+ * @description 是否int类型
+ * @param {*} typeValue
+ * @returns {Boolean}
+ */
+const typeInt = (typeValue) => typeNumber(typeValue) && typeValue % 1 === 0;
+
+/**
+ * @description 是否全整数格式
+ * @param {String} string
+ * @returns {Boolean}
+ */
+const formatAllInt = (string) => typeInt(string);
+
+/**
  * @description 是否 date 格式
  * @param {String} string
  * @returns {Boolean}
@@ -2665,13 +2679,6 @@ const typeHTMLElement = (typeValue) => {
 };
 
 /**
- * @description 是否int类型
- * @param {*} typeValue
- * @returns {Boolean}
- */
-const typeInt = (typeValue) => typeNumber(typeValue) && typeValue % 1 === 0;
-
-/**
  * @description 是否intMinus类型
  * @param {*} typeValue
  * @returns {Boolean}
@@ -3218,6 +3225,7 @@ exports.filterDateHI = filterDateHI;
 exports.filterDatetime = filterDatetime;
 exports.filterIsUse = filterIsUse;
 exports.formatAllCn = formatAllCn;
+exports.formatAllInt = formatAllInt;
 exports.formatAllNumber = formatAllNumber;
 exports.formatDate = formatDate;
 exports.formatDatetime = formatDatetime;

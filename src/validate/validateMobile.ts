@@ -6,12 +6,7 @@ import { formatMobile } from '../format/formatMobile'
  * @param {*} callback
  * @param {String} action
  */
-export const validateMobile = (
-  rule: any,
-  validateValue: string,
-  callback: any,
-  action = '填写'
-) => {
+export const validateMobile = (rule: any, validateValue: string, callback: any, action = '填写') => {
   const field = '手机号码'
   const number = 11
   if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {

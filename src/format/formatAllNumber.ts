@@ -3,5 +3,4 @@
  * @param {String} string
  * @returns {Boolean}
  */
-export const formatAllNumber = (string: string): boolean =>
-  /^[0-9]+$/.test(String(string))
+export const formatAllNumber = (string: string): boolean => /^-?\d+(\.\d+)?$/.test(String(string))

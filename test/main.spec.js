@@ -5,8 +5,8 @@
  * @LastEditTime: 2023-08-17 15:13:21
  * @Description:
  */
-const { fileType } = require('../require')
+const { formatAllInt } = require('../require')
 
 test('测试toBe', async () => {
-  console.log(fileType('a.jpg'))
+  console.log(formatAllInt('3'))
 })

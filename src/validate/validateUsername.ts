@@ -8,29 +8,19 @@ import { formatUsername } from '../format/formatUsername'
  * @param {Number} [min]
  * @param {Number} [max]
  */
-export const validateUsername = (
-  rule: any,
-  validateValue: string,
-  callback: any,
-  min = 5,
-  max = 20
-) => {
+export const validateUsername = (rule: any, validateValue: string, callback: any, min: number, max: number) => {
   const field = '用户名'
   if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须填写`))
   } else {
     if (formatUsername(validateValue)) {
-      if (validateValue.length < min || validateValue.length > max) {
-        callback(new Error(`${field}在${min}-${max}个字符之间`))
+      if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
+        callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`))
       } else {
         callback()
       }
     } else {
-      callback(
-        new Error(
-          `${field}必须是以字母为开头，由字母、数字、减号、点、下划线组成`
-        )
-      )
+      callback(new Error(`${field}必须是以字母为开头，由字母、数字、减号、点、下划线组成`))
     }
   }
 }

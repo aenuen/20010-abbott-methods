@@ -108,6 +108,7 @@ export { filterDatetime } from './filter/filterDatetime'
 export { filterIsUse } from './filter/filterIsUse'
 // format
 export { formatAllCn } from './format/formatAllCn'
+export { formatAllInt } from './format/formatAllInt'
 export { formatAllNumber } from './format/formatAllNumber'
 export { formatDate } from './format/formatDate'
 export { formatDatetime } from './format/formatDatetime'
@@ -193,28 +194,7 @@ export { timeSecondBar } from './time/timeSecondBar'
 export { timeShort } from './time/timeShort'
 export { timestamp } from './time/timestamp'
 export { timeStampIsMillisecond } from './time/timeStampIsMillisecond'
-export {
-  H_DATE,
-  H_DATE_ABBR,
-  H_DATETIME,
-  H_DATETIME_ABBR,
-  H_H_I,
-  H_M_D_H_I,
-  H_MH,
-  H_Y_M_D_H_I,
-  H_YM,
-  H_YM_ABBR,
-  T_DATE,
-  T_DATE_ABBR,
-  T_DATETIME,
-  T_DATETIME_ABBR,
-  T_H_I,
-  T_M_D_H_I,
-  T_MH,
-  T_Y_M_D_H_I,
-  T_YM,
-  T_YM_ABBR
-} from './time/timeText'
+export { H_DATE, H_DATE_ABBR, H_DATETIME, H_DATETIME_ABBR, H_H_I, H_M_D_H_I, H_MH, H_Y_M_D_H_I, H_YM, H_YM_ABBR, T_DATE, T_DATE_ABBR, T_DATETIME, T_DATETIME_ABBR, T_H_I, T_M_D_H_I, T_MH, T_Y_M_D_H_I, T_YM, T_YM_ABBR } from './time/timeText'
 // type
 export { typeArray } from './type/typeArray'
 export { typeBoolean } from './type/typeBoolean'
@@ -242,6 +222,7 @@ export { urlStringQueryObject } from './urlString/urlStringQueryObject'
 export { urlStringQueryOne } from './urlString/urlStringQueryOne'
 // validate
 export { validateAllCn } from './validate/validateAllCn'
+export { validateAllInt } from './validate/validateAllInt'
 export { validateAllNumber } from './validate/validateAllNumber'
 export { validateDate } from './validate/validateDate'
 export { validateDatetime } from './validate/validateDatetime'

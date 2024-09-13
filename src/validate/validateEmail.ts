@@ -5,26 +5,15 @@ import { formatEmail } from '../format/formatEmail'
  * @param {*} rule
  * @param {String} validateValue
  * @param {*} callback
- * @param {Number} [min]
- * @param {Number} [max]
+ * @param {String} field
+ * @param {String} [action]
  */
-export const validateEmail = (
-  rule: any,
-  validateValue: string,
-  callback: any,
-  min = 5,
-  max = 30
-) => {
-  const field = '电子邮箱'
+export const validateEmail = (rule: any, validateValue: string, callback: any, field = '电子邮箱', action = '填写') => {
   if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
-    callback(new Error(`${field}必须填写`))
+    callback(new Error(`${field}必须${action}`))
   } else {
     if (formatEmail(validateValue)) {
-      if (validateValue.length <= min || validateValue.length >= max) {
-        callback(new Error(`${field}在${min}-${max}个字符之间`))
-      } else {
-        callback()
-      }
+      callback()
     } else {
       callback(new Error(`请填写正确的${field}`))
     }

@@ -7,13 +7,7 @@ import { formatDate } from '../format/formatDate'
  * @param {String} field
  * @param {String} [action]
  */
-export const validateDate = (
-  rule: any,
-  validateValue: string,
-  callback: any,
-  field = '未知',
-  action = '填写'
-) => {
+export const validateDate = (rule: any, validateValue: string, callback: any, field = '日期', action = '填写') => {
   if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
     callback(new Error(`${field}必须${action}`))
   } else {
