@@ -35,6 +35,7 @@ export { arrayOrder } from './array/arrayOrder'
 export { arrayOrderByField } from './array/arrayOrderByField'
 export { arrayRatioReplace } from './array/arrayRatioReplace'
 export { arrayToStringChar } from './array/arrayToStringChar'
+export { arrayToTree } from './array/arrayToTree'
 export { arrayUnion } from './array/arrayUnion'
 export { arrayWhetherIn } from './array/arrayWhetherIn'
 // browser

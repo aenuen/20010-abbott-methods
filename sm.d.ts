@@ -107,6 +107,7 @@ declare const arrayAny1: any[]
 declare const arrayAny2: any[]
 declare const arrayField: string | number
 declare const arrayOrder: boolean
+declare const parentId: number
 // mysql
 declare const mysqlArray: any[]
 declare const mysqlObject: Record<string | number | symbol, any>

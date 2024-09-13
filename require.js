@@ -491,6 +491,17 @@ const arrayRatioReplace = (arrayAny) => {
  */
 const arrayToStringChar = (arrayAny, char) => arrayAny.join(String(char));
 
+const arrayToTree = (arrayAny, parentId = 0) => {
+    const tree = [];
+    arrayAny.forEach((item) => {
+        if (item.parentId === parentId) {
+            item.children = arrayToTree(arrayAny, item.id);
+            tree.push(item);
+        }
+    });
+    return tree;
+};
+
 /**
  * @description 得到两个数组的并集
  * @param {[]} arrayAny1
@@ -2768,17 +2779,18 @@ const urlStringQueryOne = (urlString, name) => {
  * @param {String} validateValue
  * @param {*} callback
  * @param {String} field
+ * @param {String} [action]
  * @param {Number} [min]
  * @param {Number} [max]
  */
-const validateAllCn = (rule, validateValue, callback, field = '未知', min = 2, max = 10) => {
+const validateAllCn = (rule, validateValue, callback, field, action = '填写', min, max) => {
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
-        callback(new Error(`${field}必须填写`));
+        callback(new Error(`${field}必须${action}`));
     }
     else {
         if (formatAllCn(validateValue)) {
-            if (validateValue.length < min || validateValue.length > max) {
-                callback(new Error(`${field}在${min}-${max}个字符之间`));
+            if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
+                callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
             }
             else {
                 callback();
@@ -2797,14 +2809,50 @@ const validateAllCn = (rule, validateValue, callback, field = '未知', min = 2,
  * @param {*} callback
  * @param {String} field
  * @param {String} [action]
+ * @param {Number} [min]
+ * @param {Number} [max]
  */
-const validateAllNumber = (rule, validateValue, callback, field = '未知', action = '填写') => {
+const validateAllInt = (rule, validateValue, callback, field, action = '填写', min, max) => {
+    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+        callback(new Error(`${field}必须${action}`));
+    }
+    else {
+        if (formatAllInt(validateValue)) {
+            if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
+                callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
+            }
+            else {
+                callback();
+            }
+        }
+        else {
+            callback(new Error(`${field}格式不正确`));
+        }
+    }
+};
+
+/**
+ * @desc 验证是否数字格式
+ * @param {*} rule
+ * @param {String} validateValue
+ * @param {*} callback
+ * @param {String} field
+ * @param {String} [action]
+ * @param {Number} [min]
+ * @param {Number} [max]
+ */
+const validateAllNumber = (rule, validateValue, callback, field, action = '填写', min, max) => {
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
         if (formatAllNumber(validateValue)) {
-            callback();
+            if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
+                callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
+            }
+            else {
+                callback();
+            }
         }
         else {
             callback(new Error(`${field}格式不正确`));
@@ -2820,7 +2868,7 @@ const validateAllNumber = (rule, validateValue, callback, field = '未知', acti
  * @param {String} field
  * @param {String} [action]
  */
-const validateDate = (rule, validateValue, callback, field = '未知', action = '填写') => {
+const validateDate = (rule, validateValue, callback, field = '日期', action = '填写') => {
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
         callback(new Error(`${field}必须${action}`));
     }
@@ -2842,7 +2890,7 @@ const validateDate = (rule, validateValue, callback, field = '未知', action = 
  * @param {String} field
  * @param {String} [action]
  */
-const validateDatetime = (rule, validateValue, callback, field = '未知', action = '填写') => {
+const validateDatetime = (rule, validateValue, callback, field = '时间', action = '填写') => {
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
         callback(new Error(`${field}必须${action}`));
     }
@@ -2861,22 +2909,16 @@ const validateDatetime = (rule, validateValue, callback, field = '未知', actio
  * @param {*} rule
  * @param {String} validateValue
  * @param {*} callback
- * @param {Number} [min]
- * @param {Number} [max]
+ * @param {String} field
+ * @param {String} [action]
  */
-const validateEmail = (rule, validateValue, callback, min = 5, max = 30) => {
-    const field = '电子邮箱';
+const validateEmail = (rule, validateValue, callback, field = '电子邮箱', action = '填写') => {
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
-        callback(new Error(`${field}必须填写`));
+        callback(new Error(`${field}必须${action}`));
     }
     else {
         if (formatEmail(validateValue)) {
-            if (validateValue.length <= min || validateValue.length >= max) {
-                callback(new Error(`${field}在${min}-${max}个字符之间`));
-            }
-            else {
-                callback();
-            }
+            callback();
         }
         else {
             callback(new Error(`请填写正确的${field}`));
@@ -2895,10 +2937,10 @@ const validateErrMsg = (fields) => fields[Object.keys(fields)[0]][0].message;
  * @param {*} rule
  * @param {String} validateValue
  * @param {*} callback
+ * @param {String} field
  * @param {String} action
  */
-const validateIdCard = (rule, validateValue, callback, action = '填写') => {
-    const field = '身份证号码';
+const validateIdCard = (rule, validateValue, callback, field = '身份证号码', action = '填写') => {
     const number = 18;
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
         callback(new Error(`${field}必须${action}`));
@@ -2919,15 +2961,14 @@ const validateIdCard = (rule, validateValue, callback, action = '填写') => {
 };
 
 /**
- * @desc 验证是否dateTime格式
+ * @desc 验证是否营业执照格式
  * @param {*} rule
  * @param {String} validateValue
  * @param {*} callback
  * @param {String} field
  * @param {String} [action]
  */
-const validateLicense = (rule, validateValue, callback, action = '填写') => {
-    const field = '统一信用代码';
+const validateLicense = (rule, validateValue, callback, field = '统一信用代码', action = '填写') => {
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
         callback(new Error(`${field}必须${action}`));
     }
@@ -2979,14 +3020,13 @@ const validateMobile = (rule, validateValue, callback, action = '填写') => {
  * @param {Number} [min]
  * @param {Number} [max]
  */
-const validatePrice = (rule, validateValue, callback, field = '价格', action = '填写', min = 1, max = 10) => {
+const validatePrice = (rule, validateValue, callback, field = '价格', action = '填写', min, max) => {
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
         if (formatPrice(validateValue)) {
-            if (validateValue.length < ~~Math.abs(min) ||
-                validateValue.length > ~~Math.abs(max)) {
+            if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
                 callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
             }
             else {
@@ -3014,10 +3054,7 @@ const validateRequire = (rule, validateValue, callback, field, action = '填写'
         callback(new Error(`${field}必须${action}`));
     }
     else {
-        if (min &&
-            max &&
-            (validateValue.length < ~~Math.abs(min) ||
-                validateValue.length > ~~Math.abs(max))) {
+        if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
             callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
         }
         else {
@@ -3034,15 +3071,15 @@ const validateRequire = (rule, validateValue, callback, field, action = '填写'
  * @param {Number} [min]
  * @param {Number} [max]
  */
-const validateUsername = (rule, validateValue, callback, min = 5, max = 20) => {
+const validateUsername = (rule, validateValue, callback, min, max) => {
     const field = '用户名';
     if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
         callback(new Error(`${field}必须填写`));
     }
     else {
         if (formatUsername(validateValue)) {
-            if (validateValue.length < min || validateValue.length > max) {
-                callback(new Error(`${field}在${min}-${max}个字符之间`));
+            if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
+                callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
             }
             else {
                 callback();
@@ -3170,6 +3207,7 @@ exports.arrayOrder = arrayOrder;
 exports.arrayOrderByField = arrayOrderByField;
 exports.arrayRatioReplace = arrayRatioReplace;
 exports.arrayToStringChar = arrayToStringChar;
+exports.arrayToTree = arrayToTree;
 exports.arrayUnion = arrayUnion;
 exports.arrayWhetherIn = arrayWhetherIn;
 exports.autoQuery = autoQuery;
@@ -3330,6 +3368,7 @@ exports.urlCodeEncode = urlCodeEncode;
 exports.urlStringQueryObject = urlStringQueryObject;
 exports.urlStringQueryOne = urlStringQueryOne;
 exports.validateAllCn = validateAllCn;
+exports.validateAllInt = validateAllInt;
 exports.validateAllNumber = validateAllNumber;
 exports.validateDate = validateDate;
 exports.validateDatetime = validateDatetime;
