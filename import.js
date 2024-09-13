@@ -487,11 +487,18 @@ const arrayRatioReplace = (arrayAny) => {
  */
 const arrayToStringChar = (arrayAny, char) => arrayAny.join(String(char));
 
-const arrayToTree = (arrayAny, parentId = 0) => {
+/**
+ * 将数组转换为树形结构
+ * @param {Array} arrayAny
+ * @param {number} parentId
+ * @param {string} pFiled
+ * @returns {Array}
+ */
+const arrayToTree = (arrayAny, parentId = 0, pFiled = 'parentId') => {
     const tree = [];
     arrayAny.forEach((item) => {
-        if (item.parentId === parentId) {
-            item.children = arrayToTree(arrayAny, item.id);
+        if (item[pFiled] === parentId) {
+            item.children = arrayToTree(arrayAny, item.id, pFiled);
             tree.push(item);
         }
     });
