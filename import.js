@@ -1627,7 +1627,7 @@ const fileType = (string) => {
         { name: 'xml', value: ['xml'] },
         { name: 'txt', value: ['txt'] },
         { name: 'html', value: ['htm', 'html'] },
-        { name: 'pic', value: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
+        { name: 'pic', value: ['png', 'jpg', 'jpeg', 'bmp', 'wbmp', 'gif'] },
         { name: 'video', value: ['avi', 'rm', 'mpg', 'mpeg', 'mpe', 'wmv', 'mp4', 'mkv', 'vob', '3gp', 'mov'] },
         { name: 'audio', value: ['wav', 'mp3', 'wma', 'aif', 'cda', 'mid', 'caf', 'amr'] },
         { name: 'apk', value: ['apk'] },
