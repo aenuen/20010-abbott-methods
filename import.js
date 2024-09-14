@@ -488,24 +488,6 @@ const arrayRatioReplace = (arrayAny) => {
 const arrayToStringChar = (arrayAny, char) => arrayAny.join(String(char));
 
 /**
- * 将数组转换为树形结构
- * @param {Array} arrayAny
- * @param {number} parentId
- * @param {string} pFiled
- * @returns {Array}
- */
-const arrayToTree = (arrayAny, parentId = 0, pFiled = 'parentId') => {
-    const tree = [];
-    arrayAny.forEach((item) => {
-        if (item[pFiled] === parentId) {
-            item.children = arrayToTree(arrayAny, item.id, pFiled);
-            tree.push(item);
-        }
-    });
-    return tree;
-};
-
-/**
  * @description 得到两个数组的并集
  * @param {[]} arrayAny1
  * @param {[]} arrayAny2
@@ -2637,6 +2619,40 @@ const timeShort = (timeValue = new Date()) => {
 const timeStampIsMillisecond = (timestamp) => String(timestamp).length > 10;
 
 /**
+ * 根据列表数组获取树状数据
+ * @param {Array} arrayList
+ * @param {number} parentId
+ * @param {string} pFiled
+ * @returns {Array}
+ */
+const treeByArrayList = (arrayList = [], parentId = 0, pFiled = 'parentId') => {
+    const tree = [];
+    arrayList.forEach((item) => {
+        if (+item[pFiled] === +parentId) {
+            tree.push(Object.assign(Object.assign({}, item), { children: treeByArrayList(arrayList, item.id) }));
+        }
+    });
+    return tree;
+};
+
+/**
+ * 树状数据排序
+ * @param {Array} tree 树状数据
+ * @param {String} byField 根据字段
+ * @param {Boolean} byOrder 排序方式
+ * @returns
+ */
+const treeSort = (tree, byField = 'sort', byOrder = true) => {
+    tree = arrayOrderByField(tree, byField, byOrder);
+    tree.forEach((item) => {
+        if (item.children && item.children.length > 0) {
+            item.children = arrayOrderByField(item.children, byField, byOrder);
+        }
+    });
+    return tree;
+};
+
+/**
  * @description 是否boolean类型
  * @param {*} typeValue
  * @returns {Boolean}
@@ -3158,5 +3174,5 @@ const weekGetEn = (timeValue = new Date()) => {
     }
 };
 
-export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayToTree, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAccept, defineBooleanAry, defineFace, defineIsUseAry, dictGetNameByValue, dictGetValueByName, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSave, fileSuffixName, fileType, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllInt, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatLicense, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdLetterNumber, holdNumber, keyLight, ltTime, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, objectReset, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, telToArray, telToFull, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllInt, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateIdCard, validateLicense, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
+export { H_DATE, H_DATETIME, H_DATETIME_ABBR, H_DATE_ABBR, H_H_I, H_MH, H_M_D_H_I, H_YM, H_YM_ABBR, H_Y_M_D_H_I, T_DATE, T_DATETIME, T_DATETIME_ABBR, T_DATE_ABBR, T_H_I, T_MH, T_M_D_H_I, T_YM, T_YM_ABBR, T_Y_M_D_H_I, addressBarCurrent, addressBarFilePath, addressBarFrom, addressBarHash, addressBarHead, addressBarHost, addressBarHttp, addressBarName, addressBarPort, addressBarQuery, aoChunk, aoCleanKeyAll, aoCleanKeyOne, aoDeleteEmpty, aoDeleteKey, aoDeleteValue, aoHoldKey, aoHoldValue, aoKeyName, aoRandom, aoRandomRAC, aoRepeat, aoReverse, aoWhetherIn, arrayDiKaErJi, arrayFlatten, arrayHasOne, arrayIntersection, arrayOrder, arrayOrderByField, arrayRatioReplace, arrayToStringChar, arrayUnion, arrayWhetherIn, autoQuery, browserInfoObject, browserIsMobile, browserIsPc, browserName, browserUserAgent, browserWhetherInArray, calcSum, caseAllBig, caseAllSmall, caseFirstBig, caseWordFirstBig, classAdd, classHas, classRemove, classToggle, controlInputNumberSpace, controlInputPrice, dateApart, dateApartMonth, dateApartMonthList, dateDifference, dateMonthFoot, dateMonthHead, dateMonthNext, dateMonthPrev, dateOneMonth, dateOneWeek, dateWeekSunday, defineAccept, defineBooleanAry, defineFace, defineIsUseAry, dictGetNameByValue, dictGetValueByName, elTableIndex, ensureFootHave, ensureFootNone, ensureHeadHave, ensureHeadNone, fileBaseName, fileClassify, fileFullName, fileSave, fileSuffixName, fileType, fileUnit, filterBoolean, filterDate, filterDateHI, filterDatetime, filterIsUse, formatAllCn, formatAllInt, formatAllNumber, formatDate, formatDatetime, formatDomain, formatEmail, formatExternal, formatHexColor, formatIdCard, formatImageBase, formatIp, formatLicense, formatMobile, formatPrice, formatTelephone, formatUrl, formatUsername, formatZip, gtTime, haveAssign, haveCn, holdCn, holdFirst, holdLetter, holdLetterNumber, holdNumber, keyLight, ltTime, monthDifference, numberAddComma, numberAddZero, numberGet, numberPriceBigWrite, numberUnit, objectDeleteElement, objectGetKeyAndValue, objectHasChildren, objectLength, objectRenameKey, objectReset, replaceAll, replaceByObject, replaceOne, scopedTime, shortcutDate, shortcutScope, someColorHexToRGB, someColorRGBToHex, someFebruaryDays, someLetter26, someMaxZIndex, somePluralize, someRandomColor, someWhetherLeapYear, someYearMonthDays, stringCut, stringCutCn, stringLoop, stringRandom, stringReverse, stringToArrayChar, stringToArrayNumber, summaryMethod, telToArray, telToFull, timeAgoCn, timeAgoEn, timeDifference, timeFormat, timeGetDate, timeGetDay, timeGetMonth, timeGetWeek, timeGetYear, timeGetYearMonth, timeIsEarly, timeNewDate, timeObject, timeRelativeTime, timeSecondBar, timeShort, timeStampIsMillisecond, timestamp, treeByArrayList, treeSort, typeArray, typeBoolean, typeDate, typeEmpty, typeFloat, typeFunction, typeHTMLElement, typeInt, typeIntMinus, typeIntPositive, typeNumber, typeObject, typeRegexp, typeString, typeSymbol, uniCodeDecode, uniCodeEncode, urlCodeDecode, urlCodeEncode, urlStringQueryObject, urlStringQueryOne, validateAllCn, validateAllInt, validateAllNumber, validateDate, validateDatetime, validateEmail, validateErrMsg, validateIdCard, validateLicense, validateMobile, validatePrice, validateRequire, validateUsername, weekAryCn, weekAryEn, weekGetCn, weekGetEn };
 //# sourceMappingURL=import.js.map

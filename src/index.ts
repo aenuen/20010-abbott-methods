@@ -35,7 +35,6 @@ export { arrayOrder } from './array/arrayOrder'
 export { arrayOrderByField } from './array/arrayOrderByField'
 export { arrayRatioReplace } from './array/arrayRatioReplace'
 export { arrayToStringChar } from './array/arrayToStringChar'
-export { arrayToTree } from './array/arrayToTree'
 export { arrayUnion } from './array/arrayUnion'
 export { arrayWhetherIn } from './array/arrayWhetherIn'
 // browser
@@ -196,6 +195,9 @@ export { timeShort } from './time/timeShort'
 export { timestamp } from './time/timestamp'
 export { timeStampIsMillisecond } from './time/timeStampIsMillisecond'
 export { H_DATE, H_DATE_ABBR, H_DATETIME, H_DATETIME_ABBR, H_H_I, H_M_D_H_I, H_MH, H_Y_M_D_H_I, H_YM, H_YM_ABBR, T_DATE, T_DATE_ABBR, T_DATETIME, T_DATETIME_ABBR, T_H_I, T_M_D_H_I, T_MH, T_Y_M_D_H_I, T_YM, T_YM_ABBR } from './time/timeText'
+// tree
+export { treeByArrayList } from './tree/treeByArrayList'
+export { treeSort } from './tree/treeSort'
 // type
 export { typeArray } from './type/typeArray'
 export { typeBoolean } from './type/typeBoolean'

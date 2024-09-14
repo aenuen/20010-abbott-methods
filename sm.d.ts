@@ -70,7 +70,6 @@ declare const fileSize: number // 文件大小
 declare const fileName: string // 文件名
 declare const fileSuffix: string // 文件后缀
 declare const fileType: string // 文件类型
-
 // local
 declare const localKey: string // key或名称
 declare const localValue: string // 值
@@ -107,11 +106,16 @@ declare const arrayAny1: any[]
 declare const arrayAny2: any[]
 declare const arrayField: string | number
 declare const arrayOrder: boolean
-declare const parentId: number
-declare const pFiled: string
 // mysql
 declare const mysqlArray: any[]
 declare const mysqlObject: Record<string | number | symbol, any>
 declare const mysqlAs: any[] | string
 declare const mysqlOs: Record<string | number | symbol, any> | string
 declare const mysqlMulti: any[] | Record<string | number | symbol, any> | string
+// tree
+declare const arrayList: any[]
+declare const parentId: number
+declare const pFiled: string
+declare const tree: any[]
+declare const byField: string
+declare const byOrder: boolean

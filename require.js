@@ -492,24 +492,6 @@ const arrayRatioReplace = (arrayAny) => {
 const arrayToStringChar = (arrayAny, char) => arrayAny.join(String(char));
 
 /**
- * 将数组转换为树形结构
- * @param {Array} arrayAny
- * @param {number} parentId
- * @param {string} pFiled
- * @returns {Array}
- */
-const arrayToTree = (arrayAny, parentId = 0, pFiled = 'parentId') => {
-    const tree = [];
-    arrayAny.forEach((item) => {
-        if (item[pFiled] === parentId) {
-            item.children = arrayToTree(arrayAny, item.id, pFiled);
-            tree.push(item);
-        }
-    });
-    return tree;
-};
-
-/**
  * @description 得到两个数组的并集
  * @param {[]} arrayAny1
  * @param {[]} arrayAny2
@@ -2641,6 +2623,40 @@ const timeShort = (timeValue = new Date()) => {
 const timeStampIsMillisecond = (timestamp) => String(timestamp).length > 10;
 
 /**
+ * 根据列表数组获取树状数据
+ * @param {Array} arrayList
+ * @param {number} parentId
+ * @param {string} pFiled
+ * @returns {Array}
+ */
+const treeByArrayList = (arrayList = [], parentId = 0, pFiled = 'parentId') => {
+    const tree = [];
+    arrayList.forEach((item) => {
+        if (+item[pFiled] === +parentId) {
+            tree.push(Object.assign(Object.assign({}, item), { children: treeByArrayList(arrayList, item.id) }));
+        }
+    });
+    return tree;
+};
+
+/**
+ * 树状数据排序
+ * @param {Array} tree 树状数据
+ * @param {String} byField 根据字段
+ * @param {Boolean} byOrder 排序方式
+ * @returns
+ */
+const treeSort = (tree, byField = 'sort', byOrder = true) => {
+    tree = arrayOrderByField(tree, byField, byOrder);
+    tree.forEach((item) => {
+        if (item.children && item.children.length > 0) {
+            item.children = arrayOrderByField(item.children, byField, byOrder);
+        }
+    });
+    return tree;
+};
+
+/**
  * @description 是否boolean类型
  * @param {*} typeValue
  * @returns {Boolean}
@@ -3214,7 +3230,6 @@ exports.arrayOrder = arrayOrder;
 exports.arrayOrderByField = arrayOrderByField;
 exports.arrayRatioReplace = arrayRatioReplace;
 exports.arrayToStringChar = arrayToStringChar;
-exports.arrayToTree = arrayToTree;
 exports.arrayUnion = arrayUnion;
 exports.arrayWhetherIn = arrayWhetherIn;
 exports.autoQuery = autoQuery;
@@ -3353,6 +3368,8 @@ exports.timeSecondBar = timeSecondBar;
 exports.timeShort = timeShort;
 exports.timeStampIsMillisecond = timeStampIsMillisecond;
 exports.timestamp = timestamp;
+exports.treeByArrayList = treeByArrayList;
+exports.treeSort = treeSort;
 exports.typeArray = typeArray;
 exports.typeBoolean = typeBoolean;
 exports.typeDate = typeDate;
