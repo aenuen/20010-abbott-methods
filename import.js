@@ -1623,8 +1623,8 @@ const fileType = (string) => {
         { name: 'excel', value: ['xls', 'xlsx'] },
         { name: 'ppt', value: ['ppt', 'pptx'] },
         { name: 'pdf', value: ['pdf'] },
-        { n: 'ofd', v: ['ofd'] },
-        { n: 'xml', v: ['xml'] },
+        { name: 'ofd', value: ['ofd'] },
+        { name: 'xml', value: ['xml'] },
         { name: 'txt', value: ['txt'] },
         { name: 'html', value: ['htm', 'html'] },
         { name: 'pic', value: ['png', 'jpg', 'jpeg', 'bmp', 'gif'] },
@@ -1636,10 +1636,13 @@ const fileType = (string) => {
         { name: 'rar', value: ['rar'] },
         { name: 'tif', value: ['tif'] },
         { name: 'axure', value: ['rp'] },
+        { name: 'md', value: ['md'] },
+        { name: 'xmind', value: ['xmind'] },
         { name: 'ai', value: ['ai'] },
         { name: 'bat', value: ['bat'] },
         { name: 'css', value: ['css'] },
-        { name: 'csv', value: ['csv'] }
+        { name: 'csv', value: ['csv'] },
+        { name: 'svg', value: ['svg'] }
     ];
     let result = 'other';
     array.every((item) => {
