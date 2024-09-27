@@ -1,4 +1,5 @@
 import { formatAllCn } from '../format/formatAllCn'
+import { typeEmpty } from '../type/typeEmpty'
 
 /**
  * @desc 验证是否全中文
@@ -11,7 +12,7 @@ import { formatAllCn } from '../format/formatAllCn'
  * @param {Number} [max]
  */
 export const validateAllCn = (rule: any, validateValue: string, callback: any, field: string, action = '填写', min: number, max: number) => {
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatAllCn(validateValue)) {

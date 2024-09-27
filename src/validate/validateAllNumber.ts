@@ -1,4 +1,5 @@
 import { formatAllNumber } from '../format/formatAllNumber'
+import { typeEmpty } from '../type/typeEmpty'
 
 /**
  * @desc 验证是否数字格式
@@ -11,7 +12,7 @@ import { formatAllNumber } from '../format/formatAllNumber'
  * @param {Number} [max]
  */
 export const validateAllNumber = (rule: any, validateValue: string, callback: any, field: string, action = '填写', min: number, max: number) => {
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatAllNumber(validateValue)) {

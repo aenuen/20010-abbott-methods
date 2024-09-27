@@ -1,4 +1,5 @@
 import { formatDatetime } from '../format/formatDatetime'
+import { typeEmpty } from '../type/typeEmpty'
 
 /**
  * @desc 验证是否dateTime格式
@@ -9,7 +10,7 @@ import { formatDatetime } from '../format/formatDatetime'
  * @param {String} [action]
  */
 export const validateDatetime = (rule: any, validateValue: string, callback: any, field = '时间', action = '填写') => {
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatDatetime(validateValue)) {

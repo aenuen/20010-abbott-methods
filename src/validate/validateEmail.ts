@@ -1,4 +1,5 @@
 import { formatEmail } from '../format/formatEmail'
+import { typeEmpty } from '../type/typeEmpty'
 
 /**
  * @desc 验证是否电子邮箱格式
@@ -9,7 +10,7 @@ import { formatEmail } from '../format/formatEmail'
  * @param {String} [action]
  */
 export const validateEmail = (rule: any, validateValue: string, callback: any, field = '电子邮箱', action = '填写') => {
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatEmail(validateValue)) {

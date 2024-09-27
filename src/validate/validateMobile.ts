@@ -1,4 +1,5 @@
 import { formatMobile } from '../format/formatMobile'
+import { typeEmpty } from '../type/typeEmpty'
 /**
  * @desc 验证是否手机号码格式
  * @param {*} rule
@@ -9,7 +10,7 @@ import { formatMobile } from '../format/formatMobile'
 export const validateMobile = (rule: any, validateValue: string, callback: any, action = '填写') => {
   const field = '手机号码'
   const number = 11
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatMobile(validateValue)) {

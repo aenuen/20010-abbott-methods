@@ -1,4 +1,5 @@
 import { formatIdCard } from '../format/formatIdCard'
+import { typeEmpty } from '../type/typeEmpty'
 /**
  * @desc 验证是否身份证号码格式
  * @param {*} rule
@@ -9,7 +10,7 @@ import { formatIdCard } from '../format/formatIdCard'
  */
 export const validateIdCard = (rule: any, validateValue: string, callback: any, field = '身份证号码', action = '填写') => {
   const number = 18
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatIdCard(validateValue)) {

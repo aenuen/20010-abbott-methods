@@ -2810,7 +2810,7 @@ const urlStringQueryOne = (urlString, name) => {
  * @param {Number} [max]
  */
 const validateAllCn = (rule, validateValue, callback, field, action = '填写', min, max) => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2839,7 +2839,7 @@ const validateAllCn = (rule, validateValue, callback, field, action = '填写', 
  * @param {Number} [max]
  */
 const validateAllInt = (rule, validateValue, callback, field, action = '填写', min, max) => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2868,7 +2868,7 @@ const validateAllInt = (rule, validateValue, callback, field, action = '填写',
  * @param {Number} [max]
  */
 const validateAllNumber = (rule, validateValue, callback, field, action = '填写', min, max) => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2895,7 +2895,7 @@ const validateAllNumber = (rule, validateValue, callback, field, action = '填�
  * @param {String} [action]
  */
 const validateDate = (rule, validateValue, callback, field = '日期', action = '填写') => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2917,7 +2917,7 @@ const validateDate = (rule, validateValue, callback, field = '日期', action = 
  * @param {String} [action]
  */
 const validateDatetime = (rule, validateValue, callback, field = '时间', action = '填写') => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2939,7 +2939,7 @@ const validateDatetime = (rule, validateValue, callback, field = '时间', actio
  * @param {String} [action]
  */
 const validateEmail = (rule, validateValue, callback, field = '电子邮箱', action = '填写') => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2968,7 +2968,7 @@ const validateErrMsg = (fields) => fields[Object.keys(fields)[0]][0].message;
  */
 const validateIdCard = (rule, validateValue, callback, field = '身份证号码', action = '填写') => {
     const number = 18;
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2995,7 +2995,7 @@ const validateIdCard = (rule, validateValue, callback, field = '身份证号码'
  * @param {String} [action]
  */
 const validateLicense = (rule, validateValue, callback, field = '统一信用代码', action = '填写') => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3018,7 +3018,7 @@ const validateLicense = (rule, validateValue, callback, field = '统一信用代
 const validateMobile = (rule, validateValue, callback, action = '填写') => {
     const field = '手机号码';
     const number = 11;
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3047,7 +3047,7 @@ const validateMobile = (rule, validateValue, callback, action = '填写') => {
  * @param {Number} [max]
  */
 const validatePrice = (rule, validateValue, callback, field = '价格', action = '填写', min, max) => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3076,7 +3076,7 @@ const validatePrice = (rule, validateValue, callback, field = '价格', action =
  * @param {Number} [max]
  */
 const validateRequire = (rule, validateValue, callback, field, action = '填写', min, max) => {
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3099,7 +3099,7 @@ const validateRequire = (rule, validateValue, callback, field, action = '填写'
  */
 const validateUsername = (rule, validateValue, callback, min, max) => {
     const field = '用户名';
-    if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+    if (typeEmpty(validateValue)) {
         callback(new Error(`${field}必须填写`));
     }
     else {

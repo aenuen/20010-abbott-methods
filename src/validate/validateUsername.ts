@@ -1,5 +1,5 @@
 import { formatUsername } from '../format/formatUsername'
-
+import { typeEmpty } from '../type/typeEmpty'
 /**
  * @desc 验证是否用户名格式
  * @param {*} rule
@@ -10,7 +10,7 @@ import { formatUsername } from '../format/formatUsername'
  */
 export const validateUsername = (rule: any, validateValue: string, callback: any, min: number, max: number) => {
   const field = '用户名'
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须填写`))
   } else {
     if (formatUsername(validateValue)) {

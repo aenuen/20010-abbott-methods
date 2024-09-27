@@ -1,4 +1,5 @@
 import { formatPrice } from '../format/formatPrice'
+import { typeEmpty } from '../type/typeEmpty'
 
 /**
  * @desc 验证是否价格格式
@@ -11,7 +12,7 @@ import { formatPrice } from '../format/formatPrice'
  * @param {Number} [max]
  */
 export const validatePrice = (rule: any, validateValue: string, callback: any, field = '价格', action = '填写', min: number, max: number) => {
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatPrice(validateValue)) {

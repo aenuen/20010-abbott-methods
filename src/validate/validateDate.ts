@@ -1,4 +1,5 @@
 import { formatDate } from '../format/formatDate'
+import { typeEmpty } from '../type/typeEmpty'
 /**
  * @desc 验证是否date格式
  * @param {*} rule
@@ -8,7 +9,7 @@ import { formatDate } from '../format/formatDate'
  * @param {String} [action]
  */
 export const validateDate = (rule: any, validateValue: string, callback: any, field = '日期', action = '填写') => {
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatDate(validateValue)) {

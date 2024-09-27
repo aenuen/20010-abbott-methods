@@ -1,3 +1,4 @@
+import { typeEmpty } from '../type/typeEmpty'
 /**
  * @desc 验证是否已填
  * @param {*} rule
@@ -9,7 +10,7 @@
  * @param {Number} [max]
  */
 export const validateRequire = (rule: any, validateValue: string, callback: any, field: string, action = '填写', min: number, max: number) => {
-  if ((!validateValue || validateValue.length === 0) && +validateValue !== 0) {
+  if (typeEmpty(validateValue)) {
     callback(new Error(`${field}必须${action}`))
   } else {
     if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
