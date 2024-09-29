@@ -5,10 +5,11 @@ import { typeEmpty } from '../type/typeEmpty'
  * @param {*} rule
  * @param {String} validateValue
  * @param {*} callback
+ * @param {String} field
  * @param {String} action
  */
-export const validateMobile = (rule: any, validateValue: string, callback: any, action = '填写') => {
-  const field = '手机号码'
+export const validateMobile = (rule: any, validateValue: string, callback: any, field: string = '手机号码', action = '填写') => {
+  field = field || '手机号码'
   const number = 11
   if (typeEmpty(validateValue)) {
     action = action || '填写'

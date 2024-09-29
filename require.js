@@ -3021,10 +3021,11 @@ const validateLicense = (rule, validateValue, callback, field = '统一信用代
  * @param {*} rule
  * @param {String} validateValue
  * @param {*} callback
+ * @param {String} field
  * @param {String} action
  */
-const validateMobile = (rule, validateValue, callback, action = '填写') => {
-    const field = '手机号码';
+const validateMobile = (rule, validateValue, callback, field = '手机号码', action = '填写') => {
+    field = field || '手机号码';
     const number = 11;
     if (typeEmpty(validateValue)) {
         action = action || '填写';
