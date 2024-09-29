@@ -11,6 +11,7 @@ export const validateMobile = (rule: any, validateValue: string, callback: any, 
   const field = '手机号码'
   const number = 11
   if (typeEmpty(validateValue)) {
+    action = action || '填写'
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatMobile(validateValue)) {

@@ -11,6 +11,7 @@ import { typeEmpty } from '../type/typeEmpty'
 export const validateIdCard = (rule: any, validateValue: string, callback: any, field = '身份证号码', action = '填写') => {
   const number = 18
   if (typeEmpty(validateValue)) {
+    action = action || '填写'
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatIdCard(validateValue)) {

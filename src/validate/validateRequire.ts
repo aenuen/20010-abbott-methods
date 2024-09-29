@@ -11,6 +11,7 @@ import { typeEmpty } from '../type/typeEmpty'
  */
 export const validateRequire = (rule: any, validateValue: string, callback: any, field: string, action = '填写', min: number, max: number) => {
   if (typeEmpty(validateValue)) {
+    action = action || '填写'
     callback(new Error(`${field}必须${action}`))
   } else {
     if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {

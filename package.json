@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/jsconfig",
   "name": "abbott-methods",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "methods,functions,method,function",
   "main": "src/index.ts",
   "scripts": {

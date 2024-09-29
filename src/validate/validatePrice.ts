@@ -13,6 +13,7 @@ import { typeEmpty } from '../type/typeEmpty'
  */
 export const validatePrice = (rule: any, validateValue: string, callback: any, field = '价格', action = '填写', min: number, max: number) => {
   if (typeEmpty(validateValue)) {
+    action = action || '填写'
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatPrice(validateValue)) {

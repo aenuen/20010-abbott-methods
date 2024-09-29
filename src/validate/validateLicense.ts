@@ -11,6 +11,7 @@ import { typeEmpty } from '../type/typeEmpty'
  */
 export const validateLicense = (rule: any, validateValue: string, callback: any, field = '统一信用代码', action = '填写') => {
   if (typeEmpty(validateValue)) {
+    action = action || '填写'
     callback(new Error(`${field}必须${action}`))
   } else {
     if (formatLicense(validateValue)) {

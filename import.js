@@ -2807,6 +2807,7 @@ const urlStringQueryOne = (urlString, name) => {
  */
 const validateAllCn = (rule, validateValue, callback, field, action = '填写', min, max) => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2836,6 +2837,7 @@ const validateAllCn = (rule, validateValue, callback, field, action = '填写', 
  */
 const validateAllInt = (rule, validateValue, callback, field, action = '填写', min, max) => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2865,6 +2867,7 @@ const validateAllInt = (rule, validateValue, callback, field, action = '填写',
  */
 const validateAllNumber = (rule, validateValue, callback, field, action = '填写', min, max) => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2892,6 +2895,7 @@ const validateAllNumber = (rule, validateValue, callback, field, action = '填�
  */
 const validateDate = (rule, validateValue, callback, field = '日期', action = '填写') => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2914,6 +2918,7 @@ const validateDate = (rule, validateValue, callback, field = '日期', action = 
  */
 const validateDatetime = (rule, validateValue, callback, field = '时间', action = '填写') => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2936,6 +2941,7 @@ const validateDatetime = (rule, validateValue, callback, field = '时间', actio
  */
 const validateEmail = (rule, validateValue, callback, field = '电子邮箱', action = '填写') => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2965,6 +2971,7 @@ const validateErrMsg = (fields) => fields[Object.keys(fields)[0]][0].message;
 const validateIdCard = (rule, validateValue, callback, field = '身份证号码', action = '填写') => {
     const number = 18;
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -2992,6 +2999,7 @@ const validateIdCard = (rule, validateValue, callback, field = '身份证号码'
  */
 const validateLicense = (rule, validateValue, callback, field = '统一信用代码', action = '填写') => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3015,6 +3023,7 @@ const validateMobile = (rule, validateValue, callback, action = '填写') => {
     const field = '手机号码';
     const number = 11;
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3044,6 +3053,7 @@ const validateMobile = (rule, validateValue, callback, action = '填写') => {
  */
 const validatePrice = (rule, validateValue, callback, field = '价格', action = '填写', min, max) => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3073,6 +3083,7 @@ const validatePrice = (rule, validateValue, callback, field = '价格', action =
  */
 const validateRequire = (rule, validateValue, callback, field, action = '填写', min, max) => {
     if (typeEmpty(validateValue)) {
+        action = action || '填写';
         callback(new Error(`${field}必须${action}`));
     }
     else {
@@ -3090,15 +3101,15 @@ const validateRequire = (rule, validateValue, callback, field, action = '填写'
  * @param {*} rule
  * @param {String} validateValue
  * @param {*} callback
+ * @param {String} field
+ * @param {String} [action]
  * @param {Number} [min]
  * @param {Number} [max]
  */
-const validateUsername = (rule, validateValue, callback, min, max) => {
-    const field = '用户名';
+const validateUsername = (rule, validateValue, callback, field = '用户名', action = '填写', min, max) => {
     if (typeEmpty(validateValue)) {
-        callback(new Error(`${field}必须填写`));
-    }
-    else {
+        action = action || '填写';
+        callback(new Error(`${field}必须${action}`));
         if (formatUsername(validateValue)) {
             if (min && max && (validateValue.length < ~~Math.abs(min) || validateValue.length > ~~Math.abs(max))) {
                 callback(new Error(`${field}在${~~Math.abs(min)}-${~~Math.abs(max)}个字符之间`));
