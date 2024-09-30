@@ -1815,6 +1815,13 @@ const formatIdCard = (string) => /^[1-9](\d{14}|\d{16}[0-9x])$/i.test(String(str
 const formatImageBase = (string) => /^data:image\/(bmp|png|gif|jpg|jpeg);base64,/.test(String(string));
 
 /**
+ * @description 判断是否无效的图片格式
+ * @param {String} string
+ * @returns {Boolean}
+ */
+const formatInvalidPicture = (string) => /^[C-Z]:/i.test(String(string)) || String(string).length === 0 || string === null || string === undefined;
+
+/**
  * @description 是否 ip 格式
  * @param {String} string
  * @returns {Boolean}
@@ -3310,6 +3317,7 @@ exports.formatExternal = formatExternal;
 exports.formatHexColor = formatHexColor;
 exports.formatIdCard = formatIdCard;
 exports.formatImageBase = formatImageBase;
+exports.formatInvalidPicture = formatInvalidPicture;
 exports.formatIp = formatIp;
 exports.formatLicense = formatLicense;
 exports.formatMobile = formatMobile;
